@@ -906,6 +906,8 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none;-webkit-use
 @keyframes csaUp{from{opacity:0;transform:translateY(12px)}}
 @media(prefers-reduced-motion:reduce){.csa *{animation:none!important}}
 @media(max-width:560px){.art .bd .csa{min-height:460px;justify-content:center;padding:72px 18px 66px}.csa-cp{width:40px;height:40px}.csa-logo{width:78%;margin-top:26px}.csa-ey{margin-top:34px}.csa-t{font-size:42px;margin-top:12px}.csa-kr{margin-top:22px;font-size:12.5px;max-width:15em;line-height:1.7}}
+/* 소식 글 창: 창 너비를 글 너비에 맞춤 */
+.art{max-width:none}.mb:has(.art){max-width:760px}
 /* v8: 와인 큰 면도 차분하게 */
 .tm{background:var(--soft)}.tm small{color:var(--wine)}.tm b{color:var(--navy)}.tm p{color:var(--sub)}
 .city:nth-child(2){background:#fff;color:var(--navy)}
