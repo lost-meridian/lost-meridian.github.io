@@ -890,6 +890,8 @@ pre.cp{background:var(--soft);color:#2c2e3a}
 .mo:first-child .n{background:#fff;color:var(--wine)}
 pre.cp::after{background:#fff;color:var(--wine)}
 .boss .bseg{margin:0}.boss .bseg+.bseg{margin-top:8px}
+/* 이미지 꾹 눌러 저장·끌어서 저장 막기 */
+img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none;-webkit-user-select:none;user-select:none}
 /* v8: 와인 큰 면도 차분하게 */
 .tm{background:var(--soft)}.tm small{color:var(--wine)}.tm b{color:var(--navy)}.tm p{color:var(--sub)}
 .city:nth-child(2){background:#fff;color:var(--navy)}
@@ -1051,6 +1053,9 @@ renderNews();
 /* GitHub Pages: news.json next to the page overrides the built-in list */
 window.LM_REMOTE=false;try{fetch('news.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(a){if(!Array.isArray(a))return;window.LM_REMOTE=true;N.length=0;a.forEach(function(x){N.push(x)});N.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0});try{localStorage.removeItem('lm_news_draft')}catch(e){}renderNews()}).catch(function(){})}catch(e){}
 function article(i){if(isNaN(+i)){i=N.findIndex(function(x){return x.t==i})}var n=N[+i];if(!n)return;open('<div class="art"><span class="tag '+CAT[n.c]+'">'+esc(n.c)+'</span><h1>'+esc(n.t)+'</h1><div class="mm"><span>'+'제작자'+'</span><span>'+esc(n.d)+'</span></div><div class="bd">'+(Array.isArray(n.b)?n.b.map(function(p){return '<p>'+esc(p)+'</p>'}).join(''):n.b)+'</div></div>')}
+/* 이미지 저장 막기: 오른쪽 클릭·꾹 누르기 메뉴, 끌어서 저장 */
+document.addEventListener('contextmenu',function(e){if(e.target.closest('img,.sld,.im,.gimg'))e.preventDefault()});
+document.addEventListener('dragstart',function(e){if(e.target.tagName=='IMG')e.preventDefault()});
 /* router */
 var hd=$('.hd');
 var CUR='home';function setHash(h,mode){try{if(mode==='replace'||location.hash===h)history.replaceState(history.state,'',h);else history.pushState(mode==='modal'?{m:1}:{v:1},'',h)}catch(e){}}

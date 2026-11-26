@@ -449,14 +449,15 @@
       $("bFile").onchange = () => {
         const f = $("bFile").files[0]; if (!f) return;
         if (!/^image\//.test(f.type)) return toast("사진 파일만 올릴 수 있어요");
-        if (f.size > 20 * 1024 * 1024) return toast("20MB보다 작은 사진을 골라 주세요");
-        file = f; prev = URL.createObjectURL(f); draw();
-        const im = new Image(); im.onload = () => {
+        if (f.size > 30 * 1024 * 1024) return toast("30MB보다 작은 사진을 골라 주세요");
+        $("bInfo").textContent = "사진을 정리하는 중…"; $("bInfo").classList.remove("warn");
+        cleanImage(f).then(r => {
+          file = r.file; prev = URL.createObjectURL(r.file); draw();
           const info = $("bInfo"); if (!info) return;
-          const off = Math.abs(im.naturalWidth / im.naturalHeight - 1920 / 780) > .15;
-          info.textContent = `${f.name} · ${im.naturalWidth} × ${im.naturalHeight}` + (off ? " · 비율이 달라서 위아래나 양옆이 잘려요" : " · 사이트에 올릴 때 같이 올라가요");
+          const off = Math.abs(r.w / r.h - 1920 / 780) > .15;
+          info.textContent = `${r.w} × ${r.h} · ${r.file.size < 1048576 ? Math.round(r.file.size / 1024) + "KB" : (r.file.size / 1048576).toFixed(1) + "MB"}${r.resized ? ` · 원본 ${r.ow} × ${r.oh}에서 줄였어요` : ""} · 사진 정보(EXIF) 삭제됨` + (off ? " · 비율이 달라서 위아래나 양옆이 잘려요" : "");
           info.classList.toggle("warn", off);
-        }; im.src = prev;
+        }).catch(() => { $("bInfo").textContent = "이 사진은 열 수 없어요. 다른 사진을 골라 주세요"; $("bInfo").classList.add("warn"); });
       };
       $("bNoImg").onclick = () => { file = null; prev = ""; E.img = ""; $("bFile").value = ""; $("bInfo").textContent = "사진을 뺐어요"; $("bInfo").classList.remove("warn"); draw(); };
       $("bCancel").onclick = closeEditor;
@@ -468,6 +469,28 @@
         if (isNew) S.banners.push(E); else S.banners[i] = E;
         closeEditor(); renderAll(); toast(isNew ? "배너를 추가했어요 · 사이트에 올리면 반영돼요" : "고쳤어요 · 사이트에 올리면 반영돼요");
       };
+    }
+
+    /* 사진 정리: 다시 그려서 EXIF(촬영 정보·위치) 삭제, 가로 1920px 넘으면 줄이기 */
+    const MAX_W = 1920, MAX_H = 1920;
+    async function cleanImage(f) {
+      let src, ow, oh, close = () => {};
+      try { src = await createImageBitmap(f, { imageOrientation: "from-image" }); ow = src.width; oh = src.height; close = () => src.close && src.close(); }
+      catch {
+        src = await new Promise((ok, no) => { const im = new Image(); im.onload = () => ok(im); im.onerror = no; im.src = URL.createObjectURL(f); });
+        ow = src.naturalWidth; oh = src.naturalHeight;
+      }
+      const k = Math.min(1, MAX_W / ow, MAX_H / oh), w = Math.round(ow * k), h = Math.round(oh * k);
+      const c = document.createElement("canvas"); c.width = w; c.height = h;
+      const x = c.getContext("2d"); x.imageSmoothingQuality = "high";
+      const png = f.type === "image/png" || f.type === "image/gif";
+      if (!png) { x.fillStyle = "#fff"; x.fillRect(0, 0, w, h); }
+      x.drawImage(src, 0, 0, w, h); close();
+      const type = png ? "image/png" : "image/jpeg";
+      const blob = await new Promise(ok => c.toBlob(ok, type, .9));
+      if (!blob) throw new Error("encode");
+      const name = f.name.replace(/\.[^.]+$/, "") + (png ? ".png" : ".jpg");
+      return { file: new File([blob], name, { type }), w, h, ow, oh, resized: k < 1 };
     }
 
     /* 소식 편집 */
