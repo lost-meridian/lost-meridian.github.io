@@ -807,6 +807,100 @@ a:hover>.plus,.btile:hover .plus,.plus:hover{opacity:1}
 @media(prefers-reduced-motion:reduce){.cs2 .cs-cp{display:none}.cs2 *{animation:none!important;opacity:1!important;transform:none!important}}
 .crt-gh .crt-gf{margin-top:12px}
 .crt-gh h3 span{padding:3px 8px;border-radius:999px;background:var(--cream)}
+/* ===== v8 1안: 흰 바탕·옅은 회색, 남색은 글자색으로만 ===== */
+:root{--cream:#f6f6f4;--line:#e9e9e5;--soft:#f6f6f4;--ink2:#1d2033}
+body{color:var(--ink2)}
+.hd,.hd.solid,.hd.light,.hd:not(.solid):not(.light){background:#fff!important;color:var(--navy);box-shadow:0 1px 0 var(--line)}
+.hd .mk i,.ft .mk i{background:linear-gradient(var(--wine) 50%,var(--navy) 50%)}
+.nav a:hover,.light .nav a:hover{background:var(--soft)}
+.nav a.on{background:var(--soft);color:var(--navy)}
+.start{background:var(--ink2)}.start:hover{background:var(--wine)}
+/* 홈 배너 */
+.sld{background:linear-gradient(160deg,#d9d8d4,#c3c2be)}
+.sph{background:none;color:#00000059}.sph b{color:#00000073}
+.bcap{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:baseline;gap:14px;padding:80px 44px 34px;background:linear-gradient(#0000,#00000073);color:#fff;pointer-events:none}
+.bcap b{font-size:clamp(24px,3.2vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.bcap em{font-style:normal;font-size:clamp(13px,1.3vw,18px);font-weight:600;opacity:.88}
+.btabs button{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:8px;row-gap:0;color:#a3a5ae}
+.btabs i{flex-basis:100%;height:2px;background:var(--line)}
+.btabs b{font-size:15px}.btabs small{font-size:12.5px;font-weight:600;letter-spacing:0}
+.btabs .on{color:var(--navy)}.btabs .on small{color:var(--sub)}
+/* 홈 칸 */
+.bnews{border:0;box-shadow:inset 0 0 0 1px var(--line)}
+.briv{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1px var(--line)}
+.briv small{color:var(--sub)}.briv p{color:var(--sub)}
+.briv .plus,.bnews .plus{box-shadow:inset 0 0 0 1.5px var(--line)}
+.bq,.bq.q1,.bq.q2,.bq.q3,.bq.q4{background:var(--soft)!important;color:var(--navy)!important;border:0!important;box-shadow:none!important}
+.bq small{color:var(--sub);opacity:1}.bq span{color:var(--sub);opacity:1}
+/* 페이지 머리말 */
+.phd{background:#fff;color:var(--navy);padding:140px 0 44px}
+.phd::before{display:none}
+.phd .ey{color:var(--wine)}
+.phd p{color:var(--sub)}
+.subnav{background:#fffffff2;box-shadow:inset 0 -1px 0 var(--line)}
+.subnav .w{gap:26px;padding-top:0;padding-bottom:0}
+.subnav a,.subnav a:hover{padding:15px 0;border-radius:0;background:none;color:var(--sub);font-size:15px;font-weight:700}
+.subnav a.on{background:none;color:var(--navy);box-shadow:inset 0 -2px 0 var(--wine)}
+/* 남색 면 → 흰 카드·옅은 회색 */
+.sec.navy,.raid.top,.gp,.fl:first-child,.bx:nth-child(n+4),.mo:first-child{background:var(--soft);color:var(--navy)}
+.city,.city:nth-child(3){background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1px var(--line)}
+.tr.h{background:var(--soft);color:var(--sub)}
+.roles button.on,.filters button.on,.chip.dk,.btn.dark{background:var(--ink2);color:#fff}
+.emb2{background:var(--soft);color:var(--wine)}
+.mo .n{background:var(--soft);color:var(--wine)}
+pre.cp{background:var(--soft);color:#2c2e3a}
+.cmd code{background:var(--soft);color:var(--wine)}
+.vs,.gcard:nth-child(3) .rkl,.gp2:nth-child(2) .gtx .rkl{background:var(--soft);color:var(--wine)}
+.gimg .im,.cc .im,.gal .im{background:linear-gradient(160deg,#dedcd8,#c9c8c4)}
+.c0{background:#f6e9eb;color:var(--wine)}
+.c1{background:var(--soft);color:var(--navy)}
+.c2,.c3,.c4,.c5{background:var(--soft);color:#4a4c58;box-shadow:none}
+/* 보석 */
+.gemx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;margin-top:22px}
+.gemx-c{border-radius:20px;padding:26px 28px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;min-width:0}
+.gemx-h{display:flex;align-items:baseline;justify-content:space-between}
+.gemx-h h3{margin:0;font-size:18px;font-weight:900;color:var(--navy)}.gemx-h span{font-size:12.5px;font-weight:700;color:var(--sub)}
+.gstep{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.gstep::before{content:'';position:absolute;left:10%;right:10%;top:8px;height:2px;background:var(--line)}
+.gstep li{display:flex;flex-direction:column;align-items:center;gap:10px;position:relative}
+.gstep i{width:18px;height:18px;border-radius:50%;box-shadow:0 0 0 4px #fff}
+.gstep li:last-child i{box-shadow:0 0 0 4px #fff,0 0 0 6px #9d364533}
+.gstep b{font-size:13.5px;font-weight:800;color:#4a4c58}.gstep li:last-child b{color:var(--wine)}
+.gemx-c>p{margin:22px 0 0;font-size:14px;line-height:1.7;color:var(--sub)}
+.gslot{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.gslot div{padding:14px;border-radius:14px;background:var(--soft);display:flex;flex-direction:column;gap:2px}
+.gslot span{font-size:12.5px;font-weight:700;color:var(--sub)}.gslot b{font-size:15px;font-weight:900;color:var(--navy)}.gslot small{font-size:11.5px;color:var(--wine);font-weight:700}
+.gtype{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.gtype>div{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:var(--soft)}
+.gtype p{margin:0;display:flex;flex-direction:column;min-width:0}.gtype b{font-size:15.5px;font-weight:900;color:var(--navy)}.gtype p span{font-size:13px;color:var(--sub)}
+/* 푸터 */
+.ft{background:#fff;color:var(--sub);box-shadow:inset 0 1px 0 var(--line)}
+.ft .logo{color:var(--navy)}
+.ft nav a{color:#3b3d48}.ft nav a:hover{color:var(--wine)}
+.ft p{border-top-color:var(--line)}
+/* v8: 밝은 바탕용 글자색 */
+.bg-r{color:var(--wine)}.bg-r small{color:var(--sub)}.bg-e{color:#a3a5ae}.bg-t{color:#4a4c58}.bvs{color:#c2c3c9!important}
+.city small{background:var(--soft);color:#4a4c58}.city .en{color:var(--wine)}.city p{color:#4c4e5a}
+/* v8: 레이드·첨탑·표·외형 글자색 */
+.raid.top>p{color:#4c4e5a}.raid.top .boss{background:#fff;color:#4c4e5a}.raid.top .boss .bn{color:var(--navy)}.raid.top .boss .bn small{color:var(--wine)}.raid.top .boss b{color:var(--wine)}
+.raid.top .hd2 span{background:#fff;color:var(--navy)}.raid.top .rw{color:var(--sub)}.raid.top .rw b{color:var(--navy)}
+.fl:first-child .n{color:var(--wine)}.fl:first-child b{color:var(--navy)}.fl:first-child span{color:var(--sub)}
+.tr.h span,.tr.h.tr3 span{color:var(--sub)}
+.bx:nth-child(n+4) .p{color:var(--wine)}.bx:nth-child(n+4) span{color:var(--sub)}
+.mo:first-child .n{background:#fff;color:var(--wine)}
+pre.cp::after{background:#fff;color:var(--wine)}
+/* v8: 와인 큰 면도 차분하게 */
+.tm{background:var(--soft)}.tm small{color:var(--wine)}.tm b{color:var(--navy)}.tm p{color:var(--sub)}
+.city:nth-child(2){background:#fff;color:var(--navy)}
+.pv:last-child{background:var(--soft);color:var(--navy)}.pv:last-child small{color:var(--wine)}.pv:last-child p{color:#454860}
+@media(max-width:560px){
+ .phd{padding:96px 0 30px}
+ .subnav .w{gap:18px}.subnav a,.subnav a:hover{padding:13px 0;font-size:14px}
+ .bcap{gap:8px;padding:40px 18px 16px}
+ .btabs b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.btabs small{font-size:11px}
+ .gemx{grid-template-columns:1fr;gap:10px}.gemx-c{padding:20px}.gstep b{font-size:12px}
+ .gtype{gap:8px}.gtype>div{flex-direction:column;align-items:flex-start;gap:8px;padding:14px}.gtype p span{font-size:12px}
+}
 </style>
 <!-- ===== 이미지·캐릭터 설정: 아래 LM_CONFIG 안의 img / imgs 칸에 이미지 주소를 넣고, 글자를 바꾸면 됩니다 ===== -->
 <script>window.LM_CONFIG={
@@ -824,29 +918,20 @@ a:hover>.plus,.btile:hover .plus,.plus:hover{opacity:1}
  "banners": [
   {
    "img": "",
-   "eyebrow": "NEW RAID",
-   "title": "애시포지 중앙 분기역",
-   "meta": "Lv.300 · 8인 공격대",
-   "desc": "승강장과 신호실, 두 조의 콜이 맞아야 선로가 열립니다.",
-   "btn": "레이드 보기",
+   "nick": "애시포지 중앙 분기역",
+   "name": "",
    "link": "#guide/raid"
   },
   {
    "img": "",
-   "eyebrow": "RIVALS",
-   "title": "벡터와 바이퍼, 마지막 주",
-   "meta": "발테른 월간 레이드 순위",
-   "desc": "1위와 2위의 차이는 애시포지 8인 기록 하나입니다.",
-   "btn": "길드 보기",
+   "nick": "벡터와 바이퍼, 마지막 주",
+   "name": "",
    "link": "#guild"
   },
   {
    "img": "",
-   "eyebrow": "EVENT",
-   "title": "아스트라 첨탑 겨울 등반 챌린지",
-   "meta": "11.18 ~ 12.02",
-   "desc": "새로 오른 층만큼 보석 선택 상자와 칭호를 드립니다.",
-   "btn": "이벤트 보기",
+   "nick": "아스트라 첨탑 겨울 등반 챌린지",
+   "name": "",
    "link": "#guide/tower"
   }
  ]
@@ -881,7 +966,7 @@ a:hover>.plus,.btile:hover .plus,.plus:hover{opacity:1}
 </div></section><section class="view" data-view="guide"><div class="phd"><div class="w"><span class="ey">GAME GUIDE</span><h1>함께 기록을 쓰고,<br>서버의 정점을 겨루다.</h1><p>레이드부터 외형까지, 아스터폴의 모험을 정리했습니다.</p></div></div>
 <nav class="subnav"><div class="w"><a href="#guide/raid">레이드</a><a href="#guide/gear">장비·보석</a><a href="#guide/tower">첨탑</a><a href="#guide/pvp">PvP</a><a href="#guide/server">서버</a><a href="#guide/trade">거래·귀속</a><a href="#guide/wardrobe">외형</a></div></nav>
 <div class="w"><div class="blk" id="g-raid"><div class="sh rv"><div><span class="ey">RAID</span><h2>함께 쓰는 최초의 기록</h2><p>성장 레이드는 입장 레벨과 지역 퀘스트로 열리고, Lv.300 전용 레이드에서 퍼스트 클리어와 길드 순위를 겨룹니다.</p></div></div><div class="raids"><div class="raid rv"><div class="hd2"><span class="lv">Lv.80</span><span>4인</span><span>성장 레이드</span></div><h4>벨모라 대수문</h4><p>폐쇄 수로를 조사하던 관리인들이 배수 장치를 켜면서 대수문 관리기까지 가동합니다.</p><div class="boss"><div class="bn">녹슨 감시기<small>중간 보스</small></div>선로 돌진 후 수리 드론을 부릅니다. 어느 직업이든 경로 끝 차단판을 내려 감시기를 멈추고 외장을 열 수 있습니다.</div><div class="boss"><div class="bn">발브렉, 대수문의 관리기<small>최종 보스</small></div><b>배수</b> 낮은 발판이 드러납니다. <b>급수</b> 낮은 발판이 잠기고 상단 수문에 고정된 보스의 핵심부가 열립니다. 수위가 오래 높으면 상단도 물살에 휩쓸립니다. <b>역류</b> 두 명이 경보 순서대로 양쪽 역류를 끊고, 두 명이 보스를 붙듭니다.</div><div class="rw"><span>외형 제작서 <b>대수문 관리복</b></span><span>탈것 지도 <b>벨모라 운하거북</b></span></div></div><div class="raid rv"><div class="hd2"><span class="lv">Lv.150</span><span>8인</span><span>성장 레이드</span></div><h4>화이트펠의 추락 요새</h4><p>설산 능선에 추락한 비행 요새의 구조 통로를 조사대가 복구하자 자동 항해관이 출항을 시도합니다.</p><div class="boss"><div class="bn">계류 파수기<small>중간 보스</small></div>고정쇠를 끊어 다리를 기울입니다. 양쪽 계류탑의 남은 고정쇠를 다시 걸면 다리가 수평을 되찾고 외장이 열립니다.</div><div class="boss"><div class="bn">케스트렐, 최후의 항해관<small>최종 보스</small></div>갑판조와 기관실조는 각각 탱커 1·서포터 1·딜러 2로 구성합니다. <b>기울기</b> 갑판조가 기울어진 방향을 콜하면 기관실조가 추진기를 조정합니다. <b>비상 정지</b> 갑판조가 송신기를 부순 뒤 기관실조가 손잡이를 당기면 보호막이 풀립니다. <b>마지막</b> 양쪽 추진기를 정지하고 갑판에 합류합니다.</div><div class="rw"><span>외형 제작서 <b>화이트펠 비행복</b></span><span>탈것 지도 <b>화이트펠 설각산양</b></span></div></div><div class="raid rv top"><div class="hd2"><span class="lv">Lv.300</span><span>4인</span><span>퍼스트 클리어</span></div><h4>유리 협곡의 폐쇄 관문</h4><p>유리 협곡 깊은 곳에서 옛 교역소를 연결하던 관문이 무너진 출구까지 다시 열고 있습니다.</p><div class="boss"><div class="bn">살베크, 관문 봉쇄관<small>최종 보스</small></div>관문을 통해 분신을 내보내고 시간이 지나면 본체도 반대편으로 이동합니다. 공격대는 두 명씩 갈라져 문의 연결 방향을 확인합니다. 같은 통로를 동시에 봉쇄하면 분신이 끊기고 본체가 노출됩니다. 마지막에는 문이 열린 순서를 콜하며 한 방으로 합류합니다.</div><div class="rw"><span>외형 제작서 <b>유리 협곡의 통행복</b></span><span>탈것 지도 <b>적사 유리등 도마뱀</b></span></div></div><div class="raid rv top"><div class="hd2"><span class="lv">Lv.300</span><span>8인</span><span>퍼스트 클리어</span></div><h4>애시포지 중앙 분기역</h4><p>애시포지 지하 조차장 안쪽에서 재가동한 중앙역이 각기 다른 지역으로 갈 화물을 같은 선로에 밀어 넣습니다.</p><div class="boss"><div class="bn">비렌, 배차 감독기<small>최종 보스</small></div>승강장조가 화물차 표식과 안전한 선로를 확인하고, 신호실조가 콜에 따라 분기기를 조작합니다. 서로 다른 화물차를 동시에 통과시키면 보호막에 전력을 공급하는 선로가 끊깁니다. 마지막에는 두 조가 승강장에 합류해 차례로 봉쇄되는 선로를 건너며 본체를 처치합니다.</div><div class="rw"><span>외형 제작서 <b>중앙 분기역 감독관복</b></span><span>탈것 지도 <b>애시포지 순찰 보행기</b></span></div></div></div><div class="rules"><p class="rv">4인은 탱커 1·서포터 1·딜러 2, 8인은 탱커 2·서포터 2·딜러 4로 구성합니다. 성장 레이드는 상위 레벨 캐릭터의 전투 능력치를 해당 레이드 수준으로 보정합니다.</p><p class="rv">Lv.300 전용 레이드마다 서버·전 서버 퍼스트 클리어와 당시 공격대 명단을 공개합니다. 혼합 공격대도 개인 클리어 기록과 보상을 얻지만, 길드 순위에는 공격대원 전원이 같은 길드인 클리어만 반영합니다.</p><p class="rv">주간 순위는 지정 레이드의 길드 최고 기록, 월간 순위는 주간 순위 점수의 합입니다. 주간 보상은 길드 깃발 장식, 월간 보상은 명예의 전당 기록·칭호·길드 문장 테두리입니다.</p></div></div>
-<div class="blk" id="g-gear"><div class="sh rv"><div><span class="ey">GEAR</span><h2>최고 티어 장비와 보석</h2></div></div><div class="rules" style="margin-top:0"><p class="rv">상위 레이드 장비와 최고급 제작 장비는 같은 최고 티어입니다. 종결 무기는 생활직 제작으로 완성하고, 핵심 재료는 Lv.300 레이드에서 얻습니다.</p><p class="rv">Lv.300 레이드를 클리어하면 직접 드롭과 별도로 장비 교환용 조각을 확정 지급합니다. 장신구는 4회분, 방어구는 6회분 조각으로 원하는 부위를 지정해 교환합니다.</p><p class="rv">레이드품은 세트 효과를, 제작품은 원하는 능력치 조합을 갖추기 좋습니다. 조각과 레이드 장비는 획득 즉시 귀속됩니다.</p></div><div class="gems"><div class="gp rv"><h5>GRADE</h5><div class="grades"><span>탁한</span><span>맑은</span><span>빛나는</span><span>찬란한</span><span>극광의</span></div><p style="margin:16px 0 0;color:#c4c7dc;font-size:14.5px">보석은 세공으로 만들고, Lv.300 레이드에서는 낮은 확률로 최고 등급 완제 보석이 나옵니다. 무기 2칸, 방어구와 장신구는 부위당 1칸이며 최고 티어 무기는 3칸, 최고 티어 장신구는 2칸입니다.</p></div><div class="gp rv"><h5>TYPE</h5><div class="gt"><div><b>홍옥</b>공격력</div><div><b>청옥</b>치명타</div><div><b>황옥</b>회복량·보호막량</div><div><b>흑요석</b>방어력</div><div><b>월장석</b>최대 생명력</div><div><b>호박석</b>재사용 대기시간·자원 회복</div></div></div></div></div>
+<div class="blk" id="g-gear"><div class="sh rv"><div><span class="ey">GEAR</span><h2>최고 티어 장비와 보석</h2></div></div><div class="rules" style="margin-top:0"><p class="rv">상위 레이드 장비와 최고급 제작 장비는 같은 최고 티어입니다. 종결 무기는 생활직 제작으로 완성하고, 핵심 재료는 Lv.300 레이드에서 얻습니다.</p><p class="rv">Lv.300 레이드를 클리어하면 직접 드롭과 별도로 장비 교환용 조각을 확정 지급합니다. 장신구는 4회분, 방어구는 6회분 조각으로 원하는 부위를 지정해 교환합니다.</p><p class="rv">레이드품은 세트 효과를, 제작품은 원하는 능력치 조합을 갖추기 좋습니다. 조각과 레이드 장비는 획득 즉시 귀속됩니다.</p></div><div class="gemx"><div class="gemx-c rv"><div class="gemx-h"><h3>보석 등급</h3><span>낮음 → 높음</span></div><ol class="gstep"><li><i style="background:#f2dde0"></i><b>탁한</b></li><li><i style="background:#e2b9bf"></i><b>맑은</b></li><li><i style="background:#cd8f99"></i><b>빛나는</b></li><li><i style="background:#b86573"></i><b>찬란한</b></li><li><i style="background:#9D3645"></i><b>극광의</b></li></ol><p>보석은 세공으로 만들고, Lv.300 레이드에서는 낮은 확률로 최고 등급 완제 보석이 나옵니다.</p><div class="gslot"><div><span>무기</span><b>2칸</b><small>최고 티어 3칸</small></div><div><span>방어구</span><b>부위당 1칸</b></div><div><span>장신구</span><b>부위당 1칸</b><small>최고 티어 2칸</small></div></div></div><div class="gemx-c rv"><div class="gemx-h"><h3>보석 종류</h3><span>6종</span></div><div class="gtype"><div><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5h14l5 7-12 14L3 12z" fill="#c2414f" fill-opacity=".14" stroke="#c2414f" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 12h24M11 5l-3 7 7 14 7-14-3-7" fill="none" stroke="#c2414f" stroke-width="1.2" stroke-linejoin="round" stroke-opacity=".7"/></svg><p><b>홍옥</b><span>공격력</span></p></div><div><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5h14l5 7-12 14L3 12z" fill="#3f6fc4" fill-opacity=".14" stroke="#3f6fc4" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 12h24M11 5l-3 7 7 14 7-14-3-7" fill="none" stroke="#3f6fc4" stroke-width="1.2" stroke-linejoin="round" stroke-opacity=".7"/></svg><p><b>청옥</b><span>치명타</span></p></div><div><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5h14l5 7-12 14L3 12z" fill="#d9a92c" fill-opacity=".14" stroke="#d9a92c" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 12h24M11 5l-3 7 7 14 7-14-3-7" fill="none" stroke="#d9a92c" stroke-width="1.2" stroke-linejoin="round" stroke-opacity=".7"/></svg><p><b>황옥</b><span>회복량·보호막량</span></p></div><div><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5h14l5 7-12 14L3 12z" fill="#3b3d48" fill-opacity=".14" stroke="#3b3d48" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 12h24M11 5l-3 7 7 14 7-14-3-7" fill="none" stroke="#3b3d48" stroke-width="1.2" stroke-linejoin="round" stroke-opacity=".7"/></svg><p><b>흑요석</b><span>방어력</span></p></div><div><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5h14l5 7-12 14L3 12z" fill="#9b8fd0" fill-opacity=".14" stroke="#9b8fd0" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 12h24M11 5l-3 7 7 14 7-14-3-7" fill="none" stroke="#9b8fd0" stroke-width="1.2" stroke-linejoin="round" stroke-opacity=".7"/></svg><p><b>월장석</b><span>최대 생명력</span></p></div><div><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 5h14l5 7-12 14L3 12z" fill="#d7832f" fill-opacity=".14" stroke="#d7832f" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 12h24M11 5l-3 7 7 14 7-14-3-7" fill="none" stroke="#d7832f" stroke-width="1.2" stroke-linejoin="round" stroke-opacity=".7"/></svg><p><b>호박석</b><span>재사용 대기시간·자원 회복</span></p></div></div></div></div></div>
 <div class="blk" id="g-tower"><div class="sh rv"><div><span class="ey">TOWER</span><h2>아스트라 첨탑 상층</h2></div></div><div class="tower"><p class="lead rv">아스트라 첨탑은 옛 원정대가 대원의 전투 능력과 임무 수행 능력을 검증하던 50층 규모의 시험 시설입니다. Lv.300부터 1층에서 50층까지 혼자 오르며, 5층마다 수문장이 나오고 10층마다 구역 보스가 수문장을 겸합니다. 수문장전과 50층은 직업마다 다른 과제가 주어지고, 순위는 서버별·전 서버를 직업별로 집계합니다.</p><div class="floors"><div class="fl rv"><span class="n">50<small>F</small></span><span><b>극점의 투기장</b><span>직업별 시험 과제를 수행해 최종 시험 병기의 핵심부를 열고 처치합니다.</span></span></div><div class="fl rv"><span class="n">41~49<small>F</small></span><span><b>선봉의 전당</b><span>저격·증원·발판 봉쇄가 겹치는 처치형·생존형·보호형 시험입니다.</span></span></div><div class="fl rv"><span class="n">31~40<small>F</small></span><span><b>백색 성채</b><span>강공격 직후 짧게 약점이 노출됩니다.</span></span></div><div class="fl rv"><span class="n">21~30<small>F</small></span><span><b>뒤틀린 정원</b><span>정예 몬스터끼리 보호막을 걸고 증원 장치가 작동합니다.</span></span></div><div class="fl rv"><span class="n">11~20<small>F</small></span><span><b>잔향의 전당</b><span>저격기를 피해 엄폐물을 파괴하고 통로를 차단합니다.</span></span></div><div class="fl rv"><span class="n">1~10<small>F</small></span><span><b>시련의 회랑</b><span>경비 병기와 수리 드론이 나옵니다.</span></span></div></div></div></div>
 <div class="blk" id="g-pvp"><div class="sh rv"><div><span class="ey">PVP</span><h2>서버의 정점을 겨루다</h2><p>길드에는 해당 길드와 같은 서버의 캐릭터만 가입할 수 있습니다.</p></div></div><div class="pvp"><div class="pv rv"><small>매칭 대전</small><h4>1:1 결투</h4><p>매칭된 상대와 1:1로 겨룹니다.</p></div><div class="pv rv"><small>조합 자유·장비 수치 보정</small><h4>3:3 랭킹전</h4><p>대형 업데이트 단위로 시즌을 운영합니다. 시즌 종료 시 등급·순위를 확정하고 보상을 지급합니다.</p></div><div class="pv rv"><small>4:4 시즌 PvP</small><h4>길드전</h4><p>좌·중앙·우 세 거점을 두고 15분 동안 겨룹니다. 거점 하나당 3초마다 1점을 얻고, 300점을 먼저 얻으면 즉시 승리합니다. 교전 중인 거점은 점수가 멈추며, 동점이면 중앙만 열리는 연장전을 진행합니다.</p></div></div></div>
 <div class="blk" id="g-server"><div class="sh rv"><div><span class="ey">SERVER</span><h2>네 개의 서버, 같은 모험</h2><p>필드·채팅·친구·거래소·파티·공격대·PvP·길드전은 같은 서버 안에서 이용하고, 순위표는 서버별·전 서버로 운영합니다.</p></div></div><div class="servers"><div class="sv rv"><b>VALTERN</b><span class="kr">발테른</span><br><span class="sz">대규모 서버</span><p>접속 인구와 거래량이 가장 많습니다. 심야에도 파티 모집이 활발하고 거래소 매물이 다양합니다.</p></div><div class="sv rv"><b>NORVALE</b><span class="kr">노르베일</span><br><span class="sz">중규모 서버</span><p>레이드 고정 파티와 첨탑 공략이 활발합니다. 공략 정보를 공유하고 기록을 단축하는 문화가 발달했습니다.</p></div><div class="sv rv"><b>LUMIERE</b><span class="kr">루미에르</span><br><span class="sz">중규모 서버</span><p>제작·외형 수집·길드 하우스 꾸미기가 활발합니다. 유저가 여는 장터와 소규모 친목 행사가 잦습니다.</p></div><div class="sv rv"><b>CARDEN</b><span class="kr">카르덴</span><br><span class="sz">소규모 서버</span><p>인구가 적고 저녁에 접속이 몰립니다. 단골 거래와 고정 파티, 길드 사이의 인맥이 두드러지며 희귀 매물은 제작자에게 직접 주문하기도 합니다.</p></div></div><p class="note">서버별 성격은 이용자 문화의 차이이며, 대륙·시작 도시·콘텐츠·보상·성장 조건은 모든 서버가 같습니다. 전 서버 순위는 기록 조회만 가능하고, 서버 간 채팅·거래·파티·매칭은 지원하지 않습니다.</p></div>
@@ -921,9 +1006,10 @@ function card(c){return '<a class="cc rv" href="#adventurers/'+c.id+'" data-g="'
 /* banner carousel (banners.json next to the page overrides LM_CONFIG.banners) */
 var trk=$('.trk'),vp=$('.vp'),BT=$('.btabs'),BW=$('.bnr'),SL=[],TB=[],cur=0,tm;
 function bnrBuild(list){list=Array.isArray(list)?list:[];C.banners=list;clearTimeout(tm);cur=0;if(BW)BW.hidden=!list.length;
-trk.style.transform='';trk.innerHTML=list.map(function(b,i){return '<a class="sld" href="'+esc(b.link||'#home')+'">'+(b.img?'<img src="'+esc(b.img)+'" alt="'+esc(b.title)+'">':'<span class="sph"><b>BANNER '+(i+1)+'</b>1920 × 780<em>'+esc(b.title)+'</em></span>')+'</a>'}).join('');
+function nk(b){return b.nick!=null?b.nick:(b.title||'')}
+trk.style.transform='';trk.innerHTML=list.map(function(b,i){var n=nk(b),m=b.name||'';return '<a class="sld" href="'+esc(b.link||'#home')+'">'+(b.img?'<img src="'+esc(b.img)+'" alt="'+esc(n)+'">':'<span class="sph"><b>CHARACTER IMAGE</b>1920 × 780</span>')+((n||m)?'<span class="bcap"><b>'+esc(n)+'</b>'+(m?'<em>'+esc(m)+'</em>':'')+'</span>':'')+'</a>'}).join('');
 BT.style.gridTemplateColumns='repeat('+Math.max(list.length,1)+',minmax(0,1fr))';
-BT.innerHTML=list.map(function(b){return '<button><i><s></s></i><small>'+esc(b.eyebrow)+'</small><b>'+esc(b.title)+'</b></button>'}).join('');
+BT.innerHTML=list.map(function(b){return '<button><i><s></s></i><b>'+esc(nk(b))+'</b>'+(b.name?'<small>'+esc(b.name)+'</small>':'')+'</button>'}).join('');
 SL=$$('.sld');TB=$$('button',BT);
 TB.forEach(function(t,i){t.onclick=function(){go(i)}});
 SL.forEach(function(s,j){s.addEventListener('click',function(e){if(j!=cur){e.preventDefault();e.stopPropagation();go(j)}},true)});

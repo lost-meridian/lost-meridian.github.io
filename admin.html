@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#FBF7EC" />
+  <meta name="theme-color" content="#f6f6f4" />
   <title>관리자 페이지 · LOST MERIDIAN</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" />
   <style>
     :root {
       --wine: #9D3645; --wine-dark: #852c39; --butter: #F7E7B2; --navy: #0d1026;
-      --cream: #FBF7EC; --soft: #f5eee0; --ink: #1d2033; --sub: #6b6f86; --faint: #a3a6b6; --line: #ebe5d6;
+      --cream: #f6f6f4; --soft: #efefec; --ink: #1d2033; --sub: #6b6f86; --faint: #a3a6b6; --line: #e6e6e1;
       --sans: Pretendard, "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -116,6 +116,9 @@
     .pv img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .pv .ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #ffffffa0; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-align: center; padding: 8px; }
     .pv .ph b { color: #fff; font-size: .95rem; letter-spacing: -.02em; }
+    .pv .cap { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: baseline; gap: 8px; padding: 26px 14px 10px; background: linear-gradient(#0000, #00000073); color: #fff; }
+    .pv .cap b { font-size: 1.05rem; font-weight: 900; } .pv .cap span { font-size: .78rem; font-weight: 600; opacity: .88; }
+    .pv { background: linear-gradient(160deg, #d9d8d4, #c3c2be); }
     .btn-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
     .file-btn { position: relative; overflow: hidden; display: inline-flex; }
     .file-btn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
@@ -249,7 +252,7 @@
     const TOKEN_URL = "https://github.com/settings/personal-access-tokens/new";
     const CATS = ["공지", "업데이트", "이벤트", "점검", "제작 노트"];
     const TAG = { "공지": "t0", "업데이트": "t1", "이벤트": "t2", "점검": "t3", "제작 노트": "t4" };
-    const FIELDS = ["img", "eyebrow", "title", "meta", "desc", "btn", "link"];
+    const FIELDS = ["img", "nick", "name", "link"];
     const LINKS = [["#home", "홈"], ["#adventurers", "모험가"], ["#guild", "길드"], ["#world", "세계관"], ["#world/story", "세계관 · 스토리"], ["#world/cities", "세계관 · 시작 도시"], ["#world/field", "세계관 · 필드"], ["#guide", "게임 가이드"], ["#guide/raid", "게임 가이드 · 레이드"], ["#guide/gear", "게임 가이드 · 장비·보석"], ["#guide/tower", "게임 가이드 · 첨탑"], ["#guide/pvp", "게임 가이드 · PvP"], ["#guide/server", "게임 가이드 · 서버"], ["#guide/trade", "게임 가이드 · 거래·귀속"], ["#guide/wardrobe", "게임 가이드 · 외형"], ["#news", "소식"], ["#play", "플레이 안내"]];
 
     /* ---------- 도구 ---------- */
@@ -307,7 +310,7 @@
     /* ---------- 데이터 ---------- */
     let uidN = 0;
     const S = { banners: [], bBase: "[]", news: [], nBase: "[]", files: {}, prev: {}, busy: false };
-    const clean = list => list.map(b => { const o = {}; FIELDS.forEach(k => o[k] = String(b[k] ?? "")); return o; });
+    const clean = list => list.map(b => { const o = {}; if (b.nick == null && b.title != null) b.nick = b.title; FIELDS.forEach(k => o[k] = String(b[k] ?? "")); return o; });
     const sortN = a => a.sort((x, y) => x.d < y.d ? 1 : x.d > y.d ? -1 : 0);
     async function getJSON(path) {
       if (connected()) { try { const j = await ghRead(path); return j ? JSON.parse(b64Text(j.content)) : null; } catch {} }
@@ -340,8 +343,8 @@
           <span class="num">${i + 1}</span>
           ${srcOf(b) ? `<img class="thumb" src="${esc(srcOf(b))}" alt="" onerror="rawFallback(this)" />` : `<div class="thumb">NO IMAGE</div>`}
           <div class="item-main">
-            <div class="item-title">${esc(b.title || "(제목 없음)")}${S.files[b._id] ? `<span class="badge">새 사진</span>` : ""}</div>
-            <div class="item-sub">${esc(b.eyebrow || "작은 제목 없음")} · ${esc(linkName(b.link))}</div>
+            <div class="item-title">${esc(b.nick || "(닉네임 없음)")}${S.files[b._id] ? `<span class="badge">새 사진</span>` : ""}</div>
+            <div class="item-sub">${esc(b.name || "이름 없음")} · ${esc(linkName(b.link))}</div>
           </div>
           <div class="item-actions">
             <button class="icon" data-act="up" data-list="banners" data-i="${i}" ${i === 0 ? "disabled" : ""} aria-label="위로">${I.up}</button>
@@ -393,7 +396,7 @@
       else if (b.dataset.act === "down" && i < arr.length - 1) [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]];
       else if (b.dataset.act === "edit") return openNews(i);
       else if (b.dataset.act === "del") {
-        const name = list === "banners" ? arr[i].title : arr[i].t;
+        const name = list === "banners" ? arr[i].nick : arr[i].t;
         if (!(await confirmBox(`"${name || "이 항목"}"을(를) 지울까요?\n사이트에 올리기 전까지는 사이트에서 안 지워져요`, "지우기"))) return;
         const [gone] = arr.splice(i, 1); if (gone && gone._id) { delete S.files[gone._id]; }
       }
@@ -413,7 +416,7 @@
     /* 배너 편집 */
     function openBanner(i) {
       const isNew = i < 0;
-      const E = isNew ? { _id: ++uidN, img: "", eyebrow: "", title: "", meta: "", desc: "", btn: "", link: "#home" } : clone(S.banners[i]);
+      const E = isNew ? { _id: ++uidN, img: "", nick: "", name: "", link: "#home" } : clone(S.banners[i]);
       let file = S.files[E._id] || null, prev = S.prev[E._id] || "";
       const known = LINKS.some(x => x[0] === E.link);
       openEditor(isNew ? "새 배너" : "배너 수정", `
@@ -424,27 +427,24 @@
             <label class="btn btn-line btn-sm file-btn">사진 바꾸기<input type="file" accept="image/*" id="bFile" /></label>
             <button type="button" class="btn btn-ghost btn-sm" id="bNoImg">사진 빼기</button>
           </div>
-          <div class="tiny" id="bInfo">${file ? esc(file.name) + " · 사이트에 올릴 때 같이 올라가요" : "권장 크기는 1920 × 780이에요"}</div>
+          <div class="tiny" id="bInfo">${file ? esc(file.name) + " · 사이트에 올릴 때 같이 올라가요" : "캐릭터 이미지 · 권장 크기는 1920 × 780이에요"}</div>
         </div>
-        <label class="f">작은 제목 <small>탭 위에 작게 보이는 영문이에요 · 예: NEW RAID</small><input type="text" id="b_eyebrow" value="${esc(E.eyebrow)}" /></label>
-        <label class="f">제목 <small>탭에 보이는 배너 이름이에요</small><input type="text" id="b_title" value="${esc(E.title)}" /></label>
+        <div class="row"><label class="f">닉네임<input type="text" id="b_nick" value="${esc(E.nick)}" /></label>
+        <label class="f">이름 (선택)<input type="text" id="b_name" value="${esc(E.name)}" placeholder="비우면 닉네임만 보여요" /></label></div>
         <div class="f">누르면 이동할 곳
           <select id="b_linkSel">${LINKS.map(([v, t]) => `<option value="${v}"${E.link === v ? " selected" : ""}>${t}</option>`).join("")}<option value=""${known ? "" : " selected"}>직접 입력</option></select>
           <input type="text" id="b_link" class="${known ? "hidden" : ""}" value="${esc(E.link)}" placeholder="#news/0 또는 https://" />
         </div>
-        <details class="more"><summary>추가 문구<small>지금은 홈에 안 보여요</small></summary><div class="in">
-          <label class="f">부가 정보<input type="text" id="b_meta" value="${esc(E.meta)}" /></label>
-          <label class="f">버튼 문구<input type="text" id="b_btn" value="${esc(E.btn)}" /></label>
-          <label class="f">설명<textarea id="b_desc" style="min-height:80px">${esc(E.desc)}</textarea></label>
-        </div></details>`,
+`,
         `<button class="btn btn-ghost" id="bCancel">취소</button><button class="btn btn-main" id="bDone">${isNew ? "추가하기" : "완료"}</button>`);
       const draw = () => {
-        const s = prev || E.img, t = $("b_title").value.trim() || "제목 없음";
-        ["pvPc", "pvMo"].forEach(id => $(id).innerHTML = s ? `<img src="${esc(s)}" alt="" onerror="rawFallback(this)" />` : `<div class="ph">NO IMAGE<b>${esc(t)}</b></div>`);
+        const s = prev || E.img, t = $("b_nick").value.trim() || "닉네임 없음";
+        const nm = $("b_name").value.trim();
+        ["pvPc", "pvMo"].forEach(id => $(id).innerHTML = (s ? `<img src="${esc(s)}" alt="" onerror="rawFallback(this)" />` : `<div class="ph">CHARACTER IMAGE</div>`) + `<div class="cap"><b>${esc(t)}</b>${nm ? `<span>${esc(nm)}</span>` : ""}</div>`);
         $("bNoImg").classList.toggle("hidden", !s);
       };
       draw();
-      $("b_title").addEventListener("input", draw);
+      $("b_nick").addEventListener("input", draw); $("b_name").addEventListener("input", draw);
       $("b_linkSel").onchange = () => { const v = $("b_linkSel").value; $("b_link").classList.toggle("hidden", !!v); if (v) $("b_link").value = v; else $("b_link").focus(); };
       $("bFile").onchange = () => {
         const f = $("bFile").files[0]; if (!f) return;
@@ -462,8 +462,8 @@
       $("bCancel").onclick = closeEditor;
       $("bDone").onclick = () => {
         const v = id => $(id).value.trim();
-        if (!v("b_title")) { toast("제목을 적어 주세요"); return $("b_title").focus(); }
-        Object.assign(E, { eyebrow: v("b_eyebrow"), title: v("b_title"), link: v("b_link") || "#home", meta: v("b_meta"), btn: v("b_btn"), desc: v("b_desc") });
+        if (!v("b_nick")) { toast("닉네임을 적어 주세요"); return $("b_nick").focus(); }
+        Object.assign(E, { nick: v("b_nick"), name: v("b_name"), link: v("b_link") || "#home" });
         if (file) { S.files[E._id] = file; S.prev[E._id] = prev; } else { delete S.files[E._id]; delete S.prev[E._id]; }
         if (isNew) S.banners.push(E); else S.banners[i] = E;
         closeEditor(); renderAll(); toast(isNew ? "배너를 추가했어요 · 사이트에 올리면 반영돼요" : "고쳤어요 · 사이트에 올리면 반영돼요");
@@ -549,7 +549,7 @@
             const b = pend[k], f = S.files[b._id], ext = ((f.name.match(/\.([a-z0-9]+)$/i) || [])[1] || "jpg").toLowerCase();
             const path = `images/banners/${st}-${S.banners.indexOf(b) + 1}.${ext}`;
             say(`사진 올리는 중 (${k + 1}/${pend.length})…`);
-            await ghPut(path, await fileB64(f), "배너 사진: " + (b.title || path));
+            await ghPut(path, await fileB64(f), "배너 사진: " + (b.nick || path));
             b.img = path; delete S.files[b._id];
           }
           say("배너 올리는 중…");
