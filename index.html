@@ -1,0 +1,1070 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LOST MERIDIAN · 로스트 메리디언</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap"><style>*,*::before,*::after{box-sizing:border-box}
+:root{--navy:#0d1026;--wine:#9D3645;--rose:#D9707F;--butter:#F7E7B2;--cream:#FBF7EC;--ink:#1d2033;--sub:#6b6f86;--line:#0d10261a;--r:18px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+body{margin:0;background:#fff;color:var(--ink);font-family:Pretendard,'Noto Sans KR',sans-serif;font-size:16px;line-height:1.65;letter-spacing:-.2px;word-break:keep-all;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+.w{max-width:1240px;margin:0 auto;padding:0 28px}
+/* header */
+.hd{position:fixed;left:0;right:0;top:0;z-index:60;transition:background .3s,box-shadow .3s,color .3s;color:#fff}
+.hd.solid,.hd.light{background:#fff;color:var(--navy);box-shadow:0 1px 0 var(--line)}
+.hd .w{display:flex;align-items:center;gap:36px;height:76px}
+.logo{display:flex;align-items:center;gap:12px;flex:none}
+.mk{position:relative;width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 2px currentColor}
+.mk i{position:absolute;left:12.5px;top:4px;width:5px;height:22px;background:linear-gradient(var(--rose) 50%,currentColor 50%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transform:rotate(24deg)}
+.solid .mk i,.light .mk i{background:linear-gradient(var(--wine) 50%,var(--navy) 50%)}
+.lt{display:flex;flex-direction:column;line-height:1.05}
+.lt b{font-size:17px;font-weight:900;letter-spacing:.14em}
+.lt small{font-size:10px;font-weight:700;letter-spacing:.32em;opacity:.7;margin-top:3px}
+.nav{display:flex;gap:6px;flex:1}
+.nav a{position:relative;padding:8px 14px;font-size:15.5px;font-weight:800;border-radius:999px;transition:background .2s,color .2s}
+.nav a:hover{background:#ffffff1f}
+.solid .nav a:hover,.light .nav a:hover{background:var(--cream)}
+.nav a.on{background:var(--butter);color:var(--navy)}
+.start{flex:none;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--wine);color:#fff;font-size:15px;font-weight:900;transition:transform .2s,background .2s}
+.start:hover{background:var(--navy);transform:translateY(-1px)}
+.burger{display:none;width:40px;height:40px;margin-left:auto;position:relative}
+.burger i,.burger i::before,.burger i::after{position:absolute;left:9px;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s,opacity .2s}
+.burger i{top:19px}.burger i::before,.burger i::after{content:'';left:0}.burger i::before{top:-7px}.burger i::after{top:7px}
+.menu-open .burger i{background:transparent}.menu-open .burger i::before{transform:translateY(7px) rotate(45deg)}.menu-open .burger i::after{transform:translateY(-7px) rotate(-45deg)}
+/* views */
+.view{display:none}.view.on{display:block;animation:vin .5s ease both}
+@keyframes vin{from{opacity:0}}
+.page-top{padding-top:76px}
+/* hero */
+.hero{position:relative;height:min(82vh,780px);min-height:560px;background:var(--navy);overflow:hidden;color:#fff}
+.hs{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s}
+.hs.on{opacity:1;visibility:visible}
+.hs .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 7s linear}
+.hs.on .bg{transform:scale(1)}
+.hs::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0d1026e6 0%,#0d1026a6 38%,#0d102600 72%),linear-gradient(0deg,#0d1026cc,#0d102600 45%)}
+.ph-banner{background:radial-gradient(120% 90% at 80% 20%,#9d364566,transparent 60%),radial-gradient(80% 80% at 10% 90%,#f7e7b21f,transparent 60%),#151935}
+.ph-label{position:absolute;right:28px;top:96px;z-index:1;padding:6px 12px;border-radius:999px;background:#ffffff14;box-shadow:inset 0 0 0 1px #ffffff26;font-size:12px;font-weight:700;letter-spacing:.08em;color:#ffffffa6}
+.hc{position:absolute;left:0;right:0;bottom:120px;z-index:2}
+.hc .eb{display:inline-block;padding:5px 12px;border-radius:999px;background:var(--wine);font-size:12px;font-weight:900;letter-spacing:.2em}
+.hc h1{margin:18px 0 0;max-width:720px;font-size:clamp(38px,5.6vw,72px);font-weight:900;line-height:1.08;letter-spacing:-.04em}
+.hc .mt{margin:14px 0 0;font-size:16px;font-weight:800;color:var(--butter)}
+.hc .ds{margin:10px 0 0;max-width:520px;font-size:17px;color:#e6e7f0}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:15px 26px;border-radius:999px;background:var(--butter);color:var(--navy);font-size:15px;font-weight:900;transition:gap .25s,background .2s,transform .2s}
+.btn:hover{gap:16px;background:#fff}
+.btn i,.more i{position:relative;width:14px;height:2px;background:currentColor}
+.btn i::after,.more i::after{content:'';position:absolute;right:-1px;top:-3px;width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);box-sizing:border-box}
+.btn.dark{background:var(--navy);color:#fff}.btn.dark:hover{background:var(--wine)}
+.hctl{position:absolute;left:0;right:0;bottom:44px;z-index:3}
+.hctl .w{display:flex;align-items:center;gap:18px}
+.pg{font-size:14px;font-weight:900;letter-spacing:.1em;font-variant-numeric:tabular-nums}.pg span{opacity:.5}
+.prog{flex:1;max-width:360px;height:3px;border-radius:2px;background:#ffffff2e;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--butter);transform-origin:0 50%;transform:scaleX(0)}
+.prog i.run{animation:prog 7s linear forwards}@keyframes prog{to{transform:scaleX(1)}}
+.arw{width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #ffffff59;position:relative;transition:background .2s}
+.arw:hover{background:#ffffff1f}
+.arw::before{content:'';position:absolute;left:50%;top:50%;width:10px;height:10px;border-top:2px solid #fff;border-right:2px solid #fff;transform:translate(-65%,-50%) rotate(45deg)}
+.arw.ap::before{transform:translate(-35%,-50%) rotate(-135deg)}
+.htabs{margin-left:auto;display:flex;gap:6px}
+.htabs button{max-width:190px;padding:10px 14px;border-radius:12px;background:#ffffff12;color:#ffffffb3;font-size:13px;font-weight:800;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .2s,color .2s}
+.htabs button.on{background:#fff;color:var(--navy)}
+/* sections */
+.sec{padding:110px 0}
+.sec.cream{background:var(--cream)}
+.sec.navy{background:var(--navy);color:#fff}
+.sh{display:flex;align-items:flex-end;gap:20px;margin-bottom:44px}
+.sh .ey{display:block;font-size:13px;font-weight:900;letter-spacing:.22em;color:var(--wine)}
+.navy .sh .ey{color:var(--rose)}
+.sh h2{margin:8px 0 0;font-size:clamp(30px,3.6vw,46px);font-weight:900;line-height:1.15;letter-spacing:-.04em}
+.sh p{margin:12px 0 0;max-width:620px;color:var(--sub);font-size:16.5px}
+.navy .sh p{color:#b9bcd2}
+.more{margin-left:auto;flex:none;display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;box-shadow:inset 0 0 0 1.5px currentColor;font-size:14px;font-weight:900;transition:background .2s,color .2s,gap .2s}
+.more:hover{background:var(--navy);color:#fff;gap:14px;box-shadow:none}
+.navy .more:hover{background:#fff;color:var(--navy)}
+/* image placeholder */
+.im{position:relative;overflow:hidden;background:linear-gradient(160deg,#e9e6dd,#f6f2e7);}
+.im img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.im .pl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#9a9682;font-size:12px;font-weight:800;letter-spacing:.14em}
+.im .pl b{font-size:13px;letter-spacing:.2em;color:#8a8570}
+.port{aspect-ratio:832/1216}
+/* featured */
+.feat{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center}
+.feat .port{border-radius:28px;box-shadow:0 30px 60px #0d102629}
+.feat .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--butter);color:var(--wine);font-size:12px;font-weight:900;letter-spacing:.16em}
+.feat .ttl{margin:22px 0 0;font-size:16px;font-weight:800;color:var(--wine)}
+.feat h3{margin:4px 0 0;font-size:clamp(44px,6vw,84px);font-weight:900;line-height:1;letter-spacing:-.05em;color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{padding:7px 14px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:13.5px;font-weight:800;color:var(--navy)}
+.chip.dk{background:var(--navy);color:#fff;box-shadow:none}
+.feat .ds{margin:22px 0 0;font-size:17px;color:#3d4056;max-width:520px}
+.thumbs{display:flex;gap:12px;margin-top:28px}
+.thumbs .im{width:78px;border-radius:14px;cursor:pointer;box-shadow:0 0 0 2px transparent;transition:box-shadow .2s,transform .2s}
+.thumbs .im:hover{transform:translateY(-3px);box-shadow:0 0 0 2px var(--wine)}
+/* rivals */
+.riv{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:28px;align-items:stretch}
+.gcard{position:relative;display:flex;flex-direction:column;padding:38px 36px 32px;border-radius:26px;background:#ffffff0d;box-shadow:inset 0 0 0 1px #ffffff1f;transition:background .3s,transform .3s}
+.gcard:hover{background:#ffffff17;transform:translateY(-4px)}
+.gcard .rk{position:absolute;right:30px;top:20px;font-size:120px;font-weight:900;line-height:1;letter-spacing:-.06em;color:#ffffff12}
+.gcard .rkl{display:inline-flex;align-self:flex-start;padding:5px 12px;border-radius:999px;background:var(--rose);color:#fff;font-size:12px;font-weight:900;letter-spacing:.1em}
+.gcard:nth-child(3) .rkl{background:var(--butter);color:var(--navy)}
+.gcard h3{margin:18px 0 0;font-size:46px;font-weight:900;line-height:1;letter-spacing:-.04em}
+.gcard .en{margin-top:6px;font-size:13px;font-weight:800;letter-spacing:.32em;color:var(--butter)}
+.gcard p{margin:16px 0 0;color:#c9cbe0;font-size:15px}
+.gcard .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.gcard .tg span{padding:5px 11px;border-radius:999px;background:#ffffff14;font-size:12.5px;font-weight:700;color:#e3e4ef}
+.avs{display:flex;margin-top:auto;padding-top:26px}
+.avs .im{width:48px;height:48px;border-radius:50%;margin-right:-10px;box-shadow:0 0 0 3px var(--navy);background:linear-gradient(160deg,#2a2f55,#3a3f6a)}
+.avs .im .pl{font-size:0}
+.vs{align-self:center;width:64px;height:64px;border-radius:50%;background:var(--butter);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;letter-spacing:.04em}
+.tm{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center;margin-top:28px;padding:26px 30px;border-radius:22px;background:var(--wine)}
+.tm small{display:block;font-size:12px;font-weight:900;letter-spacing:.2em;color:var(--butter)}
+.tm b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em}
+.tm p{margin:0;color:#f3dfe2;font-size:15px}
+/* character cards */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:20px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.rail>*{scroll-snap-align:start}
+.cc{position:relative;display:block;border-radius:22px;overflow:hidden;background:var(--navy);color:#fff;cursor:pointer;box-shadow:0 10px 30px #0d10261a;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.cc:hover{transform:translateY(-6px);box-shadow:0 22px 44px #0d102633}
+.cc:hover .im img{transform:scale(1.05)}
+.cc .im{background:linear-gradient(160deg,#262b52,#3b3f6b)}
+.cc .im .pl{color:#ffffff59}.cc .im .pl b{color:#ffffff73}
+.cc .ov{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;background:linear-gradient(0deg,#0d1026f2 30%,#0d102600)}
+.cc .gl{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--butter);color:var(--navy);font-size:11.5px;font-weight:900}
+.cc .gl.v2{background:var(--rose);color:#fff}.cc .gl.v0{background:#fff;color:var(--wine)}
+.cc h4{margin:8px 0 0;font-size:22px;font-weight:900;letter-spacing:-.03em;line-height:1.2}
+.cc .sb{font-size:13px;color:#c9cbe0}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button,.subnav a{padding:10px 18px;border-radius:999px;background:var(--cream);font-size:14.5px;font-weight:800;color:var(--navy);transition:background .2s,color .2s}
+.filters button:hover,.subnav a:hover{background:var(--butter)}
+.filters button.on{background:var(--navy);color:#fff}
+/* news */
+.ncards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.nc{display:flex;flex-direction:column;min-height:210px;padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 0 0 1px var(--line);transition:transform .3s,box-shadow .3s}
+.nc:hover{transform:translateY(-4px);box-shadow:0 18px 36px #0d10261f}
+.nc h4{margin:16px 0 0;font-size:19px;font-weight:900;line-height:1.4;letter-spacing:-.03em;color:var(--navy)}
+.nc .dt{margin-top:auto;padding-top:18px;font-size:13.5px;color:var(--sub);font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-self:flex-start;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:900}
+.c0{background:var(--navy);color:#fff}.c1{background:var(--wine);color:#fff}.c2{background:var(--butter);color:var(--wine)}.c3{background:#fff;color:var(--wine);box-shadow:inset 0 0 0 1.5px var(--wine)}.c4{background:#e8e9f1;color:var(--navy)}
+.nlist{border-top:2px solid var(--navy)}
+.nrow{display:flex;align-items:center;gap:18px;padding:20px 8px;border-bottom:1px solid var(--line);transition:background .2s}
+.nrow:hover{background:var(--cream)}
+.nrow .tag{min-width:72px;justify-content:center}
+.nrow b{flex:1;min-width:0;font-weight:800;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nrow span:last-child{flex:none;color:var(--sub);font-size:14px;font-variant-numeric:tabular-nums}
+/* explore */
+.ex{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.exc{position:relative;display:flex;flex-direction:column;min-height:260px;padding:32px 30px;border-radius:26px;background:var(--navy);color:#fff;overflow:hidden;transition:transform .3s}
+.exc:nth-child(2){background:var(--wine)}.exc:nth-child(3){background:var(--butter);color:var(--navy)}
+.exc:hover{transform:translateY(-6px)}
+.exc small{font-size:12px;font-weight:900;letter-spacing:.22em;opacity:.75}
+.exc h3{margin:10px 0 0;font-size:30px;font-weight:900;letter-spacing:-.04em}
+.exc p{margin:10px 0 0;opacity:.85;font-size:15px}
+.exc .go{margin-top:auto;align-self:flex-end;width:52px;height:52px;border-radius:50%;background:#ffffff26;position:relative;transition:transform .3s}
+.exc:nth-child(3) .go{background:#0d10261a}
+.exc:hover .go{transform:translateX(4px)}
+.exc .go::before{content:'';position:absolute;left:50%;top:50%;width:11px;height:11px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:translate(-65%,-50%) rotate(45deg)}
+/* page header */
+.phd{position:relative;padding:150px 0 70px;background:var(--navy);color:#fff;overflow:hidden}
+.phd::before{content:'';position:absolute;right:-120px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#9d364559,transparent 70%)}
+.phd .ey{position:relative;font-size:13px;font-weight:900;letter-spacing:.24em;color:var(--rose)}
+.phd h1{position:relative;margin:10px 0 0;font-size:clamp(40px,5.5vw,68px);font-weight:900;line-height:1.05;letter-spacing:-.05em}
+.phd p{position:relative;margin:16px 0 0;max-width:620px;color:#c4c7dc;font-size:17px}
+.subnav{position:sticky;top:76px;z-index:20;background:#fffffff2;backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.subnav .w{display:flex;gap:8px;padding-top:12px;padding-bottom:12px;overflow-x:auto;scrollbar-width:none}
+.subnav .w::-webkit-scrollbar{display:none}
+.subnav a{flex:none;font-size:14px;padding:8px 16px}
+.subnav a.on{background:var(--navy);color:#fff}
+.blk{padding:90px 0 0}
+.blk:last-child{padding-bottom:110px}
+/* world */
+.tl{position:relative;display:grid;gap:14px}
+.tli{display:grid;grid-template-columns:130px minmax(0,1fr);gap:24px;padding:26px 28px;border-radius:20px;background:var(--cream)}
+.tli small{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--wine)}
+.tli h4{margin:0;font-size:21px;font-weight:900;letter-spacing:-.03em;color:var(--navy)}
+.tli p{margin:6px 0 0;color:#454860}
+.cities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.city{padding:32px 28px;border-radius:24px;background:var(--navy);color:#fff}
+.city:nth-child(2){background:var(--wine)}.city:nth-child(3){background:#232848}
+.city small{display:inline-block;padding:4px 11px;border-radius:999px;background:#ffffff1f;font-size:12px;font-weight:800}
+.city h4{margin:16px 0 0;font-size:28px;font-weight:900;letter-spacing:-.04em}
+.city .en{font-size:12.5px;font-weight:800;letter-spacing:.24em;color:var(--butter)}
+.city p{margin:16px 0 0;color:#dfe0ea;font-size:15px}
+.mapwrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:start}
+.mapc{padding:18px;border-radius:26px;background:#fff;box-shadow:0 0 0 1px var(--line),0 20px 40px #0d102612;position:sticky;top:150px}
+.mapc svg{display:block;width:100%;height:auto}
+.mapc svg text{font-family:Pretendard,'Noto Sans KR',sans-serif;font-size:10px;font-weight:600;fill:#0d1026;letter-spacing:-.4px}
+.mapc svg .i{font-size:8.5px;fill:#9D3645;letter-spacing:0}
+.mapc svg .x{fill:#fff;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+.mapc svg .ak{font-size:8px;font-weight:700;fill:#9D3645;fill-opacity:.55;letter-spacing:2px}
+.mapc svg .al{font-size:7px}
+.regs{display:grid;gap:12px}
+.reg{border-radius:18px;background:var(--cream);overflow:hidden}
+.reg summary{display:grid;grid-template-columns:86px minmax(0,1fr) 30px;align-items:center;gap:14px;padding:18px 20px;list-style:none;cursor:pointer}
+.reg summary::-webkit-details-marker{display:none}
+.reg .lv{padding:6px 0;border-radius:10px;background:#fff;text-align:center;font-size:13px;font-weight:900;color:var(--wine)}
+.reg h4{margin:0;font-size:18px;font-weight:900;color:var(--navy);letter-spacing:-.02em}
+.reg .rt{font-size:13px;color:var(--sub)}
+.reg .pm{width:30px;height:30px;border-radius:50%;background:var(--navy);position:relative;transition:transform .3s,background .3s}
+.reg .pm::before,.reg .pm::after{content:'';position:absolute;left:9px;top:14px;width:12px;height:2px;background:#fff}.reg .pm::after{transform:rotate(90deg)}
+.reg[open] .pm{transform:rotate(45deg);background:var(--wine)}
+.reg .bd{padding:0 20px 20px 120px;display:grid;gap:10px}
+.reg .bd p{margin:0;font-size:15px;color:#3d4056}
+.reg .bd b{color:var(--navy)}
+.pill{display:inline-block;margin-right:8px;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:900;vertical-align:1px}
+.pill.a{background:var(--butter);color:var(--wine)}.pill.b{background:var(--wine);color:#fff}
+.roles{display:flex;gap:8px;margin-bottom:24px}
+.roles button{padding:12px 22px;border-radius:999px;background:var(--cream);font-size:15px;font-weight:900;color:var(--navy);transition:background .2s,color .2s}
+.roles button.on{background:var(--navy);color:#fff}
+.rnote{margin:-6px 0 20px;color:var(--sub);font-size:15px}
+.clsg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.clc{display:flex;flex-direction:column;padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 0 0 1px var(--line);transition:transform .3s,box-shadow .3s}
+.clc:hover{transform:translateY(-4px);box-shadow:0 0 0 1.5px var(--wine),0 16px 32px #0d10261a}
+.clc .wp{font-size:13px;font-weight:800;color:var(--wine)}
+.clc h4{margin:4px 0 0;font-size:23px;font-weight:900;letter-spacing:-.03em;color:var(--navy)}
+.clc .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.clc .tg span{padding:3px 10px;border-radius:999px;background:var(--cream);font-size:12px;font-weight:800;color:var(--navy)}
+.clc p{margin:14px 0 0;font-size:14.5px;color:#454860}
+.life{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.lf{padding:26px 18px;border-radius:22px;background:var(--cream);text-align:center}
+.lf i{display:flex;align-items:center;justify-content:center;width:58px;height:58px;margin:0 auto;border-radius:18px;background:#fff}
+.lf svg{width:28px;height:28px;stroke:var(--wine);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.lf b{display:block;margin-top:14px;font-size:18px;font-weight:900;color:var(--navy)}
+.lf span{display:block;margin-top:4px;font-size:13px;color:var(--sub)}
+.box2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.box2 p{margin:0;padding:22px 24px;border-radius:20px;background:#fff;box-shadow:0 0 0 1px var(--line);font-size:15px;color:#3d4056}
+/* guide */
+.raids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.raid{display:flex;flex-direction:column;padding:30px 30px 26px;border-radius:26px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.raid.top{background:var(--navy);color:#fff;box-shadow:none}
+.raid .hd2{display:flex;gap:8px;flex-wrap:wrap}
+.raid .hd2 span{padding:4px 11px;border-radius:999px;background:var(--cream);font-size:12px;font-weight:900;color:var(--navy)}
+.raid.top .hd2 span{background:#ffffff1a;color:#fff}.raid .hd2 span.lv{background:var(--wine);color:#fff}
+.raid h4{margin:16px 0 0;font-size:26px;font-weight:900;letter-spacing:-.04em}
+.raid>p{margin:8px 0 0;color:var(--sub);font-size:15px}.raid.top>p{color:#c4c7dc}
+.boss{margin-top:16px;padding:16px 18px;border-radius:16px;background:var(--cream);font-size:14.5px;color:#3d4056}
+.raid.top .boss{background:#ffffff0f;color:#dcdeea}
+.boss b{color:var(--navy)}.raid.top .boss b{color:var(--butter)}
+.boss .bn{display:flex;justify-content:space-between;gap:10px;margin-bottom:6px;font-weight:900;color:var(--navy)}
+.raid.top .boss .bn{color:#fff}
+.boss .bn small{font-size:12px;color:var(--wine)}.raid.top .boss .bn small{color:var(--rose)}
+.rw{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto;padding-top:18px;font-size:13.5px;color:var(--sub)}
+.raid.top .rw{color:#b9bcd2}
+.rw b{color:var(--navy)}.raid.top .rw b{color:#fff}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.rules p{margin:0;padding:22px 24px;border-radius:20px;background:var(--cream);font-size:14.5px;color:#3d4056}
+.gems{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:22px}
+.gp{padding:28px;border-radius:24px;background:var(--navy);color:#fff}
+.gp h5{margin:0 0 14px;font-size:14px;font-weight:900;letter-spacing:.18em;color:var(--rose)}
+.grades{display:flex;flex-wrap:wrap;gap:8px}
+.grades span{padding:8px 14px;border-radius:999px;background:#ffffff14;font-weight:800}
+.grades span:last-child{background:linear-gradient(90deg,var(--rose),var(--butter));color:var(--navy)}
+.gt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gt div{padding:10px 14px;border-radius:12px;background:#ffffff0f;font-size:14px}.gt b{color:var(--butter);margin-right:8px}
+.tower{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+.floors{display:grid;gap:10px}
+.fl{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:center;padding:18px 22px;border-radius:18px;background:var(--cream)}
+.fl:first-child{background:var(--navy);color:#fff}
+.fl .n{font-size:26px;font-weight:900;letter-spacing:-.04em;color:var(--wine)}.fl:first-child .n{color:var(--butter)}
+.fl .n small{font-size:13px;margin-left:2px}
+.fl b{display:block;font-size:17px;font-weight:900;color:var(--navy)}.fl:first-child b{color:#fff}
+.fl span{font-size:14px;color:var(--sub)}.fl:first-child span{color:#c4c7dc}
+.lead{font-size:17px;color:#3d4056;margin:0}
+.pvp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pv{padding:28px 26px;border-radius:24px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.pv:last-child{background:var(--wine);color:#fff;box-shadow:none}
+.pv small{font-size:12.5px;font-weight:900;color:var(--wine)}.pv:last-child small{color:var(--butter)}
+.pv h4{margin:6px 0 0;font-size:24px;font-weight:900;letter-spacing:-.03em}
+.pv p{margin:10px 0 0;font-size:14.5px;color:#454860}.pv:last-child p{color:#f3dfe2}
+.servers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.sv{padding:26px 24px;border-radius:22px;background:var(--cream)}
+.sv b{display:block;font-size:20px;font-weight:900;letter-spacing:.08em;color:var(--navy)}
+.sv .kr{font-size:13px;color:var(--sub)}
+.sv .sz{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:999px;background:var(--butter);color:var(--wine);font-size:12px;font-weight:900}
+.sv p{margin:12px 0 0;font-size:14px;color:#454860}
+.note{margin:18px 0 0;color:var(--sub);font-size:14.5px}
+.tbl{border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;padding:16px 22px;border-bottom:1px solid var(--line);font-size:15px}
+.tr:last-child{border-bottom:0}
+.tr b{color:var(--navy)}.tr span{color:#454860}
+.tr.h{background:var(--navy);color:#fff;font-size:13px;font-weight:900;letter-spacing:.06em}
+.tr.h span{color:#fff}
+.tr3{grid-template-columns:minmax(0,1.4fr) 100px 100px}
+.tr3 span:not(:first-child){text-align:right;font-weight:900;color:var(--navy)}
+.tr.h.tr3 span{color:#fff}
+.box{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.bx{padding:22px 20px;border-radius:20px;background:var(--cream)}
+.bx:nth-child(n+4){background:var(--navy);color:#fff}
+.bx .p{font-size:32px;font-weight:900;letter-spacing:-.04em;color:var(--wine)}.bx:nth-child(n+4) .p{color:var(--butter)}
+.bx b{display:block;font-size:16px;font-weight:900}
+.bx span{display:block;margin-top:6px;font-size:13px;color:var(--sub)}.bx:nth-child(n+4) span{color:#c4c7dc}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:22px}
+/* guild page */
+.gsec{padding:90px 0 0}
+.ghd{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;margin-bottom:36px}
+.emb2{width:120px;height:120px;border-radius:30px;background:var(--navy);color:var(--butter);display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:900;letter-spacing:-.04em}
+.gsec:nth-of-type(2) .emb2{background:var(--wine);color:#fff}
+.ghd small{font-size:13px;font-weight:900;letter-spacing:.22em;color:var(--wine)}
+.ghd h2{margin:4px 0 0;font-size:clamp(36px,4.6vw,56px);font-weight:900;line-height:1;letter-spacing:-.05em;color:var(--navy)}
+.ghd p{margin:12px 0 0;max-width:640px;color:#454860}
+.ghd .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ghd .tg span{padding:5px 12px;border-radius:999px;background:var(--cream);font-size:13px;font-weight:800;color:var(--navy)}
+.cards.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.cards.six .cc h4{font-size:18px}.cards.six .cc .ov{padding:44px 14px 14px}
+/* play */
+.play{display:grid;gap:22px}
+.pc{padding:34px 34px 30px;border-radius:26px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.pc>small{font-size:12.5px;font-weight:900;letter-spacing:.2em;color:var(--wine)}
+.pc h3{margin:6px 0 18px;font-size:26px;font-weight:900;letter-spacing:-.03em;color:var(--navy)}
+.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mo{padding:22px;border-radius:18px;background:var(--cream)}
+.mo .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:14px}
+.mo:first-child{background:var(--navy);color:#fff}.mo:first-child .n{background:var(--butter);color:var(--navy)}
+.mo b{display:block;margin-top:12px;font-size:18px;font-weight:900}
+.mo em{margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--wine);color:#fff;font-size:11px;font-style:normal;font-weight:900;vertical-align:2px}
+.mo span{display:block;margin-top:4px;font-size:14px;opacity:.8}
+pre.cp{margin:0;padding:24px;border-radius:18px;background:var(--navy);color:#e6e7f0;font-family:inherit;font-size:15px;line-height:1.75;white-space:pre-wrap;cursor:pointer;user-select:all;-webkit-user-select:all;position:relative}
+pre.cp::after{content:'눌러서 전체 선택';position:absolute;right:16px;top:14px;padding:4px 10px;border-radius:999px;background:#ffffff1a;font-size:12px;font-weight:800;color:var(--butter)}
+.tip{margin:14px 0 0;padding:14px 18px;border-radius:14px;background:var(--cream);font-size:14.5px;color:#3d4056}
+.tip b{color:var(--wine);margin-right:8px}
+.kv{display:grid;gap:8px}
+.kv div{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;border-radius:14px;background:var(--cream);font-weight:800;color:var(--navy)}
+.kv div span:last-child{color:var(--wine)}
+.ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;counter-reset:o}
+.ol li{counter-increment:o;display:flex;gap:14px;padding:14px 18px;border-radius:14px;background:var(--cream);color:#3d4056}
+.ol li::before{content:counter(o);flex:none;width:26px;height:26px;border-radius:50%;background:var(--wine);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.cmd{display:grid;gap:10px}
+.cmd div{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:16px;align-items:center;padding:14px 18px;border-radius:14px;background:var(--cream)}
+.cmd code{justify-self:start;padding:6px 12px;border-radius:10px;background:var(--navy);color:var(--butter);font-family:inherit;font-weight:800;font-size:14px}
+.cmd span{color:#3d4056}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.stp{padding:22px;border-radius:18px;background:var(--cream)}
+.stp .n{font-size:28px;font-weight:900;color:var(--wine);line-height:1}
+.stp b{display:block;margin-top:10px;font-size:17px;font-weight:900;color:var(--navy)}
+.stp span{display:block;margin-top:4px;font-size:14px;color:#454860}
+.cmt p{margin:0 0 12px;font-size:16px;color:#3d4056}.cmt .sg{margin-top:18px;font-weight:900;color:var(--navy)}
+/* footer */
+.ft{background:var(--navy);color:#9a9ebb;font-size:14px}
+.ft .w{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;padding-top:56px;padding-bottom:56px}
+.ft .logo{color:#fff}.ft .mk i{background:linear-gradient(var(--rose) 50%,#fff 50%)}
+.ft nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:flex-end}.ft nav a{color:#fff;font-weight:800}.ft nav a:hover{color:var(--butter)}
+.ft p{margin:0;grid-column:1/-1;padding-top:24px;border-top:1px solid #ffffff1a}
+/* modal */
+.md{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;background:#0d1026cc;backdrop-filter:blur(6px);animation:fd .25s}
+.md[hidden]{display:none}
+@keyframes fd{from{opacity:0}}
+.mb{position:relative;width:100%;max-width:980px;max-height:calc(100vh - 48px);overflow:auto;border-radius:28px;background:#fff;animation:up .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes up{from{transform:translateY(20px);opacity:0}}
+.mx{position:absolute;right:16px;top:16px;z-index:3;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 14px #0d10262e}
+.mx::before,.mx::after{content:'';position:absolute;left:14px;top:21px;width:16px;height:2px;background:var(--navy);transform:rotate(45deg)}.mx::after{transform:rotate(-45deg)}
+.prof{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.gal{position:relative;background:var(--navy)}
+.gal .im{border-radius:0;background:linear-gradient(160deg,#262b52,#3b3f6b)}
+.gal .im .pl{color:#ffffff66}.gal .im .pl b{color:#ffffff80}
+.gal .gnav{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:8px}
+.gal .gnav button{width:9px;height:9px;border-radius:5px;background:#ffffff66;transition:width .3s,background .2s}
+.gal .gnav button.on{width:26px;background:var(--butter)}
+.gal .ga{position:absolute;top:50%;width:42px;height:42px;margin-top:-21px;border-radius:50%;background:#0d102680}
+.gal .ga.l{left:12px}.gal .ga.r{right:12px}
+.gal .ga::before{content:'';position:absolute;left:50%;top:50%;width:9px;height:9px;border-top:2px solid #fff;border-right:2px solid #fff;transform:translate(-65%,-50%) rotate(45deg)}
+.gal .ga.l::before{transform:translate(-35%,-50%) rotate(-135deg)}
+.gal .cnt{position:absolute;left:16px;top:16px;padding:4px 10px;border-radius:999px;background:#0d102699;color:#fff;font-size:12px;font-weight:800}
+.pinfo{padding:44px 40px 40px}
+.pinfo .gl{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--butter);color:var(--navy);font-size:12.5px;font-weight:900}
+.pinfo .ttl{margin:18px 0 0;font-size:15px;font-weight:800;color:var(--wine)}
+.pinfo h2{margin:2px 0 0;font-size:44px;font-weight:900;line-height:1.05;letter-spacing:-.05em;color:var(--navy)}
+.pinfo dl{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;margin:26px 0 0;border-top:2px solid var(--navy)}
+.pinfo dt,.pinfo dd{margin:0;padding:13px 0;border-bottom:1px solid var(--line)}
+.pinfo dt{font-size:12.5px;font-weight:900;letter-spacing:.14em;color:var(--sub)}
+.pinfo dd{font-weight:800;color:var(--navy)}
+.pinfo .ds{margin:20px 0 0;color:#3d4056}
+.art{padding:44px 44px 40px;max-width:760px}
+.art h1{margin:14px 0 6px;font-size:28px;font-weight:900;line-height:1.3;letter-spacing:-.04em;color:var(--navy)}
+.art .mm{display:flex;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--sub)}
+.art .bd{padding-top:12px;font-size:16px;line-height:1.8;color:#3d4056}
+.art .bd h4{margin:24px 0 6px;font-size:16px;font-weight:900;color:var(--navy)}
+.art .bd ul{margin:0;padding-left:20px}.art .bd li{margin:5px 0}
+.art .bd dl{display:grid;grid-template-columns:100px minmax(0,1fr);gap:8px 14px;margin:18px 0;padding:20px;border-radius:16px;background:var(--cream)}
+.art .bd dt{font-weight:900;color:var(--navy)}.art .bd dd{margin:0}
+.toast{position:fixed;left:50%;bottom:32px;z-index:120;transform:translateX(-50%);padding:14px 22px;border-radius:999px;background:var(--navy);color:#fff;font-size:14.5px;font-weight:800;box-shadow:0 10px 30px #0d102640;animation:up .3s}
+.toast[hidden]{display:none}
+/* reveal */
+.rvo .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rvo .rv.in{opacity:1;transform:none}
+/* ---- refined scale ---- */
+:root{--r:12px}
+body{font-size:15px}
+.w{max-width:1160px}
+.hd .w{height:64px;gap:28px}
+.mk{width:26px;height:26px}.mk i{left:10.5px;top:3px;width:5px;height:20px}
+.lt b{font-size:15px}.lt small{font-size:9px}
+.nav a{padding:7px 12px;font-size:14px;font-weight:700}
+.start{padding:9px 18px;font-size:13.5px}
+.hero{height:min(66vh,620px);min-height:480px}
+.hc{bottom:104px}
+.hc .eb{padding:4px 10px;font-size:11px}
+.hc h1{margin-top:14px;font-size:clamp(30px,4.2vw,52px)}
+.hc .mt{font-size:14px}.hc .ds{font-size:15.5px}
+.btn{margin-top:20px;padding:12px 20px;font-size:14px}
+.hctl{bottom:36px}.arw{width:38px;height:38px}
+.htabs button{padding:8px 12px;border-radius:10px;font-size:12.5px}
+.sec{padding:76px 0}
+.sh{margin-bottom:28px}
+.sh .ey{font-size:11.5px}
+.sh h2{margin-top:6px;font-size:clamp(24px,2.6vw,32px)}
+.sh p{margin-top:8px;font-size:15px}
+.more{padding:8px 14px;font-size:13px}
+.riv{gap:18px}
+.gcard{padding:26px 26px 22px;border-radius:16px}
+.gcard .rk{right:22px;top:14px;font-size:76px}
+.gcard .rkl{padding:3px 10px;font-size:11px}
+.gcard h3{margin-top:12px;font-size:32px}
+.gcard .en{font-size:11.5px}
+.gcard p{margin-top:12px;font-size:14px}
+.gcard .tg span{padding:4px 9px;font-size:11.5px}
+.avs{padding-top:18px}.avs .im{width:36px;height:36px;margin-right:-8px}
+.vs{width:48px;height:48px;font-size:14px}
+.tm{margin-top:18px;padding:18px 22px;border-radius:14px;gap:18px}
+.tm b{font-size:17px}.tm p{font-size:14px}
+.cards{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.rail{grid-auto-columns:minmax(168px,1fr);gap:14px}
+.cc{border-radius:14px;box-shadow:0 6px 18px #0d102614}
+.cc:hover{transform:translateY(-4px)}
+.cc .ov{padding:40px 12px 12px}
+.cc .gl{padding:2px 8px;font-size:10.5px}
+.cc h4{margin-top:6px;font-size:16px}
+.cc .sb{font-size:12px}
+.filters button,.subnav a{padding:7px 14px;font-size:13px}
+.ncards{gap:14px}
+.nc{min-height:150px;padding:20px;border-radius:14px}
+.nc h4{margin-top:12px;font-size:16px}
+.nc .dt{font-size:12.5px}
+.tag{padding:3px 9px;font-size:11px}
+.nrow{padding:15px 6px;gap:14px}.nrow .tag{min-width:62px}
+.ex{gap:14px}
+.exc{min-height:168px;padding:22px 22px;border-radius:16px}
+.exc h3{margin-top:6px;font-size:22px}.exc p{font-size:14px}
+.exc .go{width:38px;height:38px}
+.phd{padding:116px 0 46px}
+.phd h1{font-size:clamp(28px,3.6vw,44px)}
+.phd p{margin-top:12px;font-size:15px}
+.phd::before{width:380px;height:380px}
+.subnav{top:64px}.subnav .w{padding-top:10px;padding-bottom:10px}
+.blk{padding:64px 0 0}.blk:last-child{padding-bottom:80px}
+.tli{grid-template-columns:110px minmax(0,1fr);gap:18px;padding:18px 22px;border-radius:12px}
+.tli small{font-size:12px}.tli h4{font-size:17px}.tli p{font-size:14.5px}
+.cities{gap:14px}.city{padding:22px 22px;border-radius:14px}
+.city small{font-size:11px}.city h4{margin-top:12px;font-size:21px}.city .en{font-size:11px}.city p{margin-top:10px;font-size:14px}
+.mapc{padding:12px;border-radius:16px;top:130px}
+.regs{gap:8px}.reg{border-radius:12px}
+.reg summary{grid-template-columns:76px minmax(0,1fr) 26px;padding:13px 16px;gap:12px}
+.reg .lv{font-size:12px;padding:4px 0;border-radius:8px}
+.reg h4{font-size:15.5px}.reg .rt{font-size:12px}
+.reg .pm{width:26px;height:26px}.reg .pm::before,.reg .pm::after{left:8px;top:12px;width:10px}
+.reg .bd{padding:0 16px 16px 104px}.reg .bd p{font-size:14px}
+.roles{gap:6px;margin-bottom:18px}.roles button{padding:8px 16px;font-size:13.5px}
+.clsg{gap:12px}
+.clc{padding:18px 18px;border-radius:14px}
+.clc .wp{font-size:12px}.clc h4{font-size:18px}.clc p{margin-top:10px;font-size:13.5px}
+.clc .tg span{font-size:11px;padding:2px 8px}
+.life{gap:10px}.lf{padding:18px 12px;border-radius:14px}
+.lf i{width:46px;height:46px;border-radius:12px}.lf svg{width:22px;height:22px}
+.lf b{margin-top:10px;font-size:15px}.lf span{font-size:12px}
+.box2,.rules{gap:12px;margin-top:14px}
+.box2 p,.rules p{padding:16px 18px;border-radius:12px;font-size:14px}
+.raids{gap:14px}
+.raid{padding:22px 22px 20px;border-radius:16px}
+.raid .hd2 span{font-size:11px;padding:3px 9px}
+.raid h4{margin-top:12px;font-size:20px}.raid>p{font-size:14px}
+.boss{margin-top:12px;padding:12px 14px;border-radius:10px;font-size:13.5px}
+.rw{padding-top:14px;font-size:12.5px}
+.gems{gap:14px;margin-top:14px}.gp{padding:20px;border-radius:14px}
+.grades span{padding:6px 11px;font-size:13px}
+.gt div{padding:8px 12px;font-size:13px;border-radius:10px}
+.tower{gap:24px}.floors{gap:8px}
+.fl{grid-template-columns:80px minmax(0,1fr);padding:12px 16px;border-radius:12px;gap:14px}
+.fl .n{font-size:20px}.fl b{font-size:15px}.fl span{font-size:13px}
+.lead{font-size:15px}
+.pvp{gap:14px}.pv{padding:20px;border-radius:14px}
+.pv h4{font-size:19px}.pv p{font-size:14px}
+.servers{gap:12px}.sv{padding:18px;border-radius:14px}
+.sv b{font-size:16px}.sv p{font-size:13.5px}
+.note{font-size:13.5px}
+.tbl{border-radius:14px}.tr{padding:12px 18px;font-size:14px}
+.box{gap:10px}.bx{padding:16px;border-radius:14px}
+.bx .p{font-size:24px}.bx b{font-size:14.5px}.bx span{font-size:12px}
+.two{gap:14px;margin-top:14px}
+.gsec{padding:64px 0 0}
+.ghd{gap:20px;margin-bottom:24px}
+.emb2{width:76px;height:76px;border-radius:18px;font-size:34px}
+.ghd small{font-size:11.5px}.ghd h2{font-size:clamp(28px,3.2vw,38px)}.ghd p{font-size:14.5px;margin-top:8px}
+.ghd .tg span{font-size:12px;padding:4px 10px}
+.cards.six{gap:12px}.cards.six .cc h4{font-size:15px}.cards.six .cc .ov{padding:36px 10px 10px}
+.play{gap:14px}
+.pc{padding:24px 24px 22px;border-radius:16px}
+.pc h3{margin:4px 0 14px;font-size:20px}
+.models{gap:10px}.mo{padding:16px;border-radius:12px}.mo b{font-size:15.5px;margin-top:8px}.mo span{font-size:13px}.mo .n{width:24px;height:24px;font-size:12px}
+pre.cp{padding:18px;border-radius:12px;font-size:14px}
+.tip{padding:12px 14px;border-radius:10px;font-size:13.5px}
+.kv div,.ol li,.cmd div{padding:11px 14px;border-radius:10px;font-size:14px}
+.steps{gap:10px}.stp{padding:16px;border-radius:12px}.stp .n{font-size:22px}.stp b{font-size:15px}.stp span{font-size:13px}
+.cmt p{font-size:15px}
+.ft .w{padding-top:40px;padding-bottom:40px}.ft{font-size:13px}
+.mb{max-width:860px;border-radius:18px}
+.pinfo{padding:34px 30px 30px}.pinfo h2{font-size:34px}.pinfo .ttl{margin-top:14px;font-size:14px}
+.pinfo dl{margin-top:20px}.pinfo dt,.pinfo dd{padding:10px 0}.pinfo dt{font-size:11.5px}.pinfo dd{font-size:14.5px}
+.pinfo .ds{font-size:14.5px}
+.art{padding:34px 34px 30px}.art h1{font-size:22px}.art .bd{font-size:15px}
+
+/* v3 */
+.land{aspect-ratio:16/9}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.rail{grid-auto-columns:minmax(300px,1fr);gap:16px}
+.cc .ov{padding:48px 16px 14px}.cc h4{font-size:18px}
+.gcard{background:#fff;box-shadow:0 0 0 1px var(--line);color:var(--navy)}
+.gcard:hover{background:#fff;box-shadow:0 0 0 1px var(--line),0 16px 34px #0d10261a}
+.gcard .rk{color:#0d10260d}.gcard .en{color:var(--wine)}.gcard p{color:#4a4d63}
+.gcard .tg span{background:var(--cream);color:var(--navy)}
+.gcard:nth-child(3) .rkl{background:var(--navy);color:var(--butter)}
+.avs .im{box-shadow:0 0 0 3px #fff;background:linear-gradient(160deg,#2a2f55,#3a3f6a)}
+.vs{background:var(--navy);color:var(--butter)}
+.prof{grid-template-columns:minmax(0,1fr)}
+.gal .im{max-height:none}
+.pinfo dl{grid-template-columns:96px minmax(0,1fr) 96px minmax(0,1fr)}
+.gps{display:grid;gap:22px}
+.gp2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.gp2:nth-child(2){grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}.gp2:nth-child(2) .gimg{order:2}
+.gimg{position:relative;min-height:320px}.gimg .im{position:absolute;inset:0;height:auto;aspect-ratio:auto;background:linear-gradient(160deg,#262b52,#3b3f6b)}
+.gimg .im .pl{color:#ffffff66}.gimg .im .pl b{color:#ffffff80}
+.gtx{padding:30px 30px 28px}
+.gtx .rkl{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--wine);color:#fff;font-size:11px;font-weight:900}
+.gp2:nth-child(2) .gtx .rkl{background:var(--navy);color:var(--butter)}
+.gtx h2{margin:12px 0 0;font-size:34px;font-weight:900;letter-spacing:-.04em;color:var(--navy);line-height:1.1}
+.gtx h2 small{margin-left:10px;font-size:12px;font-weight:800;letter-spacing:.28em;color:var(--wine);vertical-align:middle}
+.gtx p{margin:12px 0 0;font-size:14.5px;color:#454860}
+.gtx .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.gtx .tg span{padding:4px 10px;border-radius:999px;background:var(--cream);font-size:12px;font-weight:800;color:var(--navy)}
+.gtx dl{margin:18px 0 0;border-top:1px solid var(--line)}
+.gtx dl div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.gtx dt{font-weight:800;color:var(--sub)}.gtx dd{margin:0;font-weight:800;color:var(--navy)}
+.gtx .btn{margin-top:20px}
+.pv.gh{background:var(--cream);box-shadow:none;color:var(--navy)}.pv.gh small{color:var(--wine)}.pv.gh p{color:#454860}
+.tm{margin-top:22px;color:#fff}
+
+/* banner aspect */
+.hero{height:auto;aspect-ratio:1920/780;min-height:460px;max-height:760px}
+.ph-label{white-space:nowrap}
+.ph-banner{box-shadow:inset 0 0 0 1px #ffffff1a}
+
+/* banner v4 */
+.bnr{padding:96px 0 34px;background:#fff;overflow:hidden}
+.vp{overflow:hidden}
+.trk{display:flex;column-gap:18px;transition:transform .6s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.sld{flex:none;position:relative;width:min(1100px,82vw);aspect-ratio:1920/780;border-radius:24px;overflow:hidden;background:var(--navy);opacity:.45;transform:scale(.94);transition:opacity .5s,transform .5s}
+.sld.on{opacity:1;transform:none}
+.sld img{width:100%;height:100%;object-fit:cover}
+.sph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:radial-gradient(120% 90% at 80% 20%,#9d364566,transparent 60%),radial-gradient(80% 80% at 10% 90%,#f7e7b21f,transparent 60%),#151935;color:#ffffff8c;font-size:12px;font-weight:700;letter-spacing:.12em}
+.sph b{font-size:14px;letter-spacing:.24em;color:#ffffffb3}
+.sph em{margin-top:10px;font-style:normal;font-size:clamp(16px,2.4vw,28px);font-weight:900;letter-spacing:-.03em;color:#fff}
+.pgr{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:18px}
+.pb{width:36px;height:36px;border-radius:50%;position:relative;transition:background .2s}
+.pb:hover{background:var(--cream)}
+.pb::before{content:'';position:absolute;left:50%;top:50%;width:9px;height:9px;border-top:2px solid var(--navy);border-right:2px solid var(--navy);transform:translate(-65%,-50%) rotate(45deg)}
+.pb.pp::before{transform:translate(-35%,-50%) rotate(-135deg)}
+.pn{font-size:15px;font-weight:800;color:var(--sub);font-variant-numeric:tabular-nums;min-width:56px;text-align:center}.pn b{color:var(--navy)}
+.cap{margin:8px 0 0;text-align:center;font-size:13.5px;color:var(--sub)}
+.cap b{margin-right:8px;font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--wine)}
+@media (max-width:1100px){
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .clsg{grid-template-columns:repeat(2,minmax(0,1fr))}.life{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .servers{grid-template-columns:repeat(2,minmax(0,1fr))}.box{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .htabs{display:none}
+}
+@media (max-width:900px){
+ .bnr{padding:80px 0 26px}.sld{width:88vw;border-radius:18px}.trk{column-gap:10px}.pgr{margin-top:14px}
+ .hero{aspect-ratio:auto;min-height:0;max-height:none;height:auto;padding-top:64px}
+ .hs{position:relative;display:none;opacity:1;visibility:visible}.hs.on{display:block}
+ .hs .bg{position:relative;inset:auto;aspect-ratio:1920/780;transform:none!important}
+ .hs::after{display:none}
+ .hc{position:relative;bottom:auto;padding:22px 0 0}
+ .hc h1{font-size:26px;margin-top:12px}.hc .ds{font-size:14.5px}.btn{margin-top:16px}
+ .hctl{position:relative;bottom:auto;padding:20px 0 26px}
+ .ph-label{font-size:10.5px;padding:5px 10px;left:50%;top:50%;right:auto;transform:translate(-50%,-50%)}
+ .hd:not(.solid):not(.light){background:var(--navy)}
+ .w{padding:0 20px}
+ .hd .w{height:64px;gap:12px}.lt b{font-size:15px}
+ .burger{display:block}
+ .nav{position:fixed;left:0;right:0;top:64px;bottom:0;flex-direction:column;gap:4px;padding:20px;background:#fff;color:var(--navy);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s}
+ .nav a{padding:14px 16px;font-size:17px;border-radius:12px}
+ .menu-open .nav{opacity:1;transform:none;visibility:visible}
+ .menu-open .hd{background:#fff;color:var(--navy)}
+ .start{display:none}
+ .sec{padding:56px 0}.sh{flex-wrap:wrap;margin-bottom:30px}.more{margin-left:0}
+ .feat{grid-template-columns:minmax(0,1fr);gap:34px}.feat .port{max-width:420px}
+ .riv{grid-template-columns:minmax(0,1fr)}.vs{justify-self:center;margin:-8px 0}
+ .tm{grid-template-columns:minmax(0,1fr);gap:8px}
+ .cards{grid-template-columns:minmax(0,1fr);gap:14px}.rail{grid-auto-columns:82%}
+ .gp2,.gp2:nth-child(2){grid-template-columns:minmax(0,1fr)}.gp2:nth-child(2) .gimg{order:0}.gimg{min-height:0}.gimg .im{position:relative;aspect-ratio:16/9}.gtx{padding:22px 20px 22px}.gtx h2{font-size:28px}
+ .pinfo dl{grid-template-columns:84px minmax(0,1fr)}.cards.six{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ncards,.ex,.cities,.raids,.rules,.pvp,.box2,.two,.gems,.models,.steps{grid-template-columns:minmax(0,1fr)}
+ .mapwrap,.tower{grid-template-columns:minmax(0,1fr)}.mapc{position:static}
+ .tli{grid-template-columns:minmax(0,1fr);gap:4px}
+ .clsg{grid-template-columns:minmax(0,1fr)}
+ .phd{padding:100px 0 40px}
+ .subnav{top:64px}
+ .prof{grid-template-columns:minmax(0,1fr)}.gal .im{max-height:70vh}
+ .pinfo{padding:26px 22px 26px}.pinfo h2{font-size:30px}
+ .art{padding:34px 24px 30px}.art h1{font-size:23px}
+ .md{padding:12px;align-items:flex-start}.mb{max-height:calc(100vh - 24px);border-radius:22px}
+ .ghd{grid-template-columns:minmax(0,1fr)}.emb2{width:84px;height:84px;font-size:40px;border-radius:22px}
+ .cmd div{grid-template-columns:minmax(0,1fr);gap:8px}
+ .ft .w{grid-template-columns:minmax(0,1fr)}.ft nav{justify-content:flex-start}
+ .reg .bd{padding:0 16px 16px}
+}
+@media (max-width:560px){
+ .life{grid-template-columns:repeat(2,minmax(0,1fr))}.servers{grid-template-columns:minmax(0,1fr)}.box{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tr,.tr3{grid-template-columns:minmax(0,1fr);gap:2px}.tr3 span:not(:first-child){text-align:left}.tr.h{display:none}
+ .nrow{flex-wrap:wrap;gap:6px 12px}.nrow b{flex:1 1 100%;order:3;white-space:normal}
+ .art .bd dl{grid-template-columns:minmax(0,1fr);gap:2px}.art .bd dt{margin-top:8px}
+ .reg summary{grid-template-columns:72px minmax(0,1fr) 30px;gap:12px;padding:16px}
+ .fl{grid-template-columns:76px minmax(0,1fr)}
+ .gcard{padding:30px 24px 26px}.gcard h3{font-size:38px}.gcard .rk{font-size:90px}
+ .pc{padding:26px 22px}
+ .hctl .arw{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rvo .rv{opacity:1;transform:none}}
+/* ===== v5 bento home ===== */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-areas:"n n r r" "n n a b" "n n c d";gap:14px;margin-top:34px}
+.btile{border-radius:20px;padding:22px 24px;text-decoration:none;color:inherit;display:flex;flex-direction:column;min-width:0}
+.bh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.bh b{font-size:19px;font-weight:900;letter-spacing:-.03em}
+.bh small{font-size:11.5px;font-weight:900;letter-spacing:.2em}
+.plus{position:relative;width:28px;height:28px;border-radius:50%;border:1.5px solid currentColor;opacity:.55;flex:none;transition:opacity .2s}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+a:hover>.plus,.btile:hover .plus,.plus:hover{opacity:1}
+.bnews{grid-area:n;background:#fff;border:1px solid var(--line)}
+.bn-l{margin-top:12px;display:flex;flex-direction:column}
+.bn-i{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:13px 2px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.bn-i:first-child{border-top:0}
+.bn-i b{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bn-i:hover b{color:var(--wine)}
+.bn-i .dt{font-size:13px;color:var(--sub)}
+.bn-i .tag{font-size:11.5px;padding:3px 8px}
+.briv{grid-area:r;background:var(--navy);color:#fff}
+.briv small{color:var(--rose)}
+.bg2{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:16px 0 12px}
+.bg-g{display:flex;flex-direction:column;gap:2px}
+.bg-g+.bvs+.bg-g{text-align:right;align-items:flex-end}
+.bg-r{font-size:13px;font-weight:900;color:var(--butter)}
+.bg-r small{margin-left:6px;font-size:11.5px;font-weight:700;letter-spacing:0;color:#b9bcd2}
+.bg-g b{font-size:26px;font-weight:900;letter-spacing:-.04em;line-height:1.2}
+.bg-e{font-size:11.5px;font-weight:800;letter-spacing:.18em;color:#8d91ab}
+.bg-t{margin-top:6px;font-size:12.5px;font-weight:700;color:#d7d9e6}
+.bvs{font-size:14px;font-weight:900;color:var(--rose);letter-spacing:.1em}
+.briv p{margin:auto 0 0;font-size:13.5px;color:#b9bcd2}
+.bq{position:relative;border-radius:20px;padding:20px 22px 22px;text-decoration:none;display:flex;flex-direction:column;gap:4px;min-height:132px;transition:transform .2s}
+.bq:hover{transform:translateY(-3px)}
+.bq small{font-size:11px;font-weight:900;letter-spacing:.2em;opacity:.7}
+.bq b{margin-top:auto;font-size:19px;font-weight:900;letter-spacing:-.03em}
+.bq span{font-size:13px;opacity:.8}
+.bq i{position:absolute;right:18px;top:18px;width:9px;height:9px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);opacity:.6}
+.q1{grid-area:a;background:var(--butter);color:var(--navy)}
+.q2{grid-area:b;background:var(--wine);color:#fff}
+.q3{grid-area:c;background:var(--cream);color:var(--navy);border:1px solid var(--line)}
+.q4{grid-area:d;background:#fff;color:var(--navy);border:1px solid var(--line)}
+.hrl{margin-top:56px;margin-bottom:90px}
+.hrl .rail{margin-top:16px}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr;grid-template-areas:"n n" "r r" "a b" "c d"}}
+@media(max-width:560px){.bento{gap:10px;margin-top:22px}.btile{padding:18px}.bq{min-height:104px;padding:16px 16px 18px;border-radius:16px}.bq b{font-size:17px}.bq span{font-size:12px}.bg-g b{font-size:21px}.bn-i{gap:9px;padding:12px 0}.bn-i b{font-size:14px}.hrl{margin-top:40px;margin-bottom:64px}}
+.bn-l{flex:1;justify-content:space-between}
+.bn-i .tag{min-width:60px;justify-content:center}
+.bn-i .tag.c0,.bn-i .tag.c1{color:#fff}.bn-i .tag.c2,.bn-i .tag.c3{color:var(--wine)}.bn-i .tag.c4{color:var(--navy)}
+.cc .sb em{font-style:normal;margin-left:8px;padding-left:8px;border-left:1px solid #ffffff59;color:var(--butter);font-weight:700}
+.pcl{margin-top:22px;padding:18px 20px;border-radius:16px;background:var(--cream);border:1px solid var(--line)}
+.pcl small{font-size:11px;font-weight:900;letter-spacing:.18em;color:var(--wine)}
+.pcl b{display:flex;align-items:baseline;gap:10px;margin-top:6px;font-size:19px;font-weight:900;color:var(--navy);letter-spacing:-.03em}
+.pcl b span{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:0}
+.pcl .tg{margin-top:8px}
+.pcl p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--ink)}
+.advc{background:var(--cream)}
+.cc .sb em{font-style:normal;margin-left:8px;padding-left:8px;border-left:1px solid #ffffff59;color:var(--butter);font-weight:700}
+.pcl{margin-top:22px;padding:18px 20px;border-radius:16px;background:var(--cream);border:1px solid var(--line)}
+.pcl small{font-size:11px;font-weight:900;letter-spacing:.18em;color:var(--wine)}
+.pcl b{display:flex;align-items:baseline;gap:10px;margin-top:6px;font-size:19px;font-weight:900;color:var(--navy);letter-spacing:-.03em}
+.pcl b span{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:0}
+.pcl .tg{margin-top:8px}
+.pcl p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--ink)}
+.advc{margin-top:80px;padding:70px 0 80px!important;background:var(--cream)}
+@media(max-width:560px){.advc{margin-top:56px;padding:48px 0 56px!important}}
+/* ===== v6 banner: full card + tab bar ===== */
+.bnr{padding:96px 0 0!important;overflow:visible}
+.bnr .vp{border-radius:22px;overflow:hidden}
+.trk{column-gap:0}
+.sld{width:100%!important;border-radius:0!important;opacity:1!important;transform:none!important}
+.btabs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+.btabs button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:0;background:none;border:0;cursor:pointer;text-align:left;font:inherit;color:var(--sub);min-width:0}
+.btabs i{display:block;width:100%;height:3px;border-radius:3px;background:var(--line);overflow:hidden;margin-bottom:9px}
+.btabs s{display:block;width:0;height:100%;background:var(--wine)}
+.btabs .on s{animation:bfill 6s linear forwards}
+@keyframes bfill{to{width:100%}}
+.btabs small{font-size:11px;font-weight:900;letter-spacing:.16em}
+.btabs b{font-size:14.5px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.btabs .on{color:var(--navy)}.btabs .on small{color:var(--wine)}
+@media(max-width:560px){.bnr{padding-top:78px!important}.bnr .vp{border-radius:16px}.btabs{gap:10px;margin-top:12px}.btabs b{font-size:12.5px}.btabs small{font-size:10px;letter-spacing:.1em}}
+.cards[data-all]{grid-template-columns:repeat(2,1fr)}@media(max-width:560px){.cards[data-all]{grid-template-columns:1fr}}
+.gp2{margin-bottom:22px}.view[data-view="guild"] .tm{margin-bottom:22px}@media(max-width:560px){.gp2,.view[data-view="guild"] .tm{margin-bottom:14px}}
+@media(max-width:560px){.roles{display:flex;gap:6px;overflow-x:auto}.roles button{white-space:nowrap;flex:none;padding:9px 14px!important;font-size:13px!important}}
+.bento{gap:18px;margin-top:44px;margin-bottom:100px}
+@media(max-width:560px){.bento{gap:14px;margin-top:30px;margin-bottom:72px}}
+@media(max-width:560px){.sld{aspect-ratio:16/9!important}.bnr .w{padding-left:14px;padding-right:14px}.btabs{padding:0 6px}}
+.c5{background:var(--cream);color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}.bn-i .tag.c5{color:var(--navy)}
+.nempty{margin:auto 0;padding:40px 0;text-align:center;font-size:14.5px;color:var(--sub)}
+.art .bd .cs{display:flex;flex-direction:column;align-items:center;text-align:center;padding:56px 20px 52px;border-radius:20px;background:var(--navy);color:#fff}
+.cs-mk{position:relative;width:64px;height:64px;border-radius:50%;box-shadow:inset 0 0 0 3px #fff}
+.cs-mk i{position:absolute;left:27px;top:8px;width:10px;height:48px;background:linear-gradient(var(--rose) 50%,#fff 50%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transform:rotate(24deg)}
+.cs-lt{margin-top:22px;font-size:clamp(20px,5vw,28px);font-weight:900;letter-spacing:.22em;padding-left:.22em}
+.cs-kr{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.5em;padding-left:.5em;color:#b9bcd2}
+.cs-ln{width:40px;height:2px;margin:28px 0 22px;background:var(--wine)}
+.cs-ey{font-size:12px;font-weight:900;letter-spacing:.3em;padding-left:.3em;color:var(--rose)}
+.cs-t{margin-top:8px;font-size:clamp(26px,7vw,40px);font-weight:900;letter-spacing:.06em;color:var(--butter)}
+.art .bd .cs{background:var(--cream);color:var(--navy);border:1px solid var(--line);padding:52px 24px 48px}
+.cs-logo{display:block;width:min(340px,82%);height:auto}
+.cs .cs-ln{margin:30px 0 20px}
+.cs .cs-ey{color:var(--wine)}
+.cs .cs-t{color:var(--navy)}
+/* ===== coming soon v2 ===== */
+.art .bd .cs{position:relative;overflow:hidden;isolation:isolate;padding:64px 24px 58px;border:0;background:radial-gradient(90% 70% at 50% 0%,#fff 0%,var(--cream) 60%,#f3ead3 100%)}
+.cs-in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.cs-mer{position:absolute;left:50%;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:linear-gradient(#9D364500,#9D3645 30%,#9D3645 70%,#9D364500);opacity:.35;transform:scaleY(0);transform-origin:top;animation:csMer 1.4s .2s cubic-bezier(.6,0,.2,1) forwards;z-index:1}
+.cs-sw{position:absolute;top:0;bottom:0;left:0;width:38%;background:linear-gradient(90deg,#9D364500,#9D364522 70%,#9D36458c 99%,#9D364500);transform:translateX(-110%);animation:csSw 1.8s 1.1s cubic-bezier(.5,0,.3,1) forwards;z-index:3;pointer-events:none}
+.cs-glow{position:absolute;left:50%;top:44%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;background:radial-gradient(#F7E7B2cc,#F7E7B200 68%);opacity:0;animation:csGlow 2.4s 1.6s ease-out forwards,csPulse 5s 4s ease-in-out infinite;z-index:0}
+.cs-logo{clip-path:inset(0 100% 0 0);filter:blur(6px);animation:csLogo 1.2s .9s cubic-bezier(.2,.7,.2,1) forwards}
+.cs .cs-ln{transform:scaleX(0);animation:csLn .7s 1.9s cubic-bezier(.2,.7,.2,1) forwards}
+.cs .cs-ey{opacity:0;letter-spacing:.9em;animation:csEy 1s 2.1s cubic-bezier(.2,.7,.2,1) forwards}
+.cs .cs-t{display:flex;margin-top:10px}
+.cs-t span{display:inline-block;opacity:0;transform:translateY(22px);filter:blur(4px);animation:csCh .7s calc(2.4s + var(--i) * .07s) cubic-bezier(.2,.7,.2,1) forwards;background:linear-gradient(100deg,var(--navy) 40%,var(--wine) 50%,var(--navy) 60%) 0 0/300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.cs-t span{animation:csCh .7s calc(2.4s + var(--i) * .07s) cubic-bezier(.2,.7,.2,1) forwards,csShine 4.5s calc(3.6s + var(--i) * .05s) ease-in-out infinite}
+@keyframes csMer{to{transform:scaleY(1)}}
+@keyframes csSw{to{transform:translateX(290%)}}
+@keyframes csGlow{to{opacity:.9}}
+@keyframes csPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes csLogo{to{clip-path:inset(0 0 0 0);filter:blur(0)}}
+@keyframes csLn{to{transform:scaleX(1)}}
+@keyframes csEy{to{opacity:1;letter-spacing:.3em}}
+@keyframes csCh{to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes csShine{0%,55%{background-position:100% 0}85%,100%{background-position:0 0}}
+@media(prefers-reduced-motion:reduce){.cs *,.cs-t span{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;letter-spacing:.3em}.cs-sw{display:none}}
+/* ===== creator ===== */
+.crt{padding:40px 40px 36px}
+.crt small{font-size:11.5px;font-weight:900;letter-spacing:.2em;color:var(--wine)}
+.crt h2{margin:6px 0 0;font-size:24px;font-weight:900;letter-spacing:-.03em;color:var(--navy)}
+.crt-h p,.crt-x p{margin:8px 0 0;font-size:14px;line-height:1.7;color:var(--sub)}
+.crt-msg{margin:14px 0 0;padding:10px 14px;border-radius:10px;background:var(--cream);font-size:14px;font-weight:700;color:var(--wine)}
+.crt-f{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;padding:20px;border-radius:16px;background:var(--cream)}
+.crt-f label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:800;color:var(--navy)}
+.crt-f .full{grid-column:1/-1}
+.crt input,.crt select,.crt textarea{width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:15px;font-weight:500;color:var(--ink)}
+.crt textarea{resize:vertical;line-height:1.7}
+.crt-note{margin:0;font-size:13px;color:var(--sub)}
+.crt-btns{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.cb{padding:11px 20px;border:0;border-radius:999px;background:var(--navy);color:#fff;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.cb.ghost{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}
+.crt h3{display:flex;align-items:center;gap:8px;margin:30px 0 10px;font-size:16px;font-weight:900;color:var(--navy)}
+.crt h3 span{font-size:13px;color:var(--wine)}
+.crt-r{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto auto;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.crt-r b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crt-r .dt{color:var(--sub);font-size:12.5px}
+.crt-r button{padding:6px 10px;border:0;border-radius:8px;background:var(--cream);font:inherit;font-size:12.5px;font-weight:800;color:var(--navy);cursor:pointer}
+.crt-r button[data-act="del"]{color:var(--wine)}
+.crt-r .tag.c0,.crt-r .tag.c1{color:#fff}.crt-r .tag.c2,.crt-r .tag.c3{color:var(--wine)}.crt-r .tag.c5{color:var(--navy)}
+.crt-x .crt-btns{justify-content:flex-start;margin-top:12px}
+.crt-code{margin-top:10px;font-family:ui-monospace,monospace!important;font-size:12px!important;color:var(--sub)!important}
+.crt-out{display:block;margin:26px auto 0;padding:8px 14px;border:0;background:none;font:inherit;font-size:13px;font-weight:700;color:var(--sub);text-decoration:underline;cursor:pointer}
+.crt-g{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:340px;margin:0 auto;text-align:center}
+.crt-g .cb{width:100%}
+@media(max-width:560px){.crt{padding:32px 20px 26px}.crt-f{grid-template-columns:1fr;padding:16px}.crt-r{grid-template-columns:auto minmax(0,1fr) auto auto;}.crt-r .dt{display:none}}
+.cs-sw{width:22%;background:linear-gradient(90deg,#9D364500,#9D364514 70%,#9D364559 98%,#9D364500)}
+/* ===== coming soon v3 (compass) ===== */
+.art .bd .cs2{min-height:340px;justify-content:center;background:var(--cream)}
+.cs2 .cs-cp{position:absolute;left:50%;top:50%;width:230px;height:230px;margin:-115px 0 0 -115px;z-index:1;overflow:visible;animation:cpOut 1s 2.5s cubic-bezier(.6,0,.3,1) forwards}
+.cs-ring{fill:none;stroke:#9D3645;stroke-width:2;stroke-dasharray:491;stroke-dashoffset:491;animation:cpRing 1.1s .2s cubic-bezier(.6,0,.2,1) forwards}
+.cs-tk line{stroke:#0d1026;stroke-width:3;stroke-linecap:round;opacity:0;animation:cpFade .3s 1.1s forwards}
+.cs-nd{transform-origin:100px 100px;opacity:0;transform:rotate(-200deg);animation:cpNd 1.5s .9s cubic-bezier(.3,1.6,.5,1) forwards}
+.cs2 .cs-in{opacity:1}
+.cs2 .cs-logo{clip-path:none;filter:none;opacity:0;transform:scale(1.18);animation:lgIn .9s 2.9s cubic-bezier(.2,.7,.2,1) forwards}
+.cs-lat{display:flex;gap:10px;margin:28px 0 18px}
+.cs-lat i{display:block;width:44px;height:2px;background:#9D3645;transform:scaleX(0)}
+.cs-lat i:first-child{transform-origin:right;animation:latIn .6s 3.4s cubic-bezier(.2,.7,.2,1) forwards}
+.cs-lat i:last-child{transform-origin:left;animation:latIn .6s 3.4s cubic-bezier(.2,.7,.2,1) forwards}
+.cs2 .cs-ey{opacity:0;letter-spacing:.3em;animation:cpFade .5s 3.7s forwards}
+.cs-tw{display:block;margin-top:8px;overflow:hidden}
+.cs2 .cs-t{display:block;margin:0;transform:translateY(105%);animation:twUp .8s 3.9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes cpRing{to{stroke-dashoffset:0}}
+@keyframes cpFade{to{opacity:1}}
+@keyframes cpNd{0%{opacity:0;transform:rotate(-200deg)}20%{opacity:1}100%{opacity:1;transform:rotate(24deg)}}
+@keyframes cpOut{to{transform:scale(2.6);opacity:0}}
+@keyframes lgIn{to{opacity:1;transform:none}}
+@keyframes latIn{to{transform:scaleX(1)}}
+@keyframes twUp{to{transform:none}}
+@media(prefers-reduced-motion:reduce){.cs2 .cs-cp{display:none}.cs2 *{animation:none!important;opacity:1!important;transform:none!important}}
+.crt-gh .crt-gf{margin-top:12px}
+.crt-gh h3 span{padding:3px 8px;border-radius:999px;background:var(--cream)}
+</style>
+<!-- ===== 이미지·캐릭터 설정: 아래 LM_CONFIG 안의 img / imgs 칸에 이미지 주소를 넣고, 글자를 바꾸면 됩니다 ===== -->
+<script>window.LM_CONFIG={
+ "creatorCode": "meridian",
+ "guilds": [
+  {
+   "name": "벡터",
+   "img": ""
+  },
+  {
+   "name": "바이퍼",
+   "img": ""
+  }
+ ],
+ "banners": [
+  {
+   "img": "",
+   "eyebrow": "NEW RAID",
+   "title": "애시포지 중앙 분기역",
+   "meta": "Lv.300 · 8인 공격대",
+   "desc": "승강장과 신호실, 두 조의 콜이 맞아야 선로가 열립니다.",
+   "btn": "레이드 보기",
+   "link": "#guide/raid"
+  },
+  {
+   "img": "",
+   "eyebrow": "RIVALS",
+   "title": "벡터와 바이퍼, 마지막 주",
+   "meta": "발테른 월간 레이드 순위",
+   "desc": "1위와 2위의 차이는 애시포지 8인 기록 하나입니다.",
+   "btn": "길드 보기",
+   "link": "#guild"
+  },
+  {
+   "img": "",
+   "eyebrow": "EVENT",
+   "title": "아스트라 첨탑 겨울 등반 챌린지",
+   "meta": "11.18 ~ 12.02",
+   "desc": "새로 오른 층만큼 보석 선택 상자와 칭호를 드립니다.",
+   "btn": "이벤트 보기",
+   "link": "#guide/tower"
+  }
+ ]
+};</script>
+<!-- ===== 소식 글: 아래 LM_NEWS 맨 위에 한 줄씩 추가하면 됩니다. 날짜 순으로 자동 정렬됩니다. =====
+  분류(c): 공지 / 업데이트 / 이벤트 / 점검 / 제작 노트   
+  본문(b): ["첫 번째 문단", "두 번째 문단"] 처럼 문단을 따옴표로 묶어 쉼표로 나열합니다.
+  형식: {"c": "제작 노트", "t": "제목", "d": "2026.11.20", "b": ["문단", "문단"]},
+-->
+<script>window.LM_NEWS=[
+{"c": "제작 노트", "t": "세계관 COMING SOON", "d": "2026.11.20", "b": "<div class=\"cs cs2\"><svg class=\"cs-cp\" viewBox=\"0 0 200 200\" aria-hidden=\"true\"><circle class=\"cs-ring\" cx=\"100\" cy=\"100\" r=\"78\"/><g class=\"cs-tk\"><line x1=\"100\" y1=\"22\" x2=\"100\" y2=\"32\" transform=\"rotate(0 100 100)\"/><line x1=\"100\" y1=\"22\" x2=\"100\" y2=\"32\" transform=\"rotate(90 100 100)\"/><line x1=\"100\" y1=\"22\" x2=\"100\" y2=\"32\" transform=\"rotate(180 100 100)\"/><line x1=\"100\" y1=\"22\" x2=\"100\" y2=\"32\" transform=\"rotate(270 100 100)\"/></g><g class=\"cs-nd\"><polygon points=\"100,38 112,100 88,100\" fill=\"#9D3645\"/><polygon points=\"100,162 112,100 88,100\" fill=\"#0d1026\"/><circle cx=\"100\" cy=\"100\" r=\"5\" fill=\"#fff\" stroke=\"#0d1026\" stroke-width=\"2\"/></g></svg><div class=\"cs-in\"><img class=\"cs-logo\" src=\"data:image/png;base64,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\" alt=\"LOST MERIDIAN\"><span class=\"cs-lat\"><i></i><i></i></span><span class=\"cs-ey\">WORLD</span><span class=\"cs-tw\"><strong class=\"cs-t\">COMING SOON</strong></span></div></div>"}
+];</script>
+</head><body>
+<header class="hd"><div class="w"><a class="logo" href="#home"><span class="mk"><i></i></span><span class="lt"><b>LOST MERIDIAN</b><small>로스트 메리디언</small></span></a><nav class="nav"><a href="#adventurers" data-nav="adventurers">모험가</a><a href="#guild" data-nav="guild">길드</a><a href="#world" data-nav="world">세계관</a><a href="#guide" data-nav="guide">게임 가이드</a><a href="#news" data-nav="news">소식</a><a href="#play" data-nav="play">플레이 안내</a></nav><a class="start" href="#home" data-start>게임 시작</a><button class="burger" aria-label="메뉴"><i></i></button></div></header>
+<main><section class="view" data-view="home">
+<div class="bnr"><div class="w"><div class="vp"><div class="trk"></div></div><div class="btabs"></div></div></div>
+<div class="w bento">
+<div class="btile bnews"><div class="bh"><b>소식</b><a class="plus" href="#news" aria-label="소식 더보기"></a></div><div class="bn-l" data-nl></div></div>
+<a class="btile briv" href="#guild"><div class="bh"><small>VALTERN RIVALS</small><span class="plus"></span></div><div class="bg2"><div class="bg-g"><span class="bg-r">01<small>월간 1위</small></span><b>벡터</b><span class="bg-e">VECTOR</span><span class="bg-t">제작 특화</span></div><span class="bvs">VS</span><div class="bg-g"><span class="bg-r">02<small>월간 2위</small></span><b>바이퍼</b><span class="bg-e">VIPER</span><span class="bg-t">전투 특화</span></div></div><p>발테른 서버 월간 레이드 순위 1위와 2위</p></a>
+<a class="bq q1" href="#world"><small>WORLD</small><b>세계관</b><span>두 장의 지도와 세 시작 도시</span><i></i></a><a class="bq q2" href="#guide"><small>GAME GUIDE</small><b>게임 가이드</b><span>레이드·장비·첨탑·PvP</span><i></i></a><a class="bq q3" href="#adventurers"><small>ADVENTURERS</small><b>모험가 직업</b><span>열두 전투 직업과 생활 직업</span><i></i></a><a class="bq q4" href="#play"><small>HOW TO PLAY</small><b>플레이 안내</b><span>추천 모델·명령어·시스템</span><i></i></a>
+</div>
+</section><section class="view" data-view="adventurers"><div class="phd"><div class="w"><span class="ey">ADVENTURERS</span><h1>모험가 직업</h1><p>열두 전투 직업 중 하나를 골라 전직 없이 Lv.300까지 성장합니다. 생활 직업 여섯 분야는 모든 캐릭터가 함께 배웁니다.</p></div></div>
+<div class="w"><div class="blk" id="a-classes"><div class="sh rv"><div><span class="ey">CLASS</span><h2>전투 직업</h2><p>네 개의 딜러, 네 개의 서포터, 네 개의 탱커 직업이 있습니다. 장비 능력치는 실장비와 장착한 보석으로 계산합니다.</p></div></div><div class="rsw"><div class="roles"><button class=on>딜러 · DPS</button><button>서포터 · SUPPORT</button><button>탱커 · TANK</button></div><div class="rolep"><div class="clsg"><div class="clc"><span class="wp">대형 석궁</span><h4>아발레스터</h4><div class=tg><span>원거리</span><span>부위 파괴</span></div><p>이동 중 볼트를 박고 같은 부위를 다시 맞혀 폭발시킵니다. 마무리 사격은 정지 조준이 필요합니다. 짧게 노출되는 부위 파괴에 강합니다.</p></div><div class="clc"><span class="wp">장낫</span><h4>리퍼</h4><div class=tg><span>중거리</span><span>다수 대상</span></div><p>낫날 끝이 닿는 중거리에 강합니다. 한 적에 상처를 겹치거나 여러 적에게 상처를 남긴 뒤 낫을 당겨 추가 피해를 줍니다.</p></div><div class="clc"><span class="wp">전투 건틀릿</span><h4>스트라이커</h4><div class=tg><span>근접</span><span>무력화</span></div><p>연타로 충격을 쌓고 강타로 터뜨려 무력화합니다. PvP에서는 짧게 치고 빠지며 상대 방어기가 빠진 뒤 진입합니다.</p></div><div class="clc"><span class="wp">마법검</span><h4>베인블레이드</h4><div class=tg><span>중거리</span><span>저주</span></div><p>중거리에서 저주를 걸고 근접 참격으로 발동합니다. 한 번씩 발동해 피해를 이어 가거나 일괄 해방해 큰 피해를 한 번에 넣습니다.</p></div></div></div><div class="rolep" hidden><div class="clsg"><div class="clc"><span class="wp">순례자의 지팡이</span><h4>루미너리</h4><div class=tg><span>힐 서포터</span></div><p>아군 한 명을 치유의 중심으로 지정합니다. 대상에게 준 치유 일부가 주변에 퍼집니다. 산개 시 중심 변경·직접 치유·정화를 씁니다.</p></div><div class="clc"><span class="wp">투척 약병·약제 벨트</span><h4>알케미스트</h4><div class=tg><span>힐 서포터</span></div><p>응급약은 착탄 지점의 아군을 즉시 회복시키고, 안개약은 지속 치유 구역을 만듭니다. 약병은 전투 중 자동 보충됩니다.</p></div><div class="clc"><span class="wp">마력 지휘봉</span><h4>마에스트로</h4><div class=tg><span>버프 서포터</span></div><p>합주는 파티 화력을, 독주는 지정 아군의 다음 주력기를 강화합니다. 광역 보호막과 피해 감소를 별도로 씁니다.</p></div><div class="clc"><span class="wp">길잡이 등불</span><h4>패스파인더</h4><div class=tg><span>버프 서포터</span></div><p>등불을 내건 자리를 집결점으로 지정합니다. 집결점으로 이동하는 아군의 속도를 높이고, 등불 빛 안으로 들어온 아군에게 보호막을 부여합니다. 산개 직전 피해 감소를 쓸 수 있습니다.</p></div></div></div><div class="rolep" hidden><p class=rnote>방어형·공격형·극공격형 세팅이 가능하며, 고유 도발과 기본 생존기는 세팅과 관계없이 쓸 수 있습니다.</p><div class="clsg"><div class="clc"><span class="wp">장창·탑방패</span><h4>램파트</h4><p>방패를 고정해 정면 공격을 막습니다. 방어 자세 중 이동이 느려집니다. 공격형 세팅은 자세 해제 후 장창 반격을 강화합니다.</p></div><div class="clc"><span class="wp">양손 전투도끼</span><h4>블러드액스</h4><p>피격으로 투지를 쌓아 자가 회복이나 공격에 씁니다. 극공격형 세팅은 회복에 쓸 투지를 공격에 돌릴 수 있습니다.</p></div><div class="clc"><span class="wp">마도 철갑·충격 건틀릿</span><h4>아이언셸</h4><p>돌진과 도발로 여러 방향의 적을 붙잡습니다. 철갑에 쌓인 열을 방어막이나 전방 충격파로 전환합니다.</p></div><div class="clc"><span class="wp">거울 방패·레이피어</span><h4>미러나이트</h4><p>강공격의 충격을 저장해 결계나 레이피어 반격에 씁니다. 필수 회피 기믹은 직접 피합니다.</p></div></div></div></div></div>
+<div class="blk" id="a-life"><div class="sh rv"><div><span class="ey">LIFE</span><h2>모험 밖의 또 다른 일상</h2><p>모든 캐릭터가 여섯 분야를 모두 배우고, 각 분야 숙련도를 100까지 올릴 수 있습니다.</p></div></div><div class="life"><div class="lf rv"><i><svg viewBox="0 0 24 24"><path d="M4 10h16v5a5 5 0 0 1-5 5h-6a5 5 0 0 1-5-5z"/><path d="M2 10h20m-13-3.5c0-1.2 1-1.2 1-2.5m4 2.5c0-1.2 1-1.2 1-2.5"/></svg></i><b>요리</b><span>전투 준비 음식과 길드 연회 요리</span></div><div class="lf rv"><i><svg viewBox="0 0 24 24"><path d="M13 3l8 8-3 3-8-8z"/><path d="M10 6l-7 7 3 3m6-1l-6 6"/></svg></i><b>제작</b><span>무기·방어구·외형·가구</span></div><div class="lf rv"><i><svg viewBox="0 0 24 24"><path d="M6 4h12l4 6-10 11-10-11z"/><path d="M2 10h20m-13-6l3 6 3-6"/></svg></i><b>세공</b><span>반지·목걸이·보석·외형 장식</span></div><div class="lf rv"><i><svg viewBox="0 0 24 24"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15z"/><path d="M5 19l9-9"/></svg></i><b>채집</b><span>약초·광석·목재</span></div><div class="lf rv"><i><svg viewBox="0 0 24 24"><path d="M9 3h6m-5 0v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9v-6m-7 12h10"/></svg></i><b>연금</b><span>전투 물약과 외형 염료</span></div><div class="lf rv"><i><svg viewBox="0 0 24 24"><path d="M3 12c3-4 7-5 11-5 3 0 5 2 7 5-2 3-4 5-7 5-4 0-8-1-11-5z"/><path d="M3 12l-1.5-3m1.5 3l-1.5 3"/></svg></i><b>낚시</b><span>요리 재료와 어종 도감, 낚시 대회</span></div></div><div class="box2"><p class="rv">요리·제작·세공·채집·연금·낚시에 각각 명장 자격이 있습니다. 숙련도 100을 달성하고 그 분야의 명장 퀘스트를 완료하면 자격과 칭호를 얻습니다. 칭호는 요리 명장·명장 대장장이·세공 명장·채집 명장·연금 명장·낚시 명장입니다.</p><p class="rv">캐릭터당 명장 자격은 최대 2개입니다. 직접 취소할 수 있지만, 취소 시점부터 7일 동안 모든 분야의 신규 취득과 재취득이 제한됩니다.</p><p class="rv">명장 대장장이는 부위·형태·색상·소재·장식을 정하고, 원하면 전용 이펙트와 발동 조건도 지정해 외형을 설계합니다. 완성품은 누구나 착용할 수 있고, 장착 전에는 같은 서버 거래소에서 골드로 거래할 수 있습니다. 장착하면 해당 캐릭터에 귀속됩니다.</p></div></div></div></section><section class="view" data-view="guild"><div class="phd"><div class="w"><span class="ey">GUILD</span><h1>발테른 대표 길드</h1><p>발테른 서버 월간 레이드 순위 1위·2위 길드입니다. 두 길드는 같은 서버에서 경쟁하는 선의의 라이벌입니다.</p></div></div>
+<div class="blk"><div class="w"><div class="gps"><div class="gp2 rv"><div class="gimg" data-gimg="0"></div><div class="gtx"><span class="rkl">월간 레이드 1위</span><h2>벡터<small>VECTOR</small></h2><p>제작 특화 길드입니다. 장비 준비와 공격대 운영이 안정적이며 애시포지 중앙 분기역 8인 기록에 강합니다.</p><div class="tg"><span>제작 특화</span><span>애시포지 8인 강세</span><span>공격대 운영 안정</span></div><dl><div><dt>주력 콘텐츠</dt><dd>애시포지 중앙 분기역 8인</dd></div><div><dt>강점</dt><dd>제작·장비 조달·공략 준비</dd></div><div><dt>대표 기록</dt><dd>월간 레이드 길드 순위 1위</dd></div></dl></div></div><div class="gp2 rv"><div class="gimg" data-gimg="1"></div><div class="gtx"><span class="rkl">월간 레이드 2위</span><h2>바이퍼<small>VIPER</small></h2><p>장비 레벨이 높은 전투 특화 길드입니다. 유리 협곡의 폐쇄 관문 4인 서버 퍼스트 클리어를 달성했고, 고정 파티 두 팀을 합쳐 애시포지 8인 기록에 도전합니다.</p><div class="tg"><span>전투 특화</span><span>유리 협곡 4인 서버 퍼스트 클리어</span><span>애시포지 8인 도전</span></div><dl><div><dt>주력 콘텐츠</dt><dd>유리 협곡의 폐쇄 관문 4인</dd></div><div><dt>강점</dt><dd>전투·빠른 기믹 대응</dd></div><div><dt>대표 기록</dt><dd>유리 협곡 서버 퍼스트 클리어</dd></div></dl></div></div></div>
+<div class="tm rv"><div><small>THIS MONTH</small><b>마지막 주, 순위가 뒤집힐 수 있다</b></div><p>바이퍼가 애시포지 8인 주간 1위를 가져가면 월간 순위를 뒤집을 수 있습니다. 기록 도전은 각자 소속 공격대로 뛰지만, 성장 레이드와 연습 파티에서는 서로 빈자리를 채우기도 합니다.</p></div>
+<div class="two"><div class="pv rv"><small>4:4 시즌 PvP</small><h4>길드전</h4><p>좌·중앙·우 세 거점을 두고 15분 동안 겨룹니다. 거점 하나당 3초마다 1점을 얻고, 300점을 먼저 얻으면 즉시 승리합니다. 교전 중인 거점은 점수가 멈추며, 동점이면 중앙만 열리는 연장전을 진행합니다.</p></div><div class="pv rv gh"><small>GUILD HOUSE</small><h4>길드 하우스</h4><p>길드원 전용 공간입니다. 가구와 길드 문장을 배치하고 퍼스트 클리어 기념품·길드전 트로피를 전시할 수 있습니다. 공격대 출발 전 집결하거나 연회를 열 수 있습니다. 길드에는 해당 길드와 같은 서버의 캐릭터만 가입할 수 있습니다.</p></div></div></div></div></section><section class="view" data-view="world"><div class="phd"><div class="w"><span class="ey">WORLD</span><h1>현행 지도에서 끊긴 길,<br>옛 지도는 그 너머를 기억한다.</h1><p>판타지 MMORPG 로스트 메리디언의 무대, 아스터폴 대륙입니다.</p></div></div>
+<nav class="subnav"><div class="w"><a href="#world/story">스토리</a><a href="#world/cities">시작 도시</a><a href="#world/field">필드</a></div></nav>
+<div class="w"><div class="blk" id="w-story"><div class="sh rv"><div><span class="ey">STORY</span><h2>두 장의 지도</h2><p>메인 퀘스트는 혼자서도 끝까지 진행할 수 있습니다.</p></div></div><div class="tl"><div class="tli rv"><small>프롤로그</small><div><p style=margin:0>선택한 시작 도시에서 모험을 시작합니다. 현재 지형과 맞지 않는 옛 지도 조각을 발견하고 메르카든 지도청과 연결됩니다. 현행 지도에 막다른 길로 표시된 장소가 옛 지도에서는 검문소와 마을을 잇고 있습니다.</p></div></div><div class="tli rv"><small>1부</small><div><h4>지도에서 사라진 곳</h4><p>벨모라의 막힌 수문, 화이트펠의 끊긴 계단, 애시포지의 폐쇄 터널에서 옛 관문이 반응합니다. 포탈 너머에는 옛 수로·요새·화물역이 남아 있고, 일부 방어 시설과 경비 병기가 계속 움직입니다.</p></div></div><div class="tli rv"><small>2부</small><div><h4>폐쇄 명령</h4><p>옛 관문망이 우회로를 한꺼번에 열면서 운하가 역류하고 사람과 화물이 잘못된 곳으로 넘어갔습니다. 관제 책임자들은 사고가 번지는 구역을 관문망에서 분리했습니다. 도시들은 새 길을 내고 이후의 지도에서 폐쇄 구역을 제외했습니다.</p></div></div><div class="tli rv"><small>3부</small><div><h4>새 지도</h4><p>재가동한 관문망이 옛 구역을 한꺼번에 연결하려 하자 현재의 마을과 교역로가 위험해집니다. 모험가와 지역 조사대는 옛 운영 기록을 현재 지형과 대조해 안전한 관문부터 다시 열고 위험 구역의 출입을 제한합니다.</p></div></div><div class="tli rv"><small>이후 시즌</small><div><h4>새로 발견된 옛 지도</h4><p>새로 발견된 옛 지도를 따라 미확인 구역과 진입로를 조사합니다. 지역 퀘스트·사냥터·레이드가 추가될 수 있습니다.</p></div></div></div></div>
+<div class="blk" id="w-cities"><div class="sh rv"><div><span class="ey">START CITY</span><h2>세 개의 시작 도시</h2><p>캐릭터를 만들 때 서버·전투 직업·시작 도시를 각각 고릅니다. 세 루트는 Lv.50 전후 메르카든 지도청에서 공통 메인 퀘스트로 합류합니다.</p></div></div><div class="cities"><div class="city rv"><small>자유 도시</small><h4>메르카든</h4><div class="en">MERCADEN · 아스터폴 중앙</div><p>중앙 광장·거래소·지도청이 있는 교통과 교역의 중심지. 브라이어 초원에서 호위와 옛 교역로 조사 의뢰를 진행합니다.</p></div><div class="city rv"><small>운하 도시</small><h4>벨모라</h4><div class="en">BELMORA · 아스터폴 서부</div><p>수상 시장·나루터·창고가 이어지는 도시. 초입 필드에서 화물 배달과 실종 화물 조사를 하며 낚시와 연금 재료를 접합니다.</p></div><div class="city rv"><small>북부 왕도</small><h4>화이트펠 왕도</h4><div class="en">WHITEFELL · 아스터폴 북부</div><p>성벽과 대장간, 산길 관문이 있는 북부 대도시. 초입 필드에서 보급로 호위와 산장 구조 의뢰를 수행합니다.</p></div></div></div>
+<div class="blk" id="w-field"><div class="sh rv"><div><span class="ey">FIELD</span><h2>현재 필드와 옛 정예 구역</h2><p>현재 필드에서는 권장 레벨에 맞춰 퀘스트와 사냥을 합니다. 옛 정예 구역은 현행 지도에 없는 고레벨 필드로, 지정 포탈로 들어가 파티로 정예 몬스터를 잡고 제작·세공 재료를 얻습니다.</p></div></div><div class="mapwrap"><div class="mapc rv"><svg viewBox="0 0 400 280"><rect width=400 height=280 fill="#fff"/><path d="M25 0v280m50-280v280m50-280v280m50-280v280m50-280v280m50-280v280m50-280v280m50-280v280m-375-265h400m-400 50h400m-400 50h400m-400 50h400m-400 50h400m-400 50h400" stroke=#0d1026 stroke-opacity=".06"/><g transform="rotate(-4 200 140) translate(6 -3)"><path d="M405 140c1 10-9 21-14 32-5 10-8 21-14 30-7 10-12 23-25 29-13 6-36 5-51 7-16 2-30 2-43 5-13 3-24 8-38 11-13 2-27 3-41 4-15 1-33 5-46 2-14-3-28-11-37-19-9-8-9-21-17-29-9-7-24-10-36-17-11-6-25-14-31-24-7-9-4-20-6-31-1-11-6-22-4-33 3-10 9-22 18-31 9-8 24-15 36-22 12-7 24-14 39-17 14-3 32 0 47-1 14 0 25 0 39-3 13-4 27-16 42-18 14-2 31 1 44 6 13 5 22 15 32 22 10 7 21 13 30 20 9 7 15 15 24 23 9 8 21 15 30 24 8 9 21 20 22 30z" fill=#FCF5E1 stroke=#9D3645 stroke-opacity=.6 stroke-width=.9 stroke-dasharray="3 2.5"/><path d=M40-10v300m40-300v300m40-300v300m40-300v300m40-300v300m40-300v300m40-300v300m40-300v300m40-300v300 stroke=#9D3645 stroke-opacity=".12"/></g><path d="M378 142c4 8-8 19-16 27-7 8-24 12-31 19-7 8-4 19-12 25-8 7-22 10-35 13-12 2-26 0-38 3-11 3-20 12-31 13-12 2-26-1-37-3-11-3-19-10-31-12-12-2-27 2-41 0-14-1-31-3-42-8-12-5-25-13-29-22-4-8-1-20 4-30 5-9 24-17 27-25 4-8-5-14-6-22-2-8-9-19-5-26 4-7 22-10 31-16 8-6 13-13 21-20 9-7 17-17 29-20 11-3 28 2 41 2 13-1 25-3 39-4 13-1 30-3 41 1 11 3 19 15 26 23 7 7 9 16 14 23 5 8 7 14 14 20 7 5 20 9 31 16 11 6 33 15 36 23z" fill=#fff stroke=#0d1026 stroke-width="1.1"/><g transform="rotate(-4 200 140) translate(6 -3)"><path d="M200 138L236 104M104 168L58 136M124 74L84 30M186 214L160 250M296 186L350 226M300 82L352 100" stroke=#9D3645 stroke-width=1.2 stroke-dasharray="3 2.5"/><path d="M232 109v-5a4 4 0 0 1 8 0v5M54 141v-5a4 4 0 0 1 8 0v5M80 35v-5a4 4 0 0 1 8 0v5M156 255v-5a4 4 0 0 1 8 0v5M346 231v-5a4 4 0 0 1 8 0v5M348 105v-5a4 4 0 0 1 8 0v5" fill=#fff stroke=#9D3645 stroke-width="1.8"/><path d="M230 109.5h12M52 141.5h12M78 35.5h12M154 255.5h12M344 231.5h12M346 105.5h12" stroke=#9D3645 stroke-width="1.6"/></g><path d="M200 138Q150 140 104 168M200 138Q170 96 124 74M200 138Q206 180 186 214M186 214Q244 214 296 186M200 138Q254 120 300 82M300 82Q316 134 296 186" fill=none stroke=#fff stroke-width="4"/><path d="M200 138Q150 140 104 168M200 138Q170 96 124 74M200 138Q206 180 186 214M186 214Q244 214 296 186M200 138Q254 120 300 82M300 82Q316 134 296 186" fill=none stroke=#0d1026 stroke-width="1.4"/><path d="M194.5 138a5.5 5.5 0 1 0 11 0 5.5 5.5 0 1 0-11 0M98.5 168a5.5 5.5 0 1 0 11 0 5.5 5.5 0 1 0-11 0M118.5 74a5.5 5.5 0 1 0 11 0 5.5 5.5 0 1 0-11 0" fill=#fff stroke="#0d1026"/><path d="M200 138h0M104 168h0M124 74h0M186 214h0M296 186h0M300 82h0" stroke=#0d1026 stroke-width=6 stroke-linecap="round"/><path d="M208 150h38v8h-38z" fill="#F7E7B2"/><text x=210 y=156 textLength=34>메르카든</text><text class="i x" x=212 y=167 textLength=30>Lv.1~50</text><text class=i x=212 y=167 textLength=30>Lv.1~50</text><path d="M89 181h30v8h-30z" fill="#F7E7B2"/><text x=91 y=187 textLength=26>벨모라</text><text class="i x" x=84.5 y=198 textLength=39>Lv.51~100</text><text class=i x=84.5 y=198 textLength=39>Lv.51~100</text><path d="M134 71h38v8h-38z" fill="#F7E7B2"/><text x=136 y=77 textLength=34>화이트펠</text><text class="i x" x=131.5 y=88 textLength=43>Lv.101~150</text><text class=i x=131.5 y=88 textLength=43>Lv.101~150</text><path d="M131 206h50v8h-50z" fill="#F7E7B2"/><text x=133 y=212 textLength=46>사막 교역국</text><text class="i x" x=134.5 y=223 textLength=43>Lv.151~200</text><text class=i x=134.5 y=223 textLength=43>Lv.151~200</text><path d="M277 199h38v8h-38z" fill="#F7E7B2"/><text x=279 y=205 textLength=34>애시포지</text><text class="i x" x=274.5 y=216 textLength=43>Lv.201~250</text><text class=i x=274.5 y=216 textLength=43>Lv.201~250</text><path d="M279.5 54h41v8h-41z" fill="#F7E7B2"/><text x=281.5 y=60 textLength=37>경계 분지</text><text class="i x" x=278.5 y=71 textLength=43>Lv.251~300</text><text class=i x=278.5 y=71 textLength=43>Lv.251~300</text><text class=ak x=200 y=266 text-anchor=middle>A S T E R F A L L</text><g transform="translate(374 30)"><circle r=11 fill=#fff stroke=#0d1026 stroke-width=".8"/><path d="M0-9l3 9h-6z" fill="#0d1026"/><path d="M0 9l3-9h-6z" fill=#fff stroke=#0d1026 stroke-width=".8"/><text y=-14 text-anchor=middle class=al>N</text></g><path d="M16 262h40v4h-40z" fill=#fff stroke=#0d1026 stroke-width=".8"/><path d="M16 262h10v4h-10zm20 0h10v4h-10z" fill="#0d1026"/><path d="M4 4h392v272h-392z" fill=none stroke=#0d1026 stroke-width=".6"/></svg></div><div class="regs"><details class="reg"><summary><span class="lv">Lv.1~50</span><span><h4>메르카든 외곽</h4><span class="rt">브라이어 초원 → 옛 교역로</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill a">현재 필드</span><b>브라이어 초원</b> 들늑대·가시멧돼지와 개울가 약초.</p><p><span class="pill b">옛 정예</span><b>옛 교역로</b> Lv.280 이상·폐검문소 포탈. 경비 병기가 폐마차와 초소를 순찰하며 정찰기 경보 시 증원이 옵니다.</p></div></details><details class="reg"><summary><span class="lv">Lv.51~100</span><span><h4>벨모라</h4><span class="rt">썰물 둔치 → 벨모라 구운하</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill a">현재 필드</span><b>썰물 둔치</b> 집게갑각수·진흙장어, 나루터 낚시.</p><p><span class="pill b">옛 정예</span><b>벨모라 구운하</b> Lv.280 이상·나루터 아래 막힌 수문 포탈. 수문 골렘과 경비 인형을 상대합니다. 물살은 옆길과 발판으로 피합니다. 세공용 수문석을 얻습니다.</p></div></details><details class="reg"><summary><span class="lv">Lv.101~150</span><span><h4>화이트펠 왕국</h4><span class="rt">화이트펠 숲 → 화이트펠 옛 관문</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill a">현재 필드</span><b>화이트펠 숲</b> 설원 늑대·뿔토끼, 목재·약초, 산장 상인·수리 NPC.</p><p><span class="pill b">옛 정예</span><b>화이트펠 옛 관문</b> Lv.290 이상·산장 뒤 끊긴 돌계단 포탈. 요새 주변의 서리엄니 야수 무리를 돌담과 초소로 나눠 잡습니다.</p></div></details><details class="reg"><summary><span class="lv">Lv.151~200</span><span><h4>사막 교역국</h4><span class="rt">붉은 모래길 → 유리 협곡</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill a">현재 필드</span><b>붉은 모래길</b> 모래전갈·매복 마물·연금용 수액.</p><p><span class="pill b">옛 정예</span><b>유리 협곡</b> Lv.290 이상·버려진 상단 쉼터 포탈. 관문 과열로 모래가 유리처럼 굳었습니다. 유리등 수호수는 돌진 직후 옆구리 갑각이 열립니다. 희귀 광석을 채집할 수 있습니다.</p></div></details><details class="reg"><summary><span class="lv">Lv.201~250</span><span><h4>애시포지 외곽</h4><span class="rt">폐선로 → 애시포지 지하 조차장</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill a">현재 필드</span><b>폐선로</b> 운반기·순찰 기계, 생활 도구용 구동 부품.</p><p><span class="pill b">옛 정예</span><b>애시포지 지하 조차장</b> Lv.300·폐선로 끝 터널 포탈. 경보 시 다음 선로의 정예 기계가 가동됩니다. 장비 제작용 합금을 얻습니다.</p></div></details><details class="reg"><summary><span class="lv">Lv.251~300</span><span><h4>경계 분지</h4><span class="rt">경계 분지 → 끊긴 관문로</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill a">현재 필드</span><b>경계 분지</b> 분지 가장자리 야수·경계벽 주변 광석.</p><p><span class="pill b">옛 정예</span><b>끊긴 관문로</b> Lv.300·옛 중계소 포탈. 지원기 처치 시 경비 병기의 방어막이 풀립니다. 상급 장비·보석 재료를 얻습니다.</p></div></details><details class="reg"><summary><span class="lv">Lv.300</span><span><h4>아스트라 첨탑 하부</h4><span class="rt">첨탑 기슭 정비문</span></span><span class="pm"></span></summary><div class="bd"><p><span class="pill b">옛 정예</span><b>첨탑 기슭 정비문</b> 중장갑 경비기·수리 드론과 최고 레벨 제작·세공 재료가 나옵니다. 파티 중간 합류가 가능합니다. 첨탑 상층은 별도 입구를 이용합니다.</p></div></details></div></div></div>
+</div></section><section class="view" data-view="guide"><div class="phd"><div class="w"><span class="ey">GAME GUIDE</span><h1>함께 기록을 쓰고,<br>서버의 정점을 겨루다.</h1><p>레이드부터 외형까지, 아스터폴의 모험을 정리했습니다.</p></div></div>
+<nav class="subnav"><div class="w"><a href="#guide/raid">레이드</a><a href="#guide/gear">장비·보석</a><a href="#guide/tower">첨탑</a><a href="#guide/pvp">PvP</a><a href="#guide/server">서버</a><a href="#guide/trade">거래·귀속</a><a href="#guide/wardrobe">외형</a></div></nav>
+<div class="w"><div class="blk" id="g-raid"><div class="sh rv"><div><span class="ey">RAID</span><h2>함께 쓰는 최초의 기록</h2><p>성장 레이드는 입장 레벨과 지역 퀘스트로 열리고, Lv.300 전용 레이드에서 퍼스트 클리어와 길드 순위를 겨룹니다.</p></div></div><div class="raids"><div class="raid rv"><div class="hd2"><span class="lv">Lv.80</span><span>4인</span><span>성장 레이드</span></div><h4>벨모라 대수문</h4><p>폐쇄 수로를 조사하던 관리인들이 배수 장치를 켜면서 대수문 관리기까지 가동합니다.</p><div class="boss"><div class="bn">녹슨 감시기<small>중간 보스</small></div>선로 돌진 후 수리 드론을 부릅니다. 어느 직업이든 경로 끝 차단판을 내려 감시기를 멈추고 외장을 열 수 있습니다.</div><div class="boss"><div class="bn">발브렉, 대수문의 관리기<small>최종 보스</small></div><b>배수</b> 낮은 발판이 드러납니다. <b>급수</b> 낮은 발판이 잠기고 상단 수문에 고정된 보스의 핵심부가 열립니다. 수위가 오래 높으면 상단도 물살에 휩쓸립니다. <b>역류</b> 두 명이 경보 순서대로 양쪽 역류를 끊고, 두 명이 보스를 붙듭니다.</div><div class="rw"><span>외형 제작서 <b>대수문 관리복</b></span><span>탈것 지도 <b>벨모라 운하거북</b></span></div></div><div class="raid rv"><div class="hd2"><span class="lv">Lv.150</span><span>8인</span><span>성장 레이드</span></div><h4>화이트펠의 추락 요새</h4><p>설산 능선에 추락한 비행 요새의 구조 통로를 조사대가 복구하자 자동 항해관이 출항을 시도합니다.</p><div class="boss"><div class="bn">계류 파수기<small>중간 보스</small></div>고정쇠를 끊어 다리를 기울입니다. 양쪽 계류탑의 남은 고정쇠를 다시 걸면 다리가 수평을 되찾고 외장이 열립니다.</div><div class="boss"><div class="bn">케스트렐, 최후의 항해관<small>최종 보스</small></div>갑판조와 기관실조는 각각 탱커 1·서포터 1·딜러 2로 구성합니다. <b>기울기</b> 갑판조가 기울어진 방향을 콜하면 기관실조가 추진기를 조정합니다. <b>비상 정지</b> 갑판조가 송신기를 부순 뒤 기관실조가 손잡이를 당기면 보호막이 풀립니다. <b>마지막</b> 양쪽 추진기를 정지하고 갑판에 합류합니다.</div><div class="rw"><span>외형 제작서 <b>화이트펠 비행복</b></span><span>탈것 지도 <b>화이트펠 설각산양</b></span></div></div><div class="raid rv top"><div class="hd2"><span class="lv">Lv.300</span><span>4인</span><span>퍼스트 클리어</span></div><h4>유리 협곡의 폐쇄 관문</h4><p>유리 협곡 깊은 곳에서 옛 교역소를 연결하던 관문이 무너진 출구까지 다시 열고 있습니다.</p><div class="boss"><div class="bn">살베크, 관문 봉쇄관<small>최종 보스</small></div>관문을 통해 분신을 내보내고 시간이 지나면 본체도 반대편으로 이동합니다. 공격대는 두 명씩 갈라져 문의 연결 방향을 확인합니다. 같은 통로를 동시에 봉쇄하면 분신이 끊기고 본체가 노출됩니다. 마지막에는 문이 열린 순서를 콜하며 한 방으로 합류합니다.</div><div class="rw"><span>외형 제작서 <b>유리 협곡의 통행복</b></span><span>탈것 지도 <b>적사 유리등 도마뱀</b></span></div></div><div class="raid rv top"><div class="hd2"><span class="lv">Lv.300</span><span>8인</span><span>퍼스트 클리어</span></div><h4>애시포지 중앙 분기역</h4><p>애시포지 지하 조차장 안쪽에서 재가동한 중앙역이 각기 다른 지역으로 갈 화물을 같은 선로에 밀어 넣습니다.</p><div class="boss"><div class="bn">비렌, 배차 감독기<small>최종 보스</small></div>승강장조가 화물차 표식과 안전한 선로를 확인하고, 신호실조가 콜에 따라 분기기를 조작합니다. 서로 다른 화물차를 동시에 통과시키면 보호막에 전력을 공급하는 선로가 끊깁니다. 마지막에는 두 조가 승강장에 합류해 차례로 봉쇄되는 선로를 건너며 본체를 처치합니다.</div><div class="rw"><span>외형 제작서 <b>중앙 분기역 감독관복</b></span><span>탈것 지도 <b>애시포지 순찰 보행기</b></span></div></div></div><div class="rules"><p class="rv">4인은 탱커 1·서포터 1·딜러 2, 8인은 탱커 2·서포터 2·딜러 4로 구성합니다. 성장 레이드는 상위 레벨 캐릭터의 전투 능력치를 해당 레이드 수준으로 보정합니다.</p><p class="rv">Lv.300 전용 레이드마다 서버·전 서버 퍼스트 클리어와 당시 공격대 명단을 공개합니다. 혼합 공격대도 개인 클리어 기록과 보상을 얻지만, 길드 순위에는 공격대원 전원이 같은 길드인 클리어만 반영합니다.</p><p class="rv">주간 순위는 지정 레이드의 길드 최고 기록, 월간 순위는 주간 순위 점수의 합입니다. 주간 보상은 길드 깃발 장식, 월간 보상은 명예의 전당 기록·칭호·길드 문장 테두리입니다.</p></div></div>
+<div class="blk" id="g-gear"><div class="sh rv"><div><span class="ey">GEAR</span><h2>최고 티어 장비와 보석</h2></div></div><div class="rules" style="margin-top:0"><p class="rv">상위 레이드 장비와 최고급 제작 장비는 같은 최고 티어입니다. 종결 무기는 생활직 제작으로 완성하고, 핵심 재료는 Lv.300 레이드에서 얻습니다.</p><p class="rv">Lv.300 레이드를 클리어하면 직접 드롭과 별도로 장비 교환용 조각을 확정 지급합니다. 장신구는 4회분, 방어구는 6회분 조각으로 원하는 부위를 지정해 교환합니다.</p><p class="rv">레이드품은 세트 효과를, 제작품은 원하는 능력치 조합을 갖추기 좋습니다. 조각과 레이드 장비는 획득 즉시 귀속됩니다.</p></div><div class="gems"><div class="gp rv"><h5>GRADE</h5><div class="grades"><span>탁한</span><span>맑은</span><span>빛나는</span><span>찬란한</span><span>극광의</span></div><p style="margin:16px 0 0;color:#c4c7dc;font-size:14.5px">보석은 세공으로 만들고, Lv.300 레이드에서는 낮은 확률로 최고 등급 완제 보석이 나옵니다. 무기 2칸, 방어구와 장신구는 부위당 1칸이며 최고 티어 무기는 3칸, 최고 티어 장신구는 2칸입니다.</p></div><div class="gp rv"><h5>TYPE</h5><div class="gt"><div><b>홍옥</b>공격력</div><div><b>청옥</b>치명타</div><div><b>황옥</b>회복량·보호막량</div><div><b>흑요석</b>방어력</div><div><b>월장석</b>최대 생명력</div><div><b>호박석</b>재사용 대기시간·자원 회복</div></div></div></div></div>
+<div class="blk" id="g-tower"><div class="sh rv"><div><span class="ey">TOWER</span><h2>아스트라 첨탑 상층</h2></div></div><div class="tower"><p class="lead rv">아스트라 첨탑은 옛 원정대가 대원의 전투 능력과 임무 수행 능력을 검증하던 50층 규모의 시험 시설입니다. Lv.300부터 1층에서 50층까지 혼자 오르며, 5층마다 수문장이 나오고 10층마다 구역 보스가 수문장을 겸합니다. 수문장전과 50층은 직업마다 다른 과제가 주어지고, 순위는 서버별·전 서버를 직업별로 집계합니다.</p><div class="floors"><div class="fl rv"><span class="n">50<small>F</small></span><span><b>극점의 투기장</b><span>직업별 시험 과제를 수행해 최종 시험 병기의 핵심부를 열고 처치합니다.</span></span></div><div class="fl rv"><span class="n">41~49<small>F</small></span><span><b>선봉의 전당</b><span>저격·증원·발판 봉쇄가 겹치는 처치형·생존형·보호형 시험입니다.</span></span></div><div class="fl rv"><span class="n">31~40<small>F</small></span><span><b>백색 성채</b><span>강공격 직후 짧게 약점이 노출됩니다.</span></span></div><div class="fl rv"><span class="n">21~30<small>F</small></span><span><b>뒤틀린 정원</b><span>정예 몬스터끼리 보호막을 걸고 증원 장치가 작동합니다.</span></span></div><div class="fl rv"><span class="n">11~20<small>F</small></span><span><b>잔향의 전당</b><span>저격기를 피해 엄폐물을 파괴하고 통로를 차단합니다.</span></span></div><div class="fl rv"><span class="n">1~10<small>F</small></span><span><b>시련의 회랑</b><span>경비 병기와 수리 드론이 나옵니다.</span></span></div></div></div></div>
+<div class="blk" id="g-pvp"><div class="sh rv"><div><span class="ey">PVP</span><h2>서버의 정점을 겨루다</h2><p>길드에는 해당 길드와 같은 서버의 캐릭터만 가입할 수 있습니다.</p></div></div><div class="pvp"><div class="pv rv"><small>매칭 대전</small><h4>1:1 결투</h4><p>매칭된 상대와 1:1로 겨룹니다.</p></div><div class="pv rv"><small>조합 자유·장비 수치 보정</small><h4>3:3 랭킹전</h4><p>대형 업데이트 단위로 시즌을 운영합니다. 시즌 종료 시 등급·순위를 확정하고 보상을 지급합니다.</p></div><div class="pv rv"><small>4:4 시즌 PvP</small><h4>길드전</h4><p>좌·중앙·우 세 거점을 두고 15분 동안 겨룹니다. 거점 하나당 3초마다 1점을 얻고, 300점을 먼저 얻으면 즉시 승리합니다. 교전 중인 거점은 점수가 멈추며, 동점이면 중앙만 열리는 연장전을 진행합니다.</p></div></div></div>
+<div class="blk" id="g-server"><div class="sh rv"><div><span class="ey">SERVER</span><h2>네 개의 서버, 같은 모험</h2><p>필드·채팅·친구·거래소·파티·공격대·PvP·길드전은 같은 서버 안에서 이용하고, 순위표는 서버별·전 서버로 운영합니다.</p></div></div><div class="servers"><div class="sv rv"><b>VALTERN</b><span class="kr">발테른</span><br><span class="sz">대규모 서버</span><p>접속 인구와 거래량이 가장 많습니다. 심야에도 파티 모집이 활발하고 거래소 매물이 다양합니다.</p></div><div class="sv rv"><b>NORVALE</b><span class="kr">노르베일</span><br><span class="sz">중규모 서버</span><p>레이드 고정 파티와 첨탑 공략이 활발합니다. 공략 정보를 공유하고 기록을 단축하는 문화가 발달했습니다.</p></div><div class="sv rv"><b>LUMIERE</b><span class="kr">루미에르</span><br><span class="sz">중규모 서버</span><p>제작·외형 수집·길드 하우스 꾸미기가 활발합니다. 유저가 여는 장터와 소규모 친목 행사가 잦습니다.</p></div><div class="sv rv"><b>CARDEN</b><span class="kr">카르덴</span><br><span class="sz">소규모 서버</span><p>인구가 적고 저녁에 접속이 몰립니다. 단골 거래와 고정 파티, 길드 사이의 인맥이 두드러지며 희귀 매물은 제작자에게 직접 주문하기도 합니다.</p></div></div><p class="note">서버별 성격은 이용자 문화의 차이이며, 대륙·시작 도시·콘텐츠·보상·성장 조건은 모든 서버가 같습니다. 전 서버 순위는 기록 조회만 가능하고, 서버 간 채팅·거래·파티·매칭은 지원하지 않습니다.</p></div>
+<div class="blk" id="g-trade"><div class="sh rv"><div><span class="ey">TRADE</span><h2>골드·거래·귀속</h2><p>기본 화폐는 골드입니다. 거래소는 서버별로 운영합니다.</p></div></div><div class="tbl rv"><div class="tr h"><span>항목</span><span>거래와 귀속</span></div><div class="tr"><b>제작 장비·일반 필드 장비</b><span>첫 장착 전 거래 가능·첫 장착 시 귀속</span></div><div class="tr"><b>재료·음식·물약·염료·미장착 보석</b><span>거래 가능·보석은 장착 시 귀속</span></div><div class="tr"><b>필드·제작 외형</b><span>장착 전 거래 가능·장착 시 귀속</span></div><div class="tr"><b>시즌 상자 외형</b><span>미등록 상태 거래 가능·등록 시 귀속</span></div><div class="tr"><b>외형 제작서</b><span>배우기 전 거래 가능·배우면 귀속</span></div><div class="tr"><b>상위 레이드 장비·조각</b><span>획득 즉시 귀속·거래 불가</span></div><div class="tr"><b>퍼스트 클리어·랭킹전·첨탑 보상</b><span>획득 즉시 귀속</span></div><div class="tr"><b>시즌 상자 탈것 지도</b><span>미사용 상태 1회 거래·구매 시 귀속</span></div><div class="tr"><b>던전·레이드 탈것 지도</b><span>획득 즉시 귀속·거래 불가</span></div></div></div>
+<div class="blk" id="g-wardrobe"><div class="sh rv"><div><span class="ey">WARDROBE</span><h2>나만의 외형을 완성하다</h2><p>외형창에서 의상·무기 외형·등 장식·얼굴 장식을 부위별로 장착합니다. 획득처가 다른 파츠를 섞어 입고, 지원 파츠는 염색할 수 있습니다. 상자를 열 때마다 꾸미기 교환권 1장을 얻으며, 40장으로 시즌 의상 파츠, 60장으로 무기 외형·등 장식, 100장으로 시즌 탈것을 지정 교환합니다.</p></div></div><div class="box"><div class="bx rv"><div class="p">80%</div><b>꾸미기 아이템</b><span>일반 염료·소형 가구·스크린샷 소품·꾸미기 교환권</span></div><div class="bx rv"><div class="p">14%</div><b>일반 외형</b><span>얼굴 장식·장갑·신발·단품 의상</span></div><div class="bx rv"><div class="p">4%</div><b>시즌 외형</b><span>시즌 의상 파츠·무기 외형·등 장식</span></div><div class="bx rv"><div class="p">1%</div><b>시즌 탈것</b><span>탈것 지도로 지급합니다.</span></div><div class="bx rv"><div class="p">1%</div><b>특수 외형</b><span>전용 연출을 켜고 끌 수 있고, 일부 세트는 성장·생활 효과를 줍니다.</span></div></div><div style="margin-top:22px"><div class="tbl rv"><div class="tr tr3 h"><span>생활·편의 옵션</span><span>파츠당</span><span>합산 상한</span></div><div class="tr tr3"><span>제작 숙련도 획득량</span><span>+2~5%</span><span>+15%</span></div><div class="tr tr3"><span>제작 재료 반환 확률</span><span>+2~4%</span><span>+12%</span></div><div class="tr tr3"><span>채집 숙련도 획득량</span><span>+2~5%</span><span>+15%</span></div><div class="tr tr3"><span>채집 동작 시간</span><span>−2~4%</span><span>−12%</span></div></div></div><p class="note">재료 반환 옵션이 발동하면 소모한 일반 재료 중 1개를 돌려받습니다. 희귀 재료와 레이드 핵심 재료는 제외합니다.</p></div></div></section><section class="view" data-view="news"><div class="phd"><div class="w"><span class="ey">NEWS</span><h1>소식</h1><p>제작자가 직접 전하는 소식입니다.</p></div></div><div class="blk"><div class="w"><div class="nlist" data-nrows></div></div></div></section><section class="view" data-view="play"><div class="phd"><div class="w"><span class="ey">HOW TO PLAY</span><h1>플레이 안내</h1><p>모험을 시작하기 전에 아래 안내를 꼭 확인해 주세요.</p></div></div>
+<div class="blk"><div class="w"><div class="play">
+<div class="pc rv"><small>MODEL</small><h3>추천 모델</h3><div class="models"><div class="mo"><span class="n">1</span><b>모델 이름<em>BEST</em></b><span>추천 이유를 적어 주세요.</span></div><div class="mo"><span class="n">2</span><b>모델 이름</b><span>추천 이유를 적어 주세요.</span></div><div class="mo"><span class="n">3</span><b>모델 이름</b><span>추천 이유를 적어 주세요.</span></div></div></div>
+<div class="pc rv"><small>PERSONA</small><h3>추천 기입사항</h3><pre class="cp">[아바타]
+닉네임:
+서버:
+시작 도시:
+전투 직업:
+레벨:
+길드:
+외형·종족·성별:
+
+[현실]
+이름:
+나이:
+성별:
+직업:
+성격:</pre><p class="tip"><b>TIP</b>현실 신상은 상대가 알게 된 뒤에만 RP에 반영됩니다.</p></div>
+<div class="two" style="margin-top:0"><div class="pc rv"><small>SETTING</small><h3>추천 설정</h3><div class="kv"><div><span>설정 항목</span><span>값</span></div><div><span>설정 항목</span><span>값</span></div><div><span>설정 항목</span><span>값</span></div></div></div><div class="pc rv"><small>PLAY</small><h3>추천 플레이</h3><ol class="ol"><li>플레이 방법을 적어 주세요.</li><li>플레이 방법을 적어 주세요.</li><li>플레이 방법을 적어 주세요.</li></ol></div></div>
+<div class="pc rv"><small>COMMAND</small><h3>명령어</h3><div class="cmd"><div><code>/명령어 [대상]</code><span>명령어 설명을 적어 주세요.</span></div><div><code>/명령어 [내용]</code><span>명령어 설명을 적어 주세요.</span></div><div><code>/명령어</code><span>명령어 설명을 적어 주세요.</span></div></div></div>
+<div class="pc rv"><small>JSX</small><h3>시즌 외형 상자 결과를 RP에 반영하기</h3><div class="steps"><div class="stp"><span class="n">1</span><b>상자 열기</b><span>상자를 열고 결과 정리를 눌러 [SYSTEM] 블록을 복사합니다.</span></div><div class="stp"><span class="n">2</span><b>채팅에 붙여 넣기</b><span>복사한 블록을 채팅에 붙여 넣으면 획득 결과가 RP에 반영됩니다.</span></div><div class="stp"><span class="n">3</span><b>희귀 획득</b><span>희귀 획득은 주변 인물의 눈에 띕니다.</span></div></div><p class="tip"><b>TIP</b>[SYSTEM] 블록은 대사로 읽히지 않습니다.</p></div>
+<div class="pc rv cmt"><small>COMMENT</small><h3>제작자 코멘트</h3><p>제작자 코멘트를 적어 주세요.</p><p>두 번째 문단을 적어 주세요.</p><p class="sg">— 제작자</p></div>
+</div></div></div></section></main><footer class="ft"><div class="w"><a class="logo" href="#home"><span class="mk"><i></i></span><span class="lt"><b>LOST MERIDIAN</b><small>로스트 메리디언</small></span></a><nav><a href="#adventurers" data-nav="adventurers">모험가</a><a href="#guild" data-nav="guild">길드</a><a href="#world" data-nav="world">세계관</a><a href="#guide" data-nav="guide">게임 가이드</a><a href="#news" data-nav="news">소식</a><a href="#play" data-nav="play">플레이 안내</a></nav><p>© 2026 LOST MERIDIAN. All rights reserved.</p></div></footer>
+<div class="md" hidden><div class="mb"><button class="mx" aria-label="닫기"></button><div class="mc"></div></div></div><div class="toast" hidden></div>
+<script>window.LM_CLASSES={"아발레스터": {"g": "딜러", "w": "대형 석궁", "t": ["원거리", "부위 파괴"], "d": "이동 중 볼트를 박고 같은 부위를 다시 맞혀 폭발시킵니다. 마무리 사격은 정지 조준이 필요합니다. 짧게 노출되는 부위 파괴에 강합니다."}, "리퍼": {"g": "딜러", "w": "장낫", "t": ["중거리", "다수 대상"], "d": "낫날 끝이 닿는 중거리에 강합니다. 한 적에 상처를 겹치거나 여러 적에게 상처를 남긴 뒤 낫을 당겨 추가 피해를 줍니다."}, "스트라이커": {"g": "딜러", "w": "전투 건틀릿", "t": ["근접", "무력화"], "d": "연타로 충격을 쌓고 강타로 터뜨려 무력화합니다. PvP에서는 짧게 치고 빠지며 상대 방어기가 빠진 뒤 진입합니다."}, "베인블레이드": {"g": "딜러", "w": "마법검", "t": ["중거리", "저주"], "d": "중거리에서 저주를 걸고 근접 참격으로 발동합니다. 한 번씩 발동해 피해를 이어 가거나 일괄 해방해 큰 피해를 한 번에 넣습니다."}, "루미너리": {"g": "서포터", "w": "순례자의 지팡이", "t": ["힐 서포터"], "d": "아군 한 명을 치유의 중심으로 지정합니다. 대상에게 준 치유 일부가 주변에 퍼집니다. 산개 시 중심 변경·직접 치유·정화를 씁니다."}, "알케미스트": {"g": "서포터", "w": "투척 약병·약제 벨트", "t": ["힐 서포터"], "d": "응급약은 착탄 지점의 아군을 즉시 회복시키고, 안개약은 지속 치유 구역을 만듭니다. 약병은 전투 중 자동 보충됩니다."}, "마에스트로": {"g": "서포터", "w": "마력 지휘봉", "t": ["버프 서포터"], "d": "합주는 파티 화력을, 독주는 지정 아군의 다음 주력기를 강화합니다. 광역 보호막과 피해 감소를 별도로 씁니다."}, "패스파인더": {"g": "서포터", "w": "길잡이 등불", "t": ["버프 서포터"], "d": "등불을 내건 자리를 집결점으로 지정합니다. 집결점으로 이동하는 아군의 속도를 높이고, 등불 빛 안으로 들어온 아군에게 보호막을 부여합니다. 산개 직전 피해 감소를 쓸 수 있습니다."}, "램파트": {"g": "탱커", "w": "장창·탑방패", "t": [], "d": "방패를 고정해 정면 공격을 막습니다. 방어 자세 중 이동이 느려집니다. 공격형 세팅은 자세 해제 후 장창 반격을 강화합니다."}, "블러드액스": {"g": "탱커", "w": "양손 전투도끼", "t": [], "d": "피격으로 투지를 쌓아 자가 회복이나 공격에 씁니다. 극공격형 세팅은 회복에 쓸 투지를 공격에 돌릴 수 있습니다."}, "아이언셸": {"g": "탱커", "w": "마도 철갑·충격 건틀릿", "t": [], "d": "돌진과 도발로 여러 방향의 적을 붙잡습니다. 철갑에 쌓인 열을 방어막이나 전방 충격파로 전환합니다."}, "미러나이트": {"g": "탱커", "w": "거울 방패·레이피어", "t": [], "d": "강공격의 충격을 저장해 결계나 레이피어 반격에 씁니다. 필수 회피 기믹은 직접 피합니다."}};</script><script>window.__LMSRC=document.documentElement.outerHTML;</script><script>(function(){
+var C=window.LM_CONFIG,N=(window.LM_NEWS||[]).slice().sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0});
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function im(src,label,size,cls){return '<div class="im '+(cls||'')+'">'+(src?'<img src="'+esc(src)+'" alt="" loading="lazy">':'<div class="pl"><b>'+label+'</b>'+size+'</div>')+'</div>'}
+var byId={};(C.characters||[]).forEach(function(c){byId[c.id]=c});
+function gcls(c){return c.guild=='벡터'?'v1':c.guild=='바이퍼'?'v2':'v0'}
+function card(c){return '<a class="cc rv" href="#adventurers/'+c.id+'" data-g="'+esc(c.guild||'main')+'">'+im(c.imgs&&c.imgs[0],'IMAGE','1920 × 1080','land')+'<div class="ov"><span class="gl '+gcls(c)+'">'+esc(c.guild?c.guild+' · '+c.role:c.role)+'</span><h4>'+esc(c.nick)+'</h4><div class="sb">'+esc(c.title)+'<em>'+esc(c.cls)+'</em></div></div></a>'}
+/* banner carousel */
+var trk=$('.trk'),vp=$('.vp');
+trk.innerHTML=C.banners.map(function(b,i){return '<a class="sld" href="'+esc(b.link)+'">'+(b.img?'<img src="'+esc(b.img)+'" alt="'+esc(b.title)+'">':'<span class="sph"><b>BANNER '+(i+1)+'</b>1920 × 780<em>'+esc(b.title)+'</em></span>')+'</a>'}).join('');
+var SL=$$('.sld'),cur=0,tm,BT=$('.btabs');BT.innerHTML=C.banners.map(function(b,i){return '<button><i><s></s></i><small>'+esc(b.eyebrow)+'</small><b>'+esc(b.title)+'</b></button>'}).join('');var TB=BT.querySelectorAll('button');
+TB.forEach(function(t,i){t.onclick=function(){go(i)}});
+function lay(){var sw=SL[0].offsetWidth;if(!sw)return;trk.style.transform='translateX('+(-cur*sw)+'px)'}
+function go(i){cur=(i+SL.length)%SL.length;SL.forEach(function(s,j){s.classList.toggle('on',j==cur)});TB.forEach(function(t,j){t.classList.remove('on');if(j==cur){void t.offsetWidth;t.classList.add('on')}});lay();clearTimeout(tm);tm=setTimeout(function(){go(cur+1)},6000)}
+SL.forEach(function(s,j){s.addEventListener('click',function(e){if(j!=cur){e.preventDefault();e.stopPropagation();go(j)}},true)});
+var sx=null,moved=false;vp.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;moved=false},{passive:true});vp.addEventListener('touchend',function(e){if(sx==null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40){moved=true;go(cur+(d<0?1:-1))}sx=null});
+vp.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+addEventListener('resize',lay);go(0);
+/* rivals avatars */
+$$('[data-avs]').forEach(function(el){var g=el.dataset.avs;el.innerHTML=(C.characters||[]).filter(function(c){return c.guild==g}).map(function(c){return im(c.imgs[0],'','')}).join('')});
+/* rails & grids */
+
+
+$$('[data-gimg]').forEach(function(el){var g=(C.guilds||[])[+el.dataset.gimg]||{};el.innerHTML=im(g.img,'GUILD IMAGE','1920 × 1080','land')});
+/* filters */
+$$('.filters button').forEach(function(b){b.onclick=function(){$$('.filters button').forEach(function(x){x.classList.toggle('on',x===b)});var f=b.dataset.f;$$('[data-all] .cc').forEach(function(c){c.style.display=(f=='all'||c.dataset.g==f)?'':'none'})}});
+/* class roles */
+$$('.rsw').forEach(function(w){var bs=w.querySelectorAll('.roles button'),ps=w.querySelectorAll('.rolep');bs.forEach(function(b,i){b.onclick=function(){bs.forEach(function(x){x.classList.toggle('on',x===b)});ps.forEach(function(p,k){p.hidden=k!=i})}})});
+/* modal */
+var md=$('.md'),mc=$('.mc'),back=null,gi=0;
+function open(h){mc.innerHTML=h;md.hidden=false;document.body.style.overflow='hidden';$('.mb').scrollTop=0}
+function shut(){md.hidden=true;document.body.style.overflow='';if(back!=null){var b=back;back=null;CUR=b.replace('#','');setHash(b)}}
+md.addEventListener('click',function(e){if(e.target===md||e.target.closest('.mx'))shut()});
+addEventListener('keydown',function(e){if(md.hidden)return;if(e.key=='Escape')shut();if(e.key=='ArrowRight')gal(gi+1);if(e.key=='ArrowLeft')gal(gi-1)});
+function gal(k){var I=$$('.gal .im',mc);if(!I.length)return;gi=(k+I.length)%I.length;I.forEach(function(x,j){x.style.display=j==gi?'':'none'});$$('.gal .gnav button',mc).forEach(function(x,j){x.classList.toggle('on',j==gi)});$('.gal .cnt',mc).textContent=(gi+1)+' / '+I.length}
+function clsBox(n){var K=window.LM_CLASSES||{},x=K[n];if(!x)return '<div class="pcl"><small>CLASS</small><b>'+esc(n)+'</b><p>직업명을 열두 전투 직업 중 하나로 입력하면 직업 설명이 표시됩니다.</p></div>';return '<div class="pcl"><small>CLASS · '+esc(x.g)+'</small><b>'+esc(n)+'<span>'+esc(x.w)+'</span></b>'+(x.t.length?'<div class="tg">'+x.t.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div>':'')+'<p>'+esc(x.d)+'</p></div>'}
+function profile(id,k){var c=byId[id];if(!c)return;open('<div class="prof"><div class="gal">'+c.imgs.map(function(s){return im(s,'IMAGE','1920 × 1080','land')}).join('')+'<span class="cnt"></span><button class="ga l" aria-label="이전"></button><button class="ga r" aria-label="다음"></button><div class="gnav">'+c.imgs.map(function(){return '<button></button>'}).join('')+'</div></div><div class="pinfo"><span class="gl">'+esc(c.guild?c.guild+' · '+c.role:c.role)+'</span><p class="ttl">'+esc(c.title)+'</p><h2>'+esc(c.nick)+'</h2><dl><dt>NICKNAME</dt><dd>'+esc(c.nick)+'</dd><dt>TITLE</dt><dd>'+esc(c.title)+'</dd><dt>NAME</dt><dd>'+esc(c.name)+'</dd><dt>AGE</dt><dd>'+esc(c.age)+'</dd><dt>CLASS</dt><dd>'+esc(c.cls)+'</dd><dt>SERVER</dt><dd>'+esc(c.server)+'</dd></dl><p class="ds">'+esc(c.desc)+'</p>'+clsBox(c.cls)+'</div></div>');
+ $('.ga.l',mc).onclick=function(){gal(gi-1)};$('.ga.r',mc).onclick=function(){gal(gi+1)};$$('.gnav button',mc).forEach(function(b,j){b.onclick=function(){gal(j)}});
+ var g=$('.gal',mc),x0=null;g.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});g.addEventListener('touchend',function(e){if(x0==null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)gal(gi+(d<0?1:-1));x0=null});
+ gal(k||0)}
+var CAT={'공지':'c0','업데이트':'c1','이벤트':'c2','점검':'c3','GM소식':'c4','제작 노트':'c5'};
+function renderNews(){var nl=$('[data-nl]'),nr=$('[data-nrows]');function tg(c){return '<span class="tag '+(CAT[c]||'c4')+'">'+esc(c)+'</span>'}
+var E='<p class="nempty">아직 등록된 소식이 없습니다.</p>';if(nl)nl.innerHTML=N.length?'':E;if(nr)nr.innerHTML=N.length?'':E;if(!N.length)return;if(nl)nl.innerHTML=N.slice(0,6).map(function(n,i){return '<a class="bn-i" href="#news/'+i+'">'+tg(n.c)+'<b>'+esc(n.t)+'</b><span class="dt">'+esc(n.d.slice(5))+'</span></a>'}).join('');
+if(nr)nr.innerHTML=N.map(function(n,i){return '<a class="nrow" href="#news/'+i+'">'+tg(n.c)+'<b>'+esc(n.t)+'</b><span>'+esc(n.d)+'</span></a>'}).join('')}
+var NBASE=JSON.stringify(N);try{var _d=JSON.parse(localStorage.getItem('lm_news_draft')||'null');if(_d&&_d.base===NBASE){N=_d.n}else if(_d){localStorage.removeItem('lm_news_draft')}}catch(e){}
+renderNews();
+/* GitHub Pages: news.json next to the page overrides the built-in list */
+window.LM_REMOTE=false;try{fetch('news.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(a){if(!Array.isArray(a))return;window.LM_REMOTE=true;N.length=0;a.forEach(function(x){N.push(x)});N.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0});try{localStorage.removeItem('lm_news_draft')}catch(e){}renderNews()}).catch(function(){})}catch(e){}
+function article(i){if(isNaN(+i)){i=N.findIndex(function(x){return x.t==i})}var n=N[+i];if(!n)return;open('<div class="art"><span class="tag '+CAT[n.c]+'">'+esc(n.c)+'</span><h1>'+esc(n.t)+'</h1><div class="mm"><span>'+'제작자'+'</span><span>'+esc(n.d)+'</span></div><div class="bd">'+(Array.isArray(n.b)?n.b.map(function(p){return '<p>'+esc(p)+'</p>'}).join(''):n.b)+'</div></div>')}
+/* router */
+var hd=$('.hd');
+var CUR='home';function setHash(h){try{history.replaceState(null,'',h)}catch(e){}}
+function route(h){h=h||'home';CUR=h;var p=h.split('/'),v=p[0];
+ if(!$('[data-view="'+v+'"]'))v='home';
+ document.body.classList.remove('menu-open');
+ var prev=$('.view.on'),changed=!prev||prev.dataset.view!=v;
+ if(changed){$$('.view').forEach(function(x){x.classList.toggle('on',x.dataset.view==v)});scrollTo(0,0);reveal()}
+ $$('.nav a').forEach(function(a){a.classList.toggle('on',a.dataset.nav==v)});
+ hd.classList.add('light');onScroll();if(v=='home')requestAnimationFrame(lay);
+ if(v=='adventurers'&&p[1]){if(back==null)back='#adventurers';profile(p[1],+p[2]||0)}
+ else if(v=='news'&&p[1]!=null){if(back==null)back='#news';article(decodeURIComponent(p[1]))}
+ else if((v=='guide'||v=='world')&&p[1]){var t=document.getElementById(v[0]+'-'+p[1]);if(t)setTimeout(function(){t.scrollIntoView({behavior:changed?'auto':'smooth'})},changed?60:0)}
+ else if(!md.hidden){md.hidden=true;document.body.style.overflow=''}
+}
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();var h=a.getAttribute('href'),p=h.slice(1).split('/'),v=$('.view.on').dataset.view;
+ if((p[0]=='news'||p[0]=='adventurers')&&p[1]!=null&&v!=p[0]){back='#'+CUR;if(p[0]=='news')article(decodeURIComponent(p[1]));else profile(p[1],+p[2]||0);return}
+ if((p[0]=='news'||p[0]=='adventurers')&&p[1]!=null)back='#'+p[0];
+ setHash(h);route(h.slice(1));if(a.dataset.filter){var fb=$('.filters button[data-f="'+a.dataset.filter+'"]');if(fb)fb.click()}});
+/* header */
+function onScroll(){hd.classList.toggle('solid',scrollY>40)}addEventListener('scroll',onScroll,{passive:true});
+$('.burger').onclick=function(){document.body.classList.toggle('menu-open')};
+/* subnav active */
+var subs=$$('.subnav a');addEventListener('scroll',function(){var v=$('.view.on');if(!v)return;var on=null;$$('.subnav a',v).forEach(function(a){var t=document.getElementById(a.getAttribute('href').slice(1).replace('/','-').replace(/^(guide|world)-/,function(m,x){return x[0]+'-'}));if(t&&t.getBoundingClientRect().top<160)on=a});$$('.subnav a',v).forEach(function(a){a.classList.toggle('on',a===on)})},{passive:true});
+/* copy block */
+$$('pre.cp').forEach(function(p){p.onclick=function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);try{navigator.clipboard&&navigator.clipboard.writeText(p.textContent);toast('복사했습니다')}catch(e){}}});
+/* toast */
+var ts=$('.toast'),tt;function toast(m){ts.textContent=m;ts.hidden=false;clearTimeout(tt);tt=setTimeout(function(){ts.hidden=true},2000)}
+$$('[data-start]').forEach(function(b){b.onclick=function(e){e.preventDefault();toast('런처를 실행하는 중입니다…')}});
+/* reveal */
+var io='IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'}):null;
+function reveal(){if(!io)return;document.body.classList.add('rvo');$$('.view.on .rv:not(.in)').forEach(function(el){io.observe(el)})}
+addEventListener('hashchange',function(){try{route(decodeURIComponent(location.hash.slice(1)))}catch(e){}});
+var h0='';try{h0=decodeURIComponent(location.hash.slice(1))}catch(e){}route(h0);
+/* ===== creator mode ===== */
+(function(){
+var SRC_JS=document.currentScript?document.currentScript.textContent:'';
+var CODE=String(C.creatorCode||'');
+function sortN(){N.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0})}
+function today(){var d=new Date();return d.getFullYear()+'.'+('0'+(d.getMonth()+1)).slice(-2)+'.'+('0'+d.getDate()).slice(-2)}
+function saveDraft(){try{localStorage.setItem('lm_news_draft',JSON.stringify({base:NBASE,n:N}))}catch(e){}}
+function newsBlock(){return '<script>window.LM_NEWS=[\n'+N.map(function(n){return JSON.stringify(n).replace(/<\//g,'<\\/')}).join(',\n')+'\n];<\/script>'}
+function fullHTML(){var s=window.__LMSRC||'';if(!s)return '';s=s.replace(/<\/body>\s*<\/html>\s*$/,'');
+ s=s.replace(/<script>window\.LM_NEWS=[\s\S]*?;<\/script>/,function(){return newsBlock()});
+ return '<!DOCTYPE html>\n'+s+'<script>'+SRC_JS+'<\/script></body></html>'}
+var editing=-1;
+function ghGet(){try{return JSON.parse(localStorage.getItem('lm_gh')||'null')}catch(e){return null}}
+function ghSet(v){try{if(v)localStorage.setItem('lm_gh',JSON.stringify(v));else localStorage.removeItem('lm_gh')}catch(e){}}
+function ghGuess(){var m=location.hostname.match(/^([^.]+)\.github\.io$/);if(!m)return {o:'',r:''};var seg=location.pathname.split('/').filter(Boolean);return {o:m[1],r:seg.length&&!/\.html?$/.test(seg[0])?seg[0]:m[1]+'.github.io'}}
+function b64(s){return btoa(unescape(encodeURIComponent(s)))}
+function newsJSON(){return '[\n'+N.map(function(n){return '  '+JSON.stringify(n)}).join(',\n')+'\n]\n'}
+function publish(note){var g=ghGet();if(!g||!g.token)return Promise.resolve(false);
+ var u='https://api.github.com/repos/'+encodeURIComponent(g.o)+'/'+encodeURIComponent(g.r)+'/contents/'+g.p.split('/').map(encodeURIComponent).join('/');
+ var H={'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'};
+ return fetch(u+'?ref='+encodeURIComponent(g.b),{headers:H,cache:'no-store'}).then(function(r){if(r.status==404)return null;if(!r.ok)throw new Error('읽기 실패 ('+r.status+')');return r.json()}).then(function(cur){
+  var body={message:'소식: '+note,content:b64(newsJSON()),branch:g.b};if(cur&&cur.sha)body.sha=cur.sha;
+  return fetch(u,{method:'PUT',headers:H,body:JSON.stringify(body)})}).then(function(r){if(!r.ok)return r.json().then(function(x){throw new Error((x&&x.message)||('게시 실패 ('+r.status+')'))});return true})}
+var busy=false;
+function after(note,msg){var g=ghGet();if(!g||!g.token){saveDraft();renderNews();panel(msg+' (GitHub 미연결: 이 브라우저에만 저장됨)');return}
+ busy=true;renderNews();panel(msg+' GitHub에 올리는 중…');
+ publish(note).then(function(){busy=false;try{localStorage.removeItem('lm_news_draft')}catch(e){}panel(msg+' GitHub에 올렸습니다. 1~2분 뒤 모두에게 보입니다.')}).catch(function(err){busy=false;saveDraft();panel('GitHub 게시 실패: '+err.message+' (글은 이 브라우저에 임시 저장됨)')})}
+function bodyText(b){return Array.isArray(b)?b.join('\n\n'):''}
+function panel(msg){
+ var cats=['제작 노트','공지','업데이트','이벤트','점검'];
+ var cur=editing>=0?N[editing]:null;
+ var htmlBody=cur&&!Array.isArray(cur.b);
+ open('<div class="crt"><div class="crt-h"><small>CREATOR MODE</small><h2>제작자 모드</h2><p>여기서 쓴 글은 이 브라우저에 임시 저장됩니다. 모두에게 보이게 하려면 아래 <b>파일에 반영</b>에서 새 파일을 받거나 소식 코드를 복사해 붙여 넣으세요.</p></div>'
+ +(msg?'<p class="crt-msg">'+esc(msg)+'</p>':'')
+ +'<div class="crt-f"><label>분류<select data-k="c">'+cats.map(function(c){return '<option'+(cur&&cur.c==c?' selected':'')+'>'+c+'</option>'}).join('')+'</select></label>'
+ +'<label>날짜<input data-k="d" value="'+esc(cur?cur.d:today())+'" placeholder="2026.11.20"></label>'
+ +'<label class="full">제목<input data-k="t" value="'+esc(cur?cur.t:'')+'"></label>'
+ +(htmlBody?'<p class="full crt-note">이 글은 디자인이 들어간 글이라 본문은 여기서 수정할 수 없습니다. 제목·분류·날짜만 바뀝니다.</p>':'<label class="full">본문<textarea data-k="b" rows="8" placeholder="빈 줄로 문단을 나눕니다.">'+esc(cur?bodyText(cur.b):'')+'</textarea></label>')
+ +'<div class="full crt-btns">'+(editing>=0?'<button class="cb ghost" data-act="cancel">취소</button>':'')+'<button class="cb" data-act="save">'+(editing>=0?'수정 완료':'등록')+'</button></div></div>'
+ +'<div class="crt-l"><h3>등록된 글 <span>'+N.length+'</span></h3>'+(N.length?N.map(function(n,i){return '<div class="crt-r"><span class="tag '+(CAT[n.c]||'c4')+'">'+esc(n.c)+'</span><b>'+esc(n.t)+'</b><span class="dt">'+esc(n.d)+'</span><button data-act="edit" data-i="'+i+'">수정</button><button data-act="del" data-i="'+i+'">삭제</button></div>'}).join(''):'<p class="nempty">등록된 글이 없습니다.</p>')+'</div>'
+ +(function(){var g=ghGet()||{},q=ghGuess();return '<div class="crt-x crt-gh"><h3>GitHub 자동 게시 <span>'+(g.token?'연결됨':'미연결')+'</span></h3><p>연결하면 등록·수정·삭제할 때마다 저장소의 news.json이 자동으로 바뀌고, GitHub Pages에 1~2분 뒤 반영됩니다. 토큰은 이 브라우저에만 저장됩니다.</p><div class="crt-f crt-gf"><label>사용자 이름<input data-g="o" value="'+esc(g.o||q.o)+'"></label><label>저장소<input data-g="r" value="'+esc(g.r||q.r)+'"></label><label>브랜치<input data-g="b" value="'+esc(g.b||'main')+'"></label><label>파일 경로<input data-g="p" value="'+esc(g.p||'news.json')+'"></label><label class="full">토큰<input data-g="token" type="password" autocomplete="off" placeholder="'+(g.token?'저장됨 (바꾸려면 새로 입력)':'github_pat_…')+'"></label><div class="full crt-btns">'+(g.token?'<button class="cb ghost" data-act="ghoff">연결 해제</button><button class="cb ghost" data-act="ghpush">지금 전체 올리기</button>':'')+'<button class="cb" data-act="ghsave">연결 저장</button></div></div></div>'})()
+ +'<div class="crt-x"><h3>파일에 반영</h3><p>새 파일을 받아 기존 lostmeridian.html과 바꾸면 모두에게 보입니다. 다운로드가 막힌 화면이면 아래 소식 코드를 복사해 파일의 LM_NEWS 부분과 바꿔 넣으세요.</p><div class="crt-btns"><button class="cb" data-act="dl">새 파일 다운로드</button><button class="cb ghost" data-act="copy">소식 코드 복사</button></div><textarea class="crt-code" readonly rows="5">'+esc(newsBlock())+'</textarea>'
+ +'<button class="crt-out" data-act="exit">제작자 모드 나가기</button></div></div>');
+ var root=$('.crt',mc);
+ root.addEventListener('click',function(e){var b=e.target.closest('[data-act]');if(!b)return;var a=b.dataset.act,i=+b.dataset.i;
+  if(busy)return;if(a=='save'){var g=function(k){var el=root.querySelector('[data-k="'+k+'"]');return el?el.value.trim():''};
+   var t=g('t');if(!t){panel('제목을 입력해 주세요.');return}
+   var d=g('d')||today();
+   if(editing>=0){var o=N[editing];o.c=g('c');o.t=t;o.d=d;if(Array.isArray(o.b)||o.b==null){o.b=g('b').split(/\n\s*\n/).map(function(x){return x.trim()}).filter(Boolean)}}
+   else N.push({c:g('c'),t:t,d:d,b:g('b').split(/\n\s*\n/).map(function(x){return x.trim()}).filter(Boolean)});
+   var was=editing>=0;editing=-1;sortN();after((was?'수정 ':'등록 ')+t,was?'수정했습니다.':'등록했습니다.')}
+  else if(a=='edit'){editing=i;panel()}
+  else if(a=='cancel'){editing=-1;panel()}
+  else if(a=='del'){if(b.dataset.ok){var gone=N[i].t;N.splice(i,1);editing=-1;after('삭제 '+gone,'삭제했습니다.')}else{b.dataset.ok=1;b.textContent='한 번 더 누르면 삭제'}}
+  else if(a=='dl'){var h=fullHTML();if(!h){panel('이 화면에서는 파일을 만들 수 없습니다. 소식 코드를 복사해 주세요.');return}
+   try{var u=URL.createObjectURL(new Blob([h],{type:'text/html'})),l=document.createElement('a');l.href=u;l.download='lostmeridian.html';document.body.appendChild(l);l.click();l.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);toast('다운로드를 시작했습니다.')}catch(err){toast('다운로드가 막혀 있습니다. 소식 코드를 복사해 주세요.')}}
+  else if(a=='copy'){var ta=root.querySelector('.crt-code');ta.focus();ta.select();var ok=false;try{ok=document.execCommand('copy')}catch(err){}try{navigator.clipboard&&navigator.clipboard.writeText(ta.value).then(function(){toast('복사했습니다.')})}catch(err){}if(ok)toast('복사했습니다.');}
+  else if(a=='ghsave'){var gv=function(k){return root.querySelector('[data-g="'+k+'"]').value.trim()},old=ghGet()||{};var v={o:gv('o'),r:gv('r'),b:gv('b')||'main',p:gv('p')||'news.json',token:gv('token')||old.token||''};if(!v.o||!v.r||!v.token){panel('사용자 이름, 저장소, 토큰을 모두 입력해 주세요.');return}ghSet(v);panel('GitHub 연결 정보를 저장했습니다.')}
+  else if(a=='ghoff'){ghSet(null);panel('GitHub 연결을 해제했습니다.')}
+  else if(a=='ghpush'){after('전체 갱신','현재 목록을')}
+  else if(a=='exit'){editing=-1;md.hidden=true;document.body.style.overflow=''}
+ });
+}
+function gate(){if(!CODE){panel();return}
+ open('<div class="crt crt-g"><small>CREATOR MODE</small><h2>제작자 확인</h2><input type="password" class="crt-pw" placeholder="제작자 코드" autocomplete="off"><button class="cb" data-act="go">열기</button><p class="crt-msg" hidden>코드가 맞지 않습니다.</p></div>');
+ var pw=$('.crt-pw',mc),go=function(){if(pw.value===CODE){panel()}else{$('.crt-msg',mc).hidden=false;pw.value=''}};
+ $('[data-act="go"]',mc).onclick=go;pw.addEventListener('keydown',function(e){if(e.key=='Enter')go()});setTimeout(function(){pw.focus()},50)}
+/* secret trigger: tap the header compass 5 times within 2 seconds */
+var taps=[];var mk=$('.hd .mk');
+if(mk)mk.addEventListener('click',function(e){var t=Date.now();taps=taps.filter(function(x){return t-x<2000});taps.push(t);if(taps.length>=5){taps=[];e.preventDefault();e.stopPropagation();gate()}},true);
+})();
+
+})();
+</script></body></html>
