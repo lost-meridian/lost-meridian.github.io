@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>관리자 · LOST MERIDIAN</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--navy:#0d1026;--wine:#9D3645;--butter:#F7E7B2;--cream:#FBF7EC;--ink:#1d2033;--sub:#6b6f86;--line:#0d10261a}
+body{margin:0;background:#fff;color:var(--ink);font-family:Pretendard,'Noto Sans KR',sans-serif;font-size:15px;line-height:1.6;letter-spacing:-.2px;word-break:keep-all;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+.ad-w{max-width:1080px;margin:0 auto;padding:0 24px}
+/* top */
+.ad-top{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 1px 0 var(--line)}
+.ad-top .ad-w{display:flex;align-items:center;gap:16px;height:68px}
+.ad-logo{display:flex;flex-direction:column;line-height:1.1}
+.ad-logo b{font-size:16px;font-weight:900;letter-spacing:.14em;color:var(--navy)}
+.ad-logo small{font-size:11px;font-weight:800;color:var(--wine);letter-spacing:.08em;margin-top:3px}
+.ad-tabs{display:flex;gap:6px;margin-left:24px}
+.ad-tabs button{padding:8px 16px;border-radius:999px;font-weight:800;font-size:15px;color:var(--sub)}
+.ad-tabs button.on{background:var(--butter);color:var(--navy)}
+.ad-tabs button i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--wine);margin-left:6px;vertical-align:2px}
+.ad-site{margin-left:auto;padding:9px 16px;border-radius:999px;background:var(--cream);font-weight:800;font-size:14px;color:var(--navy);flex:none}
+/* body */
+.ad-main{padding:40px 0 140px}
+.ad-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px}
+.ad-hd small{display:block;font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--wine)}
+.ad-hd h1{margin:4px 0 6px;font-size:28px;font-weight:900;letter-spacing:-.03em;color:var(--navy)}
+.ad-hd p{margin:0;color:var(--sub)}
+.ad-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;border-radius:999px;background:var(--wine);color:#fff;font-weight:900;font-size:14.5px;flex:none;transition:background .2s}
+.ad-btn:hover{background:var(--navy)}
+.ad-btn:disabled{opacity:.45;cursor:default;background:var(--wine)}
+.ad-btn.ghost{background:var(--cream);color:var(--navy)}
+.ad-btn.ghost:hover{background:var(--butter)}
+.ad-bc .ad-btn.ghost,.ad-nf .ad-btn.ghost,.ad-card .ad-btn.ghost{background:#fff}
+.ad-bc .ad-btn.ghost:hover,.ad-nf .ad-btn.ghost:hover,.ad-card .ad-btn.ghost:hover{background:var(--butter)}
+.ad-btn.sm{padding:7px 14px;font-size:13.5px}
+.ad-btn.del{background:#fff;color:var(--wine);box-shadow:inset 0 0 0 1.5px var(--wine)}
+.ad-btn.del.ok{background:var(--wine);color:#fff}
+/* fields */
+.ad-f{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.ad-f label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:800;color:var(--navy);min-width:0}
+.ad-f label.full{grid-column:1/-1}
+.ad-f label em{font-style:normal;font-weight:600;color:var(--sub)}
+.ad-f input,.ad-f select,.ad-f textarea{width:100%;padding:11px 13px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:500;font-size:15px;outline:0;transition:border-color .2s}
+.ad-f input:focus,.ad-f select:focus,.ad-f textarea:focus{border-color:var(--wine)}
+.ad-f textarea{resize:vertical;line-height:1.7}
+/* banner cards */
+.ad-bl{display:flex;flex-direction:column;gap:22px}
+.ad-bc{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;padding:24px;border-radius:20px;background:var(--cream)}
+.ad-bc-h{grid-column:1/-1;display:flex;align-items:center;gap:8px}
+.ad-bc-h b{font-size:15px;font-weight:900;color:var(--navy);margin-right:auto}
+.ad-bc-h b span{color:var(--wine);margin-right:6px}
+.ad-mv{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--navy)}
+.ad-mv:disabled{opacity:.35;cursor:default}
+.ad-mv svg{width:14px;height:14px}
+.ad-pv{display:flex;flex-direction:column;gap:12px}
+.ad-pv small{font-size:11.5px;font-weight:900;letter-spacing:.12em;color:var(--sub)}
+.ad-fr{position:relative;border-radius:14px;overflow:hidden;background:#151935}
+.ad-fr.pc{aspect-ratio:1920/780}
+.ad-fr.mo{aspect-ratio:16/9;width:58%}
+.ad-fr img{width:100%;height:100%;object-fit:cover}
+.ad-fr .ad-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#ffffffa6;font-size:12px;font-weight:700;text-align:center;padding:10px}
+.ad-fr .ad-ph b{color:#fff;font-size:16px;font-weight:900}
+.ad-tab{display:flex;flex-direction:column;gap:2px;padding-top:9px;border-top:3px solid var(--wine);width:58%}
+.ad-tab small{color:var(--wine);letter-spacing:.14em}
+.ad-tab b{font-size:14px;font-weight:800;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ad-up{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ad-up input[type=file]{display:none}
+.ad-up span{font-size:12.5px;color:var(--sub)}
+.ad-up span.warn{color:var(--wine);font-weight:700}
+.ad-add{align-self:flex-start}
+/* news */
+.ad-nf{scroll-margin-top:96px;padding:24px;border-radius:20px;background:var(--cream);margin-bottom:28px}
+.ad-nf h2{margin:0 0 16px;font-size:18px;font-weight:900;color:var(--navy)}
+.ad-note{grid-column:1/-1;margin:0;padding:12px 14px;border-radius:12px;background:#fff;color:var(--sub);font-size:13.5px}
+.ad-acts{grid-column:1/-1;display:flex;justify-content:flex-end;gap:8px}
+.ad-nl h2{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:18px;font-weight:900;color:var(--navy)}
+.ad-nl h2 span{padding:2px 9px;border-radius:999px;background:var(--butter);font-size:13px}
+.ad-nr{display:flex;align-items:center;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.ad-nr b{flex:1;min-width:0;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ad-nr .dt{color:var(--sub);font-size:13.5px;flex:none}
+.ad-nr.on{background:var(--cream);border-radius:12px}
+.ad-tag{flex:none;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:900;background:var(--cream);color:var(--navy)}
+.ad-tag.t0{background:var(--wine);color:#fff}.ad-tag.t1{background:var(--navy);color:#fff}.ad-tag.t2{background:var(--butter);color:var(--wine)}.ad-tag.t3{background:#e9e9ef;color:var(--navy)}.ad-tag.t4{background:var(--cream);color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}
+.ad-empty{padding:40px 0;text-align:center;color:var(--sub)}
+/* publish bar */
+.ad-bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;box-shadow:0 -1px 0 var(--line)}
+.ad-bar .ad-w{display:flex;align-items:center;gap:14px;min-height:72px;padding-top:12px;padding-bottom:12px}
+.ad-bar p{margin:0 auto 0 0;font-size:14px;color:var(--sub)}
+.ad-bar p b{color:var(--wine)}
+/* connect */
+.ad-card{padding:26px;border-radius:20px;background:var(--cream);max-width:720px}
+.ad-card ol{margin:0 0 20px;padding-left:20px;color:var(--sub);font-size:14px}
+.ad-card ol li{margin-bottom:4px}
+.ad-st{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:900;background:#fff;color:var(--sub);margin-left:8px;vertical-align:3px}
+.ad-st.ok{background:var(--wine);color:#fff}
+/* gate */
+.ad-gate{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--cream)}
+.ad-gc{width:100%;max-width:380px;padding:34px 30px;border-radius:22px;background:#fff;text-align:center}
+.ad-gc small{font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--wine)}
+.ad-gc h1{margin:6px 0 22px;font-size:24px;font-weight:900;color:var(--navy)}
+.ad-gc input{width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);font-size:16px;text-align:center;outline:0;margin-bottom:12px}
+.ad-gc input:focus{border-color:var(--wine)}
+.ad-gc .ad-btn{width:100%}
+.ad-gc p{margin:12px 0 0;color:var(--wine);font-size:13.5px;font-weight:700}
+.ad-toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);z-index:40;padding:12px 20px;border-radius:999px;background:var(--navy);color:#fff;font-weight:700;font-size:14px;max-width:calc(100% - 32px);text-align:center}
+@media(max-width:760px){
+ .ad-w{padding:0 16px}
+ .ad-top .ad-w{height:auto;flex-wrap:wrap;gap:10px;padding-top:12px;padding-bottom:12px}
+ .ad-tabs{order:3;margin-left:0;width:100%;overflow-x:auto}
+ .ad-tabs button{font-size:14px;padding:8px 14px;flex:none}
+ .ad-site{padding:7px 13px;font-size:13px}
+ .ad-main{padding:26px 0 150px}
+ .ad-hd{flex-direction:column;align-items:flex-start}
+ .ad-hd h1{font-size:23px}
+ .ad-bc{grid-template-columns:1fr;gap:18px;padding:18px}
+ .ad-nf,.ad-card{padding:18px}
+ .ad-nf{scroll-margin-top:130px}
+ .ad-f{grid-template-columns:1fr}
+ .ad-bar .ad-w{flex-wrap:wrap;gap:8px}
+ .ad-bar p{width:100%;font-size:13px}
+ .ad-bar .ad-btn{flex:1}
+ .ad-nr{flex-wrap:wrap;row-gap:6px}
+ .ad-nr b{flex-basis:calc(100% - 90px)}
+}
+</style></head><body>
+
+<div class="ad-gate" data-gate>
+ <form class="ad-gc">
+  <small>LOST MERIDIAN</small><h1>관리자 확인</h1>
+  <input type="password" placeholder="제작자 코드" autocomplete="off" data-code>
+  <button class="ad-btn" type="submit">들어가기</button>
+  <p hidden data-gerr></p>
+ </form>
+</div>
+
+<div data-app hidden>
+<header class="ad-top"><div class="ad-w">
+ <a class="ad-logo" href="admin.html"><b>LOST MERIDIAN</b><small>관리자</small></a>
+ <nav class="ad-tabs"><button data-tab="banner" class="on">배너</button><button data-tab="news">소식</button><button data-tab="gh">GitHub 연결</button></nav>
+ <a class="ad-site" href="./" target="_blank" rel="noopener">사이트 보기</a>
+</div></header>
+
+<main class="ad-main"><div class="ad-w">
+
+<section data-panel="banner">
+ <div class="ad-hd"><div><small>HOME BANNER</small><h1>홈 상단 배너</h1><p>배너는 위에서부터 차례로 6초씩 넘어갑니다. 이미지는 1920 × 780 크기를 권장합니다.</p></div></div>
+ <div class="ad-bl" data-blist></div>
+ <button class="ad-btn ghost ad-add" style="margin-top:22px" data-act="badd">배너 추가</button>
+</section>
+
+<section data-panel="news" hidden>
+ <div class="ad-hd"><div><small>NEWS</small><h1>소식</h1><p>홈 배너 아래 소식 칸에는 최근 글 6개가 보입니다. 날짜 순으로 자동 정렬됩니다.</p></div><button class="ad-btn ghost" data-act="nnew">새 글 쓰기</button></div>
+ <div class="ad-nf" data-nform hidden></div>
+ <div class="ad-nl" data-nlist></div>
+</section>
+
+<section data-panel="gh" hidden>
+ <div class="ad-hd"><div><small>GITHUB</small><h1>GitHub 연결 <span class="ad-st" data-ghst></span></h1><p>게시 버튼을 누르면 저장소의 banners.json, news.json과 배너 이미지가 바뀌고, 1~2분 뒤 사이트에 반영됩니다.</p></div></div>
+ <div class="ad-card">
+  <ol>
+   <li>GitHub → Settings → Developer settings → Fine-grained tokens에서 새 토큰을 만듭니다.</li>
+   <li>Repository access에서 이 저장소만 고르고, Contents 권한을 Read and write로 둡니다.</li>
+   <li>만든 토큰을 아래에 붙여 넣고 저장합니다. 토큰은 이 브라우저에만 저장됩니다.</li>
+  </ol>
+  <div class="ad-f">
+   <label>사용자 이름<input data-g="o"></label>
+   <label>저장소<input data-g="r"></label>
+   <label>브랜치<input data-g="b"></label>
+   <label>토큰<input data-g="token" type="password" autocomplete="off"></label>
+   <div class="ad-acts"><button class="ad-btn ghost" data-act="ghoff" hidden>연결 해제</button><button class="ad-btn" data-act="ghsave">연결 저장</button></div>
+  </div>
+ </div>
+</section>
+
+</div></main>
+
+<div class="ad-bar" data-bar><div class="ad-w"><p data-bmsg></p><button class="ad-btn ghost" data-act="reset">되돌리기</button><button class="ad-btn" data-act="publish">게시하기</button></div></div>
+</div>
+<div class="ad-toast" hidden></div>
+
+<datalist id="ad-links">
+ <option value="#home"><option value="#adventurers"><option value="#guild"><option value="#world"><option value="#world/story"><option value="#world/cities"><option value="#world/field">
+ <option value="#guide"><option value="#guide/raid"><option value="#guide/gear"><option value="#guide/tower"><option value="#guide/pvp"><option value="#guide/server"><option value="#guide/trade"><option value="#guide/wardrobe">
+ <option value="#news"><option value="#play">
+</datalist>
+
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function toast(t){var el=$('.ad-toast');el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2600)}
+var CATS=['공지','업데이트','이벤트','점검','제작 노트'],TAG={'공지':'t0','업데이트':'t1','이벤트':'t2','점검':'t3','제작 노트':'t4'};
+var FIELDS=['img','eyebrow','title','meta','desc','btn','link'];
+var S={code:'',cfgBanners:[],banners:[],bBase:'[]',news:[],nBase:'[]',files:{},prev:{},uid:0,tab:'banner',editing:-1,busy:false};
+
+/* ---------- GitHub ---------- */
+function gh(){try{return JSON.parse(localStorage.getItem('lm_gh')||'null')}catch(e){return null}}
+function ghSet(v){try{if(v)localStorage.setItem('lm_gh',JSON.stringify(v));else localStorage.removeItem('lm_gh')}catch(e){}}
+function ghGuess(){var m=location.hostname.match(/^([^.]+)\.github\.io$/);if(!m)return {o:'lost-meridian',r:'lost-meridian.github.io'};var seg=location.pathname.split('/').filter(Boolean);return {o:m[1],r:seg.length&&!/\.html?$/.test(seg[0])?seg[0]:m[1]+'.github.io'}}
+function api(g,path){return 'https://api.github.com/repos/'+encodeURIComponent(g.o)+'/'+encodeURIComponent(g.r)+'/contents/'+path.split('/').map(encodeURIComponent).join('/')}
+function hdr(g){return {'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}}
+function u8b64(bytes){var s='',k=0x8000;for(var i=0;i<bytes.length;i+=k)s+=String.fromCharCode.apply(null,bytes.subarray(i,i+k));return btoa(s)}
+function txtB64(t){return u8b64(new TextEncoder().encode(t))}
+function b64Txt(b){var bin=atob(b.replace(/\s/g,'')),a=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);return new TextDecoder().decode(a)}
+function ghRead(path){var g=gh();return fetch(api(g,path)+'?ref='+encodeURIComponent(g.b),{headers:hdr(g),cache:'no-store'}).then(function(r){if(r.status==404)return null;if(!r.ok)throw new Error('읽기 실패 ('+r.status+')');return r.json()})}
+function ghPut(path,b64,msg,retry){var g=gh();return ghRead(path).then(function(cur){var body={message:msg,content:b64,branch:g.b};if(cur&&cur.sha)body.sha=cur.sha;
+ return fetch(api(g,path),{method:'PUT',headers:hdr(g),body:JSON.stringify(body)})}).then(function(r){if(r.ok)return true;if(r.status==409&&!retry)return ghPut(path,b64,msg,true);
+ return r.json().catch(function(){return {}}).then(function(x){throw new Error(r.status==401?'토큰이 맞지 않거나 만료되었습니다.':r.status==403||r.status==404?'토큰에 이 저장소의 쓰기 권한이 없습니다.':(x.message||('게시 실패 ('+r.status+')')))})})}
+
+/* ---------- load ---------- */
+function getJSON(path){var g=gh();
+ if(g&&g.token)return ghRead(path).then(function(j){return j?JSON.parse(b64Txt(j.content)):null}).catch(function(){return siteJSON(path)});
+ return siteJSON(path)}
+function siteJSON(path){return fetch(path+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
+function sortN(a){return a.sort(function(x,y){return x.d<y.d?1:x.d>y.d?-1:0})}
+function clean(list){return list.map(function(b){var o={};FIELDS.forEach(function(k){o[k]=String(b[k]==null?'':b[k])});return o})}
+function load(){return Promise.all([getJSON('banners.json'),getJSON('news.json')]).then(function(r){
+ var bl=Array.isArray(r[0])?r[0]:S.cfgBanners;
+ S.banners=clean(bl).map(function(b){b._id=++S.uid;return b});S.bBase=JSON.stringify(clean(S.banners));
+ S.news=sortN(Array.isArray(r[1])?r[1]:[]);S.nBase=JSON.stringify(S.news);S.files={};S.editing=-1;
+ renderAll()})}
+
+/* ---------- dirty state ---------- */
+function bDirty(){return JSON.stringify(clean(S.banners))!==S.bBase||Object.keys(S.files).length>0}
+function nDirty(){return JSON.stringify(S.news)!==S.nBase}
+function bar(){var on=S.tab=='banner'?bDirty():S.tab=='news'?nDirty():false,g=gh();
+ $('[data-bar]').hidden=S.tab=='gh';
+ $('[data-bmsg]').innerHTML=S.busy?'게시하는 중입니다…':on?'<b>게시하지 않은 변경 사항이 있습니다.</b>'+(g&&g.token?'':' 게시하려면 먼저 GitHub 연결을 해 주세요.'):'변경 사항이 없습니다.';
+ $('[data-act="publish"]').disabled=!on||S.busy;$('[data-act="reset"]').disabled=!on||S.busy;
+ $$('.ad-tabs button').forEach(function(b){var t=b.dataset.tab,d=t=='banner'?bDirty():t=='news'?nDirty():false;b.innerHTML={banner:'배너',news:'소식',gh:'GitHub 연결'}[t]+(d?'<i></i>':'')})}
+
+/* ---------- banners ---------- */
+function src(b){return S.prev[b._id]||b.img}
+var UP='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4-4 4 4"/></svg>',DN='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5l4 4 4-4"/></svg>';
+function frame(b,i,cls){var s=src(b);return '<div class="ad-fr '+cls+'">'+(s?'<img src="'+esc(s)+'" alt="">':'<div class="ad-ph"><span>BANNER '+(i+1)+'</span><b>'+esc(b.title||'제목 없음')+'</b></div>')+'</div>'}
+function bCard(b,i,n){var f=S.files[b._id];
+ return '<div class="ad-bc" data-i="'+i+'"><div class="ad-bc-h"><b><span>'+(i+1)+'</span>'+esc(b.title||'제목 없음')+'</b><button class="ad-mv" data-act="bup" '+(i==0?'disabled':'')+' aria-label="위로">'+UP+'</button><button class="ad-mv" data-act="bdn" '+(i==n-1?'disabled':'')+' aria-label="아래로">'+DN+'</button><button class="ad-btn del sm" data-act="bdel">삭제</button></div>'
+ +'<div class="ad-pv"><small>PC</small>'+frame(b,i,'pc')+'<small>모바일 (좌우가 잘려 보입니다)</small>'+frame(b,i,'mo')
+ +'<div class="ad-tab"><small>'+esc(b.eyebrow)+'</small><b>'+esc(b.title)+'</b></div>'
+ +'<div class="ad-up"><label class="ad-btn ghost sm">이미지 선택<input type="file" accept="image/*" data-file></label>'+(b.img||f?'<button class="ad-btn ghost sm" data-act="bimgx">이미지 빼기</button>':'')+'<span data-info>'+(f?esc(f.name)+' · 게시할 때 올라갑니다':b.img?esc(b.img):'이미지 없음')+'</span></div></div>'
+ +'<div class="ad-f">'
+ +'<label>작은 제목<em>탭 위 영문 문구 · 예: NEW RAID</em><input data-k="eyebrow" value="'+esc(b.eyebrow)+'"></label>'
+ +'<label>제목<em>탭에 보이는 배너 이름</em><input data-k="title" value="'+esc(b.title)+'"></label>'
+ +'<label class="full">이동할 주소<em>배너를 누르면 이동합니다 · 예: #guide/raid</em><input data-k="link" list="ad-links" value="'+esc(b.link)+'"></label>'
+ +'<label>부가 정보<input data-k="meta" value="'+esc(b.meta)+'"></label>'
+ +'<label>버튼 문구<input data-k="btn" value="'+esc(b.btn)+'"></label>'
+ +'<label class="full">설명<textarea data-k="desc" rows="2">'+esc(b.desc)+'</textarea></label>'
+ +'<label class="full">이미지 주소<em>직접 입력할 때만 고칩니다</em><input data-k="img" value="'+esc(b.img)+'"></label>'
+ +'</div></div>'}
+function renderBanners(){var L=$('[data-blist]');L.innerHTML=S.banners.length?S.banners.map(function(b,i){return bCard(b,i,S.banners.length)}).join(''):'<p class="ad-empty">배너가 없습니다. 배너가 없으면 홈 상단 배너 영역이 숨겨집니다.</p>';bar()}
+
+/* ---------- news ---------- */
+function bodyText(b){return Array.isArray(b)?b.join('\n\n'):''}
+function pad(n){return ('0'+n).slice(-2)}
+function today(){var d=new Date();return d.getFullYear()+'.'+pad(d.getMonth()+1)+'.'+pad(d.getDate())}
+function renderNews(){var L=$('[data-nlist]');
+ L.innerHTML='<h2>등록된 글 <span>'+S.news.length+'</span></h2>'+(S.news.length?S.news.map(function(n,i){return '<div class="ad-nr'+(i==S.editing?' on':'')+'" data-i="'+i+'"><span class="ad-tag '+(TAG[n.c]||'t4')+'">'+esc(n.c)+'</span><b>'+esc(n.t)+'</b><span class="dt">'+esc(n.d)+'</span><button class="ad-btn ghost sm" data-act="nedit">수정</button><button class="ad-btn del sm" data-act="ndel">삭제</button></div>'}).join(''):'<p class="ad-empty">등록된 글이 없습니다.</p>');
+ bar()}
+function nForm(i){S.editing=i;var F=$('[data-nform]'),cur=i>=0?S.news[i]:null,html=cur&&!Array.isArray(cur.b);
+ if(i===null){F.hidden=true;S.editing=-1;renderNews();return}
+ F.hidden=false;
+ F.innerHTML='<h2>'+(cur?'글 수정':'새 글')+'</h2><div class="ad-f">'
+ +'<label>분류<select data-n="c">'+CATS.map(function(c){return '<option'+((cur?cur.c:'공지')==c?' selected':'')+'>'+c+'</option>'}).join('')+'</select></label>'
+ +'<label>날짜<input data-n="d" type="date" value="'+(cur?cur.d:today()).replace(/\./g,'-')+'"></label>'
+ +'<label class="full">제목<input data-n="t" value="'+esc(cur?cur.t:'')+'"></label>'
+ +(html?'<p class="ad-note">이 글은 디자인이 들어간 글이라 본문은 여기서 고칠 수 없습니다. 분류·날짜·제목만 바뀝니다.</p>':'<label class="full">본문<em>빈 줄로 문단을 나눕니다</em><textarea data-n="b" rows="9">'+esc(cur?bodyText(cur.b):'')+'</textarea></label>')
+ +'<div class="ad-acts"><button class="ad-btn ghost" data-act="ncancel">취소</button><button class="ad-btn" data-act="nsave">'+(cur?'수정 완료':'목록에 추가')+'</button></div></div>';
+ renderNews();F.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){var t=$('[data-n="t"]');t&&t.focus({preventScroll:true})},300)}
+function nSave(){var F=$('[data-nform]'),v=function(k){var el=$('[data-n="'+k+'"]',F);return el?el.value.trim():''};
+ var t=v('t');if(!t){toast('제목을 입력해 주세요.');return}
+ var d=v('d').replace(/-/g,'.')||today();if(!/^\d{4}\.\d{2}\.\d{2}$/.test(d)){toast('날짜를 확인해 주세요.');return}
+ var paras=function(){return v('b').split(/\n\s*\n/).map(function(x){return x.trim()}).filter(Boolean)};
+ if(S.editing>=0){var o=S.news[S.editing];o.c=v('c');o.t=t;o.d=d;if(Array.isArray(o.b)||o.b==null)o.b=paras()}
+ else S.news.push({c:v('c'),t:t,d:d,b:paras()});
+ sortN(S.news);toast(S.editing>=0?'수정했습니다. 게시하기를 눌러야 사이트에 반영됩니다.':'목록에 추가했습니다. 게시하기를 눌러야 사이트에 반영됩니다.');nForm(null)}
+
+/* ---------- gh panel ---------- */
+function renderGh(){var g=gh()||{},q=ghGuess();
+ $('[data-g="o"]').value=g.o||q.o;$('[data-g="r"]').value=g.r||q.r;$('[data-g="b"]').value=g.b||'main';
+ $('[data-g="token"]').value='';$('[data-g="token"]').placeholder=g.token?'저장됨 (바꾸려면 새로 입력)':'github_pat_…';
+ var st=$('[data-ghst]');st.textContent=g.token?'연결됨':'미연결';st.classList.toggle('ok',!!g.token);
+ $('[data-act="ghoff"]').hidden=!g.token}
+
+function renderAll(){renderBanners();renderNews();renderGh();bar()}
+function tab(t){S.tab=t;$$('.ad-tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.tab==t)});$$('[data-panel]').forEach(function(p){p.hidden=p.dataset.panel!=t});bar();scrollTo(0,0)}
+
+/* ---------- publish ---------- */
+function stamp(){var d=new Date();return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'-'+pad(d.getHours())+pad(d.getMinutes())+pad(d.getSeconds())}
+function readFile(f){return new Promise(function(ok,no){var r=new FileReader();r.onload=function(){ok(String(r.result).split(',')[1])};r.onerror=no;r.readAsDataURL(f)})}
+function publish(){var g=gh();if(!g||!g.token){toast('먼저 GitHub 연결을 해 주세요.');tab('gh');return}
+ S.busy=true;bar();var p;
+ if(S.tab=='banner'){var st=stamp(),chain=Promise.resolve();
+  S.banners.forEach(function(b,i){var f=S.files[b._id];if(!f)return;chain=chain.then(function(){var ext=(f.name.match(/\.([a-z0-9]+)$/i)||[,'jpg'])[1].toLowerCase(),path='images/banners/'+st+'-'+(i+1)+'.'+ext;
+   $('[data-bmsg]').textContent='이미지 올리는 중… ('+f.name+')';
+   return readFile(f).then(function(b64){return ghPut(path,b64,'배너 이미지: '+(b.title||path))}).then(function(){b.img=path;delete S.files[b._id]})})});
+  p=chain.then(function(){var out=clean(S.banners);$('[data-bmsg]').textContent='배너 저장하는 중…';return ghPut('banners.json',txtB64(JSON.stringify(out,null,1)+'\n'),'배너: 수정').then(function(){S.bBase=JSON.stringify(out)})})}
+ else{var out=sortN(S.news.slice());p=ghPut('news.json',txtB64('[\n'+out.map(function(n){return '  '+JSON.stringify(n)}).join(',\n')+'\n]\n'),'소식: 수정').then(function(){S.nBase=JSON.stringify(S.news)})}
+ p.then(function(){S.busy=false;renderAll();toast('게시했습니다. 1~2분 뒤 사이트에 반영됩니다.')}).catch(function(e){S.busy=false;renderAll();toast('게시하지 못했습니다: '+e.message)})}
+
+/* ---------- events ---------- */
+document.addEventListener('click',function(e){var b=e.target.closest('[data-act],[data-tab]');if(!b)return;
+ if(b.dataset.tab){tab(b.dataset.tab);return}
+ var a=b.dataset.act,card=b.closest('[data-i]'),i=card?+card.dataset.i:-1;if(S.busy)return;
+ if(a=='badd'){S.banners.push({_id:++S.uid,img:'',eyebrow:'',title:'',meta:'',desc:'',btn:'',link:'#home'});renderBanners();var L=$$('.ad-bc');L[L.length-1].scrollIntoView({behavior:'smooth',block:'center'})}
+ else if(a=='bup'||a=='bdn'){var j=a=='bup'?i-1:i+1,x=S.banners[i];S.banners[i]=S.banners[j];S.banners[j]=x;renderBanners()}
+ else if(a=='bdel'){if(b.classList.contains('ok')){var gone=S.banners.splice(i,1)[0];delete S.files[gone._id];renderBanners()}else{b.classList.add('ok');b.textContent='한 번 더 누르면 삭제'}}
+ else if(a=='bimgx'){var bb=S.banners[i];bb.img='';delete S.files[bb._id];delete S.prev[bb._id];renderBanners()}
+ else if(a=='nnew')nForm(-1);
+ else if(a=='nedit')nForm(i);
+ else if(a=='ncancel')nForm(null);
+ else if(a=='nsave')nSave();
+ else if(a=='ndel'){if(b.classList.contains('ok')){S.news.splice(i,1);nForm(null)}else{b.classList.add('ok');b.textContent='한 번 더 누르면 삭제'}}
+ else if(a=='publish')publish();
+ else if(a=='reset'){if(S.tab=='banner'){S.banners=JSON.parse(S.bBase).map(function(x){x._id=++S.uid;return x});S.files={};renderBanners()}else{S.news=JSON.parse(S.nBase);nForm(null)}toast('마지막으로 게시한 상태로 되돌렸습니다.')}
+ else if(a=='ghsave'){var gv=function(k){return $('[data-g="'+k+'"]').value.trim()},old=gh()||{};var v={o:gv('o'),r:gv('r'),b:gv('b')||'main',p:old.p||'news.json',token:gv('token')||old.token||''};
+  if(!v.o||!v.r||!v.token){toast('사용자 이름, 저장소, 토큰을 모두 입력해 주세요.');return}
+  ghSet(v);$('[data-bmsg]').textContent='';fetch('https://api.github.com/repos/'+encodeURIComponent(v.o)+'/'+encodeURIComponent(v.r),{headers:hdr(v)}).then(function(r){return r.ok?r.json():Promise.reject(r.status)}).then(function(j){renderGh();toast(j.permissions&&j.permissions.push===false?'연결했지만 이 토큰에는 쓰기 권한이 없습니다.':'연결했습니다.')}).catch(function(s){renderGh();toast(s==401?'토큰이 맞지 않습니다. 다시 확인해 주세요.':'저장소를 찾지 못했습니다. 이름과 토큰 권한을 확인해 주세요.')})}
+ else if(a=='ghoff'){ghSet(null);renderGh();bar();toast('연결을 해제했습니다.')}
+});
+document.addEventListener('input',function(e){var el=e.target,card=el.closest('.ad-bc');if(!card||!el.dataset.k)return;var b=S.banners[+card.dataset.i];b[el.dataset.k]=el.value;
+ if(el.dataset.k=='title'||el.dataset.k=='eyebrow'){$('.ad-tab small',card).textContent=b.eyebrow;$('.ad-tab b',card).textContent=b.title;$('.ad-bc-h b',card).innerHTML='<span>'+(+card.dataset.i+1)+'</span>'+esc(b.title||'제목 없음');$$('.ad-ph b',card).forEach(function(x){x.textContent=b.title||'제목 없음'})}
+ if(el.dataset.k=='img'){delete S.prev[b._id];delete S.files[b._id]}
+ bar()});
+document.addEventListener('change',function(e){var el=e.target;if(!el.matches('[data-file]'))return;var f=el.files&&el.files[0];if(!f)return;var card=el.closest('.ad-bc'),b=S.banners[+card.dataset.i];
+ if(!/^image\//.test(f.type)){toast('이미지 파일만 올릴 수 있습니다.');return}
+ if(f.size>20*1024*1024){toast('20MB보다 작은 이미지를 골라 주세요.');return}
+ S.files[b._id]=f;S.prev[b._id]=URL.createObjectURL(f);renderBanners();
+ var im=new Image();im.onload=function(){var c=$$('.ad-bc')[S.banners.indexOf(b)];if(!c)return;var info=$('[data-info]',c),r=im.naturalWidth/im.naturalHeight;info.textContent=f.name+' · '+im.naturalWidth+' × '+im.naturalHeight+' · 게시할 때 올라갑니다';if(Math.abs(r-1920/780)>.15){info.textContent+=' · 비율이 1920 × 780과 달라 일부가 잘립니다';info.classList.add('warn')}};im.src=S.prev[b._id]});
+addEventListener('beforeunload',function(e){if(bDirty()||nDirty()){e.preventDefault();e.returnValue=''}});
+
+/* ---------- gate ---------- */
+function start(){$('[data-gate]').hidden=true;$('[data-app]').hidden=false;load()}
+fetch('index.html?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){var m=h.match(/window\.LM_CONFIG=(\{[\s\S]*?\});<\/script>/);if(m){try{var c=JSON.parse(m[1]);S.code=String(c.creatorCode||'');S.cfgBanners=c.banners||[]}catch(e){}}}).catch(function(){}).then(function(){
+ var ok=false;try{ok=sessionStorage.getItem('lm_admin')===S.code&&!!S.code}catch(e){}
+ if(ok){start();return}
+ var inp=$('[data-code]');inp.focus();
+ $('.ad-gc').addEventListener('submit',function(e){e.preventDefault();var err=$('[data-gerr]');
+  if(!S.code){err.textContent='사이트 설정을 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요.';err.hidden=false;return}
+  if(inp.value===S.code){try{sessionStorage.setItem('lm_admin',S.code)}catch(x){}start()}else{err.textContent='코드가 맞지 않습니다.';err.hidden=false;inp.value=''}})});
+})();
+</script>
+</body></html>
