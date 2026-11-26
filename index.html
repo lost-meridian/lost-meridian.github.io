@@ -810,7 +810,7 @@ a:hover>.plus,.btile:hover .plus,.plus:hover{opacity:1}
 </style>
 <!-- ===== 이미지·캐릭터 설정: 아래 LM_CONFIG 안의 img / imgs 칸에 이미지 주소를 넣고, 글자를 바꾸면 됩니다 ===== -->
 <script>window.LM_CONFIG={
- "creatorCode": "01346790dD!",
+ "creatorHash": "49c08d224066b8c26802fc975c96c7b663ddf7aee62d235114a62b0c69a865a8",
  "guilds": [
   {
    "name": "벡터",
@@ -1002,7 +1002,8 @@ var h0='';try{h0=decodeURIComponent(location.hash.slice(1))}catch(e){}route(h0);
 /* ===== creator mode ===== */
 (function(){
 var SRC_JS=document.currentScript?document.currentScript.textContent:'';
-var CODE=String(C.creatorCode||'');
+var CODE=String(C.creatorHash||'');
+function sha(t){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){return [].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}
 function sortN(){N.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0})}
 function today(){var d=new Date();return d.getFullYear()+'.'+('0'+(d.getMonth()+1)).slice(-2)+'.'+('0'+d.getDate()).slice(-2)}
 function saveDraft(){try{localStorage.setItem('lm_news_draft',JSON.stringify({base:NBASE,n:N}))}catch(e){}}
@@ -1064,7 +1065,7 @@ function panel(msg){
 }
 function gate(){if(!CODE){panel();return}
  open('<div class="crt crt-g"><small>CREATOR MODE</small><h2>제작자 확인</h2><input type="password" class="crt-pw" placeholder="제작자 코드" autocomplete="off"><button class="cb" data-act="go">열기</button><p class="crt-msg" hidden>코드가 맞지 않습니다.</p></div>');
- var pw=$('.crt-pw',mc),go=function(){if(pw.value===CODE){panel()}else{$('.crt-msg',mc).hidden=false;pw.value=''}};
+ var pw=$('.crt-pw',mc),go=function(){var m=$('.crt-msg',mc);if(!window.crypto||!crypto.subtle){m.textContent='https:// 사이트 주소에서 열어 주세요.';m.hidden=false;return}sha(pw.value).then(function(x){if(x===CODE){panel()}else{m.textContent='코드가 맞지 않습니다.';m.hidden=false;pw.value=''}})};
  $('[data-act="go"]',mc).onclick=go;pw.addEventListener('keydown',function(e){if(e.key=='Enter')go()});setTimeout(function(){pw.focus()},50)}
 /* secret trigger: tap the header compass 5 times within 2 seconds */
 var taps=[];var mk=$('.hd .mk');
